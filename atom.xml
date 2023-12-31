@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://do-it-tomorrow.github.io</id>
-    <title>我的博客</title>
-    <updated>2023-12-31T02:31:13.419Z</updated>
+    <title>一个OIer的个人修养</title>
+    <updated>2023-12-31T02:39:20.038Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://do-it-tomorrow.github.io"/>
     <link rel="self" href="https://do-it-tomorrow.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>一个OIer怎么能没有自己的网站呢？</subtitle>
     <logo>https://do-it-tomorrow.github.io/images/avatar.png</logo>
     <icon>https://do-it-tomorrow.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2023, 我的博客</rights>
+    <rights>All rights reserved 2023, 一个OIer的个人修养</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://do-it-tomorrow.github.io/post/hello-gridea/</id>
