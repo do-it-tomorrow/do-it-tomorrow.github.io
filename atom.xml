@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://do-it-tomorrow.github.io</id>
     <title>一个OIer的个人修养</title>
-    <updated>2023-12-31T13:09:39.636Z</updated>
+    <updated>2023-12-31T13:11:40.513Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://do-it-tomorrow.github.io"/>
     <link rel="self" href="https://do-it-tomorrow.github.io/atom.xml"/>
@@ -57,6 +57,7 @@
 <h1 id="网站信息">网站信息</h1>
 <ul>
 <li>本网站建立与 2023 年12 月 30 日，正是 codeforces 在 goodbye 2023 比赛结束之后的 6 小时开通的。</li>
+<li>因为网站的编写者是一个蒟蒻，所以请每一次在刷新的时候使用深度刷新，即 <code>ctrl+f5</code>。</li>
 <li>本网站由 Gridea 编写产生，感谢所有给予我帮助的人们。</li>
 <li>本站内所有的文章非特殊标注版权均为本人所有，如有引用获借鉴请标明<a href="https://do-it-tomorrow.github.io/">地址</a>。</li>
 <li>有关于本站的任何问题，欢迎在本文章评论。</li>
