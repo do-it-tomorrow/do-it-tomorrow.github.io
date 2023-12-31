@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://do-it-tomorrow.github.io</id>
     <title>一个OIer的个人修养</title>
-    <updated>2023-12-31T16:27:33.857Z</updated>
+    <updated>2023-12-31T16:29:59.655Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://do-it-tomorrow.github.io"/>
     <link rel="self" href="https://do-it-tomorrow.github.io/atom.xml"/>
@@ -19,7 +19,7 @@
         <content type="html"><![CDATA[<p>关于学好OI的一些参考书籍：<br>
 第一阶段： 《信息学奥赛一本通》 《算法竞赛入门经典》《算法竞赛进阶指南》<br>
 第二阶段： 《教你怎么不生气》 《佛经》 《老子》 《沉默的愤怒》<br>
-第三阶段： 《颈椎病康复指南》 《腰椎间盘突出日常护理》 《心脏病的预防与防治<br>
+第三阶段： 《颈椎病康复指南》 《腰椎间盘突出日常护理》 《心脏病的预防与防治》<br>
 第四阶段： 《活着》<br>
 第五阶段： 《复活》<br>
 第六阶段： 《冥府指南》</p>
@@ -248,6 +248,7 @@
 <ul>
 <li>本网站建立与 2023 年12 月 30 日，正是 codeforces 在 goodbye 2023 比赛结束之后的 6 小时开通的。</li>
 <li>因为网站的编写者是一个蒟蒻，所以请每一次在刷新的时候使用深度刷新，即 <code>ctrl+f5</code>。</li>
+<li>因为网站的编写者是一个蒟蒻，所以如果需要搜索文章请直接进入归档按 <code>ctrl+f</code> 进行搜索。</li>
 <li>本网站由 Gridea 编写产生，感谢所有给予我帮助的人们。</li>
 <li>本站内所有的文章非特殊标注版权均为本人所有，如有引用获借鉴请标明<a href="https://do-it-tomorrow.github.io/">地址</a>。</li>
 <li>有关于本站的任何问题，欢迎在本文章评论。</li>
