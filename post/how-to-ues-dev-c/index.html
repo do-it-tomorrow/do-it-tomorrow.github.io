@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>一些 C++ 的卡常技巧 | 一个OIer的个人修养</title>
+<title>How to ues Dev C++ | 一个OIer的个人修养</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,11 +24,9 @@
 
 
 
-    <meta name="description" content="是的，这篇文章的主要内容非常好懂，相信各位同学也十分感兴趣 毕竟哪位OIer不想自己的代码跑得飞快呢？
-那么我们就进入正题吧！
-First
-众所周知，一份代码里面必然会有很多循环打表的话当我没说，而循环自然是十分占时间的。
-所以我们要做的就..." />
+    <meta name="description" content="对于Dev-C++这个&quot;老古董&quot;，合理利用设置去提升它的能力，是非常 important 重要的。
+1.打开全警告
+方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码警告-&gt;第二个和第三..." />
     <meta name="keywords" content="笔记" />
   </head>
   <body>
@@ -94,54 +92,41 @@ First
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">一些 C++ 的卡常技巧</h2>
+            <h2 class="post-title">How to ues Dev C++</h2>
             <div class="post-date">2023-12-31</div>
             
-              <div class="feature-container" style="background-image: url('https://do-it-tomorrow.github.io/post-images/guan-yu-zhe-shi-wo-di-yi-ci-yong-you-zi-ji-de-wang-zhan-zhe-jian-shi.jpg')">
+              <div class="feature-container" style="background-image: url('https://do-it-tomorrow.github.io/post-images/how-to-ues-dev-c.jpg')">
               </div>
             
             <div class="post-content" v-pre>
-              <p>是的，这篇文章的主要内容非常好懂，相信各位同学也十分感兴趣 <s>毕竟哪位OIer不想自己的代码跑得飞快呢</s>？</p>
-<p>那么我们就进入正题吧！</p>
-<h1 id="first">First</h1>
-<p>众所周知，一份代码里面必然会有很多循环<s>打表的话当我没说</s>，而循环自然是十分占时间的。</p>
-<p>所以我们要做的就十分清楚了：<strong>加速循环！</strong></p>
-<h3 id="1-把-int-改成-register-int">1. 把 <code>int</code> 改成 <code>register int</code></h3>
-<p><code>register int</code> 表示使用cpu内部寄存器（寄存器为中央处理器内的组成部分，是有限存贮容量的高速存贮部件）的变量。</p>
-<p>而平时的 <code>int</code> 是把变量放在内存中，存到寄存器中可以加快变量的读写速度。</p>
-<h3 id="2-把-i-改成-i">2. 把 <code>i++</code> 改成 <code>++i</code></h3>
-<p><code>i++</code> 是先计算再储存,而 <code>++i</code> 是先储存再计算。</p>
-<p>一般情况，两者的效率相比之下，自然是 <code>++i</code> 更胜一筹。</p>
-<h1 id="second">Second</h1>
-<p>函数是很常用的一个东西，很大意义上，它可以看出我们做题的思路是否明晰。</p>
-<p>如果你想要让你的代码的运行速度更快，可以试着在你的函数类型前面加上  <code>inline</code>。</p>
-<p><code>inline</code> 可以把函数指定为内联函数，这样可以解决一些频繁调用的函数大量消耗栈空间（栈内存）的问题。</p>
-<h1 id="third">Third</h1>
-<p>俗话说得好，“十年OI一场空，不开 <code>long long</code> 见祖宗”。</p>
-<p>但是<code>long long</code> 占用的二进制位是 <code>int</code> 的两倍，所以计算机处理 <code>long long</code> 类型的变量的时候花费的时间会更长。</p>
-<h1 id="forth">Forth</h1>
-<p>有些题的输入和输出十分毒瘤，动不动就几十万几百万的数据能轻松把你的时间拉特别高。</p>
-<p>所以，快读快写出现了，以下为快读快写代码，可直接食用。</p>
-<pre><code class="language-c++">char ch;
-inline void read(int &amp;x)
-{
-    while((ch=getchar())&lt;48||ch&gt;57);
-    x=ch^48;
-    while((ch=getchar())&lt;58&amp;&amp;ch&gt;47)  x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48);
-}
+              <p>对于Dev-C++这个&quot;老古董&quot;，合理利用设置去提升它的能力，是非常 <s>important</s> 重要的。</p>
+<h2 id="1打开全警告">1.打开全警告</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码警告-&gt;第二个和第三个选Yes
 </code></pre>
-<h1 id="fifth">Fifth</h1>
-<p>因为位运算是直接对二进制的位进行运算，而且计算机处理位运算和三目运算符要比正常计算快。</p>
-<p>所以在写一些代码时，可以这样优化：</p>
-<pre><code class="language-c++">max(x,y)  -&gt;  x&gt;y?x:y
-min(x,y)  -&gt;  x&lt;y?x:y
-x%2  -&gt;  x&amp;1
-x/2  -&gt;  x&gt;&gt;1
-x*2  -&gt;  x&lt;&lt;1;
+<p>代码里，总是会出现奇奇怪怪的错误（<code>scanf</code>、<code>printf</code> 占位符和参数列表不匹配，<code>if</code> 里把 <code>==</code> 打成 <code>=</code> ，运算符优先级......），面对这种情况，我们需要编译器来帮我们检查。</p>
+<p>SO，打开全警告！！！</p>
+<p>这样，当你出现一些奇怪又合法的错误时，编译器会发出警告(但不会终止编译)，<s>所以看警告还是有用的</s>。</p>
+<h2 id="2打开c11">2.打开C++11</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;语言标准-&gt;ISO C++11
 </code></pre>
-<h1 id="sixth">Sixth</h1>
-<p>因为 <code>using namespace std</code> 的功能仅仅是让你在调用标准函数库的时候不在前面加上 <code>std::</code>，所以为了让代码更快完全可以将他删掉。</p>
-<p>但是因为每一次都要写 <code>std::</code> 太麻烦，我在这么干的时候一般都会 <code>define _ std::</code>。</p>
+<p>这个老古董居然有 C++11，当会用了 C++11 后，这就非常 nice 了。</p>
+<h2 id="3编译优化">3.编译优化</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;优化级别-&gt;自己选吧
+</code></pre>
+<p>编译优化就是指编译器修改一些指令的执行方式（不会直接修改源代码）从而使生成的运行程序执行速度更快或内存更小。</p>
+<p><strong>关于优化级别：</strong></p>
+<ul>
+<li>O0：不优化</li>
+<li>O1(Low)：在略微占用编译时间的情况下，尝试缩小运行大小并提升运行速度。</li>
+<li>O2(Med)：做大量细节优化（常量表达式，无用语句，合并语句...），能提升运行速度。</li>
+<li>O3(High)：会尝试破坏运行顺序，做更多的优化，但可能增大运行内存。</li>
+<li>Ofast(lighest)：最高级优化，能显著提升STL的速度，但会严重破坏运行顺序，有极小概率出bug。</li>
+</ul>
+<h2 id="4去除结尾空白">4.去除结尾空白</h2>
+<pre><code>方式：工具[T]-&gt;编辑器选项[C]-&gt;基本-&gt;去除结尾空白
+</code></pre>
+<p>在编辑时，这老古董经常给源代码末尾添加一些空格，影响美观，增大源文件大小，更会残害强迫症，手动删又十分麻烦。</p>
+<p>SO，打开去除结尾空白后，Dev C++ 会自动删除除鼠标所在行以外的末尾空格，就很nice。</p>
 
             </div>
             
@@ -153,6 +138,15 @@ x*2  -&gt;  x&lt;&lt;1;
                 
               </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://do-it-tomorrow.github.io/post/zheng-ming-wei-yi-fen-jie-ding-li/">
+                  <h3 class="post-title">
+                    【证明】唯一分解定理
+                  </h3>
+                </a>
+              </div>
             
 
             
