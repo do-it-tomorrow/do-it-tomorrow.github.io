@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>P1262 间谍网络’s题解 | 一个OIer的个人修养</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://do-it-tomorrow.github.io/favicon.ico?v=1704207862594">
+<link rel="stylesheet" href="https://do-it-tomorrow.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="题目描述
+给你一个有向图，可以付出代价获取一些指定的点。
+在获取之后要求能以获取的点为出发点，将整个图都访问到，求最小的代价。
+思路
+既然需要令总的代价最少，那么如果通过买一个点就可以访问到的所有点，自然会比买两个点的方案更优。
+于是自然的..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://do-it-tomorrow.github.io">
+        <img src="https://do-it-tomorrow.github.io/images/avatar.png?v=1704207862594" class="site-logo">
+        <h1 class="site-title">一个OIer的个人修养</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一个OIer怎么能没有自己的网站呢？
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://do-it-tomorrow.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">P1262 间谍网络’s题解</h2>
+            <div class="post-date">2024-01-02</div>
+            
+              <div class="feature-container" style="background-image: url('https://do-it-tomorrow.github.io/post-images/p1262-jian-die-wang-luo-s-ti-jie.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h4 id="题目描述">题目描述</h4>
+<p>给你一个<strong>有向图</strong>，可以付出代价获取一些指定的点。<br>
+在获取之后要求能以获取的点为<strong>出发点</strong>，将整个图都访问到，求<strong>最小的代价</strong>。</p>
+<h4 id="思路">思路</h4>
+<p>既然需要令总的代价<strong>最少</strong>，那么如果通过买一个点就可以访问到的所有点，自然会比买两个点的方案<strong>更优</strong>。<br>
+于是自然的就可以联想到可以将图划分成很多个<strong>强连通图</strong>，只要在这个图中有一个点访问到了，整个强连通图就被访问到了。</p>
+<p>既然要求强连通图，那么就自然的需要用到<strong>tarjan</strong>算法了。<br>
+再求出图内的所用强连通图之后对它们进行<strong>缩点</strong>，这样就只要能访问这个点就可以了。</p>
+<p>但是因为在缩点之后就不能简单的遍历这个强连通图，所以我们就需要将这个强连通图中代价<strong>最小</strong>的一个点记录下来。<br>
+这就需要使用一个<strong>辅助数组</strong> <code>min_cost</code> 来记录。<br>
+具体的实现也很简单，只需要在将栈内的元素弹出时进行比较就可以了。</p>
+<h1 id="ac-code">AC Code</h1>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,r,p,dfn[3200],low[3200],group[320![](https://do-it-tomorrow.github.io/post-images/1704207640718.jpg)0],in[3200],cost[3200],cnt,num,min_cost[3200],ans;
+bool vis[3200];
+vector&lt;int&gt; v[3200];
+stack&lt;int&gt; s; 
+void tarjan(int x){ //tarjan的板子+缩点
+	dfn[x]=low[x]=++num; 
+	vis[x]=1;
+	s.push(x);
+	for(int i:v[x]){ //依次便利v[x]中的元素赋值给i
+		if(!dfn[i]){
+			tarjan(i);
+			low[x]=min(low[x],low[i]);
+		}else if(vis[i])
+			low[x]=min(low[x],dfn[i]);
+	}if(dfn[x]==low[x]){ //如果有环
+		group[x]=++cnt; 
+		min_cost[cnt]=cost[x]; 
+		vis[x]=0;
+		while(s.top()!=x){ //栈内有强连通图内的元素
+			group[s.top()]=cnt; 
+			min_cost[cnt]=min(min_cost[cnt],cost[s.top()]);
+			vis[s.top()]=0;
+			s.pop();
+		}s.pop(); 
+	}return ;
+}int find(int x){ //寻找这个强连通图内最小的点
+	for(int i=1;i&lt;=n;i++)
+		if(group[i]==x) 
+			return i; 
+	return n;
+}int main(){
+	memset(cost,0x3f,sizeof(cost));  //区分是否可以买
+	cin&gt;&gt;n&gt;&gt;p;
+	for(int i=1,a,b;i&lt;=p;i++){
+		cin&gt;&gt;a&gt;&gt;b;
+		cost[a]=b;
+	}cin&gt;&gt;r;
+	for(int i=1,a,b;i&lt;=r;i++){
+		cin&gt;&gt;a&gt;&gt;b;
+		v[a].push_back(b); //标记可以通过a直接访问到b
+	}for(int i=1;i&lt;=n;i++){
+		if(!dfn[i]&amp;&amp;cost[i]!=0x3f3f3f3f3f) //要判断是否可以买
+			tarjan(i);
+	}for(int i=1;i&lt;=n;i++){
+		for(int j:v[i]){ //依次便利v[i]中的元素赋值给i
+			if(group[j]!=group[i])
+				in[group[j]]++;
+		}
+	}for(int i=1;i&lt;=cnt;i++){
+		if(in[i]==0){ //因为入度为0，所以访问到这个具相当于将这一坨都购买了，比买有入度的点划算
+			ans+=min_cost[i];
+			if(min_cost[i]==0x3f3f3f3f){ //如果这个区间都不能买就不行
+				cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
+				cout&lt;&lt;find(i)&lt;&lt;endl;
+				return 0;
+			}
+		}
+	}cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://do-it-tomorrow.github.io/post/abc328d-take-abc-ti-jie/">
+                  <h3 class="post-title">
+                    [ABC328D] Take ABC 题解
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '18e4ae683d416d923ded',
+        clientSecret: '0810264cb888f5e6ab97f63b8f712dfad78b59b3',
+        repo: 'do-it-tomorrow.github.io',
+        owner: 'do-it-tomorrow',
+        admin: ['do-it-tomorrow'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
