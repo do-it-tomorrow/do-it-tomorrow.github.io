@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://do-it-tomorrow.github.io</id>
     <title>一个OIer的个人修养</title>
-    <updated>2024-01-06T17:32:31.673Z</updated>
+    <updated>2024-01-07T04:23:21.775Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://do-it-tomorrow.github.io"/>
     <link rel="self" href="https://do-it-tomorrow.github.io/atom.xml"/>
-    <subtitle>一个OIer怎么能没有自己的网站呢？</subtitle>
+    <subtitle>AC使我快乐，WA使我成长，TLE使我珍惜时间</subtitle>
     <logo>https://do-it-tomorrow.github.io/images/avatar.png</logo>
     <icon>https://do-it-tomorrow.github.io/favicon.ico</icon>
     <rights>All rights reserved 2024, 一个OIer的个人修养</rights>
@@ -989,7 +989,7 @@ signed main(){
         <link href="https://do-it-tomorrow.github.io/post/guan-yu-ben-zhan/">
         </link>
         <updated>2023-12-31T12:56:18.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="如果你想要摸鱼那么请点击我"><a href="https://do-it-tomorrow.github.io/tag/fun/">如果你想要摸鱼，那么请点击我</a></h1>
+        <content type="html"><![CDATA[<p><a href="https://do-it-tomorrow.github.io/tag/fun/"><strong>如果你想要摸鱼，那么请点击我</strong></a></p>
 <h1 id="拥有者的信息">拥有者的信息</h1>
 <ul>
 <li>首先，本人是一个蒟蒻 OIer，现在正在就读初二。</li>
