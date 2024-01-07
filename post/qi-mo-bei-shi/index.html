@@ -2,10 +2,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="题目大意
-NNN 枚硬币，第 iii 枚硬币有 pip_ipi​ 的概率正面朝上，有 1−pi1-p_i1−pi​ 的概率反面朝上。
-扔完所有硬币，求正面朝上的银币数比反面朝上的银币数多的概率，其中 N≤2999N\le 2999N≤299..." />
-    <meta name="keywords" content="题解" />
+    <meta name="description" content="但感别经时
+歌以咏志
+松柏有本性
+狐兔翔我宇
+试倩悲风吹泪过扬州
+惊起一滩鸥鹭
+小园香径独徘徊
+惊起沙禽掠岸飞
+更行更远还生
+天上人间
+恰似一江春水向东流
+犹恐相逢是梦中
+且向花间留晚照
+人比黄花瘦
+曾照彩云归
+化作相思泪
+将军白发征夫泪
+..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://do-it-tomorrow.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://do-it-tomorrow.github.io/styles/main.css">
     <!-- 代码渲染风格css -->
@@ -47,7 +62,7 @@ NNN 枚硬币，第 iii 枚硬币有 pip_ipi​ 的概率正面朝上，有 1−
         });
     </script>
     
-    <title>[Atcoder DP I]Coins 题解</title>
+    <title>期末背诗</title>
 
     <!-- 大纲索引css调整 -->
     
@@ -1118,63 +1133,46 @@ menulist.eq(i).show();
         <div class="postshow postpadding" style="padding-bottom: 0;">
             
             <div class="postdetailimg">
-                <img src="https://img.xjh.me/img/62519517_p0.jpg" class="postimage" style="cursor:auto">
+                <img src="https://do-it-tomorrow.github.io/post-images/qi-mo-bei-shi.jpg" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2024-01-03</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2024-01-07</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
                 <div class="posttag">
-                    
-                    <a data-pjax href="https://do-it-tomorrow.github.io/tag/xOeFdtwHb/" class="postlink">
-                        <i class="fa fa-tag"></i> 题解
-                    </a>
                     
                 </div>
             </div>
             
         <div id="articlecontent">
             <div id="texttitle" style="text-align: center">
-                <h2 id="ptitle">[Atcoder DP I]Coins 题解</h2>
+                <h2 id="ptitle">期末背诗</h2>
                 <!-- id 将作为查询条件 -->
-                <div id="pl" style="display:none">https://do-it-tomorrow.github.io/post/atcoder-dp-icoins-ti-jie/</div>
+                <div id="pl" style="display:none">https://do-it-tomorrow.github.io/post/qi-mo-bei-shi/</div>
                 <div id="rootaddr" style="display:none">https://do-it-tomorrow.github.io</div>
                 
             </div>
             <div class="text ">
-                <h1 id="题目大意">题目大意</h1>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 枚硬币，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 枚硬币有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的概率正面朝上，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">1-p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的概率反面朝上。<br>
-扔完所有硬币，求<strong>正面朝上的银币数比反面朝上的银币数多</strong>的概率，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>≤</mo><mn>2999</mn></mrow><annotation encoding="application/x-tex">N\le 2999</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">9</span><span class="mord">9</span><span class="mord">9</span></span></span></span>。</p>
-<h1 id="思路">思路</h1>
-<p>显而易见的这道题目是一个 DP，<s>绝对不是因为它是 DP 列表里的题目</s>。因为题目中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>≤</mo><mn>2999</mn></mrow><annotation encoding="application/x-tex">N\le 2999</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">9</span><span class="mord">9</span><span class="mord">9</span></span></span></span> 所以可以考虑 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 的DP 程序。</p>
-<p>设 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 表示正面有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个硬币，反面有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 个硬币的概率。</p>
-<p>得到有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个正面，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 个反面只有可能是由 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个正面与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 个反面通过投掷一个正面或者 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个正面与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">j-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个反面通过投掷一个反面得到的。</p>
-<p>所以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>×</mo><msub><mi>p</mi><mrow><mi>i</mi><mo>+</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>×</mo><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mrow><mi>i</mi><mo>+</mo><mi>j</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j}\times p_{i+j}+f_{i,j-1}\times (1-p_{i+j})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
-<h1 id="ac-code">AC Code</h1>
-<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
-#define int long long
-using namespace std;
-const int N=3005;
-int n;
-double p[N],f[N][N],ans;
-signed main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++) cin&gt;&gt;p[i];
-	f[0][0]=1.0;
-	for(int i=1;i&lt;=n;i++){
-		f[i][0]=f[i-1][0]*p[i];
-		f[0][i]=f[0][i-1]*(1-p[i]);
-	}
-	for(int i=1;i&lt;=n;i++){
-		for(int j=1;j+i&lt;=n;j++){
-			f[i][j]=f[i-1][j]*p[i+j]+f[i][j-1]*(1-p[i+j]);
-		}
-	}
-	for(int i=n/2+1;i&lt;=n;i++){
-		ans+=f[i][n-i];
-	}printf(&quot;%.10lf&quot;,ans);
-	return 0;
-} 
-</code></pre>
+                <p>但感别经时<br>
+歌以咏志<br>
+松柏有本性<br>
+狐兔翔我宇<br>
+试倩悲风吹泪过扬州<br>
+惊起一滩鸥鹭<br>
+小园香径独徘徊<br>
+惊起沙禽掠岸飞<br>
+更行更远还生<br>
+天上人间<br>
+恰似一江春水向东流<br>
+犹恐相逢是梦中<br>
+且向花间留晚照<br>
+人比黄花瘦<br>
+曾照彩云归<br>
+化作相思泪<br>
+将军白发征夫泪<br>
+乱红飞过秋千去<br>
+直挂云帆济沧海<br>
+咱凭杯酒长精神<br>
+千里共婵娟</p>
 
             </div>
             <hr style="width: 80%;">
@@ -1182,7 +1180,7 @@ signed main(){
             <div class="postfooter">
                 <ul class="post-copyright">
                     <li><strong>文章作者：</strong></li>
-            <li><strong>原文链接：</strong>https://do-it-tomorrow.github.io/post/atcoder-dp-icoins-ti-jie/</li>
+            <li><strong>原文链接：</strong>https://do-it-tomorrow.github.io/post/qi-mo-bei-shi/</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
                 许可协议。转载请注明出处！</li>
             </ul>
@@ -1190,29 +1188,17 @@ signed main(){
         
         <div id="otherpost">
             
-            <a  data-pjax class="prev-post-pc" href="https://do-it-tomorrow.github.io/post/qi-mo-bei-shi/"  style="color: black;">
-                <div id="ppcontainer">
-                    
-                    <img src="https://do-it-tomorrow.github.io/post-images/qi-mo-bei-shi.jpg" style="width: 100%;" class="opimg">
-                    
-                    <h4 class="optitle">期末背诗</h4>
-                </div>
-            </a>
-            <div class="prev-post">
-                上一篇 <a  data-pjax href="https://do-it-tomorrow.github.io/post/qi-mo-bei-shi/">期末背诗</a>
-            </div>
             
-            
-            <a data-pjax class="next-post-pc" href="https://do-it-tomorrow.github.io/post/hnoi2005-jiao-hua-de-shang-ren-s-ti-jie-chai-fen-yue-shu-xi-tong/"  style="color: black;">
+            <a data-pjax class="next-post-pc" href="https://do-it-tomorrow.github.io/post/atcoder-dp-icoins-ti-jie/"  style="color: black;">
                 <div id="npcontainer">
                     
-                    <img src="https://do-it-tomorrow.github.io/post-images/hnoi2005-jiao-hua-de-shang-ren-s-ti-jie-chai-fen-yue-shu-xi-tong.jpg" style="width: 100%;" class="opimg">
+                    <img src="https://img.xjh.me/img/62519517_p0.jpg" style="width: 100%;" class="opimg">
                     
-                    <h4 class="optitle">[HNOI2005] 狡猾的商人&#39;s 题解</h4>
+                    <h4 class="optitle">[Atcoder DP I]Coins 题解</h4>
                 </div>
             </a>
             <div class="next-post">
-                下一篇 <a  data-pjax href="https://do-it-tomorrow.github.io/post/hnoi2005-jiao-hua-de-shang-ren-s-ti-jie-chai-fen-yue-shu-xi-tong/">[HNOI2005] 狡猾的商人&#39;s 题解</a>
+                下一篇 <a  data-pjax href="https://do-it-tomorrow.github.io/post/atcoder-dp-icoins-ti-jie/">[Atcoder DP I]Coins 题解</a>
             </div>
             
         </div>
@@ -1232,12 +1218,7 @@ signed main(){
     $("#hotnum").attr('id', pl);
 </script>
                     <div class="toc-container">
-                        <ul class="markdownIt-TOC">
-<li><a href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F">题目大意</a></li>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
-<li><a href="#ac-code">AC Code</a></li>
-</ul>
-
+                        
                     </div>
                     <div class="tog">
                         <div class="toggleContainer">
