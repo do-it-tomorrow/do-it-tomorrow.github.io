@@ -1,0 +1,449 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to ues Dev C++ | 一个 OIer 的个人修养</title>
+<meta name="description" content="给岁月以文明，而不是给文明以岁月。" />
+<link rel="shortcut icon" href="https://doittomorrow.xyz/favicon.ico">
+<link rel="stylesheet" href="https://doittomorrow.xyz/styles/main.css">
+
+<script src="https://doittomorrow.xyz/media/js/jquery.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/masonry.pkgd.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/aos.js"></script>
+<script src="https://doittomorrow.xyz/media/js/pace.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/view-image.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="对于Dev-C++这个&quot;老古董&quot;，合理利用设置去提升它的能力，是非常 important 重要的。
+1.打开全警告
+方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码警告-&gt;第二个和第三..." />
+    <meta name="keywords" content="笔记" />
+    <script src="https://doittomorrow.xyz/media/js/waterfall.min.js"></script>
+    <script src="https://doittomorrow.xyz/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://doittomorrow.xyz"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://doittomorrow.xyz" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/gong-ju-xiang" class="menu">
+                      工具箱
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/guan-yu-ben-zhan" class="menu">
+                      关于本站
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1714482324512" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xd9ydc9m.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2023-12-31"><i class="fa fa-calendar"></i><span class="lately">4 个月前</span></time>
+              
+              <a href="https://doittomorrow.xyz/post/how-to-ues-dev-c/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/how-to-ues-dev-c/"> </span>
+              </a>
+              <span id="/how-to-ues-dev-c/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-0 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">How to ues Dev C++</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>对于Dev-C++这个&quot;老古董&quot;，合理利用设置去提升它的能力，是非常 <s>important</s> 重要的。</p>
+<h2 id="1打开全警告">1.打开全警告</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码警告-&gt;第二个和第三个选Yes
+</code></pre>
+<p>代码里，总是会出现奇奇怪怪的错误（<code>scanf</code>、<code>printf</code> 占位符和参数列表不匹配，<code>if</code> 里把 <code>==</code> 打成 <code>=</code> ，运算符优先级......），面对这种情况，我们需要编译器来帮我们检查。</p>
+<p>SO，打开全警告！！！</p>
+<p>这样，当你出现一些奇怪又合法的错误时，编译器会发出警告(但不会终止编译)，<s>所以看警告还是有用的</s>。</p>
+<h2 id="2打开c11">2.打开C++11</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;语言标准-&gt;ISO C++11
+</code></pre>
+<p>这个老古董居然有 C++11，当会用了 C++11 后，这就非常 nice 了。</p>
+<h2 id="3编译优化">3.编译优化</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;优化级别-&gt;自己选吧
+</code></pre>
+<p>编译优化就是指编译器修改一些指令的执行方式（不会直接修改源代码）从而使生成的运行程序执行速度更快或内存更小。</p>
+<p><strong>关于优化级别：</strong></p>
+<ul>
+<li>O0：不优化</li>
+<li>O1(Low)：在略微占用编译时间的情况下，尝试缩小运行大小并提升运行速度。</li>
+<li>O2(Med)：做大量细节优化（常量表达式，无用语句，合并语句...），能提升运行速度。</li>
+<li>O3(High)：会尝试破坏运行顺序，做更多的优化，但可能增大运行内存。</li>
+<li>Ofast(lighest)：最高级优化，能显著提升STL的速度，但会严重破坏运行顺序，有极小概率出bug。</li>
+</ul>
+<h2 id="4去除结尾空白">4.去除结尾空白</h2>
+<pre><code>方式：工具[T]-&gt;编辑器选项[C]-&gt;基本-&gt;去除结尾空白
+</code></pre>
+<p>在编辑时，这老古董经常给源代码末尾添加一些空格，影响美观，增大源文件大小，更会残害强迫症，手动删又十分麻烦。</p>
+<p>SO，打开去除结尾空白后，Dev C++ 会自动删除除鼠标所在行以外的末尾空格，就很nice。</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></div>
+                 <a href="https://doittomorrow.xyz/post/thusch2017-da-mo-fa-shi/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-01-01">2024-01-01</time>
+                  <h4 class="title white no-margin">[THUSCH2017] 大魔法师</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></div>
+                 <a href="https://doittomorrow.xyz/post/zheng-ming-wei-yi-fen-jie-ding-li/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2023-12-31">2023-12-31</time>
+                  <h4 class="title white no-margin">【证明】唯一分解定理</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/">[CF1610D] Not Quite Lee  的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/">[CF991E] Bus Number 的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-16">2024-04-16</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/">atcoder 统计</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-1 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/fun/" class="ctag ctag-2 ctag-fun" aria-label="">不正经</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://doittomorrow.xyz/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">一个 OIer 的个人修养</a></h4>
+                    <p class="founder">给岁月以文明，而不是给文明以岁月。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://doittomorrow.xyz"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 63 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://doittomorrow.xyz/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

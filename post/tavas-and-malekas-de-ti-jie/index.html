@@ -1,0 +1,479 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tavas and Malekas 的题解 | 一个 OIer 的个人修养</title>
+<meta name="description" content="给岁月以文明，而不是给文明以岁月。" />
+<link rel="shortcut icon" href="https://doittomorrow.xyz/favicon.ico">
+<link rel="stylesheet" href="https://doittomorrow.xyz/styles/main.css">
+
+<script src="https://doittomorrow.xyz/media/js/jquery.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/masonry.pkgd.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/aos.js"></script>
+<script src="https://doittomorrow.xyz/media/js/pace.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/view-image.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="传送门
+题目大意
+文本串长度为 nnn，给你模式串在文本串中出现的 mmm 个位置（必须在这些位置有出现过，也可以在其他位置出现），求可能的文本串数量，其中 1≤n≤1061\le n \le 10^61≤n≤106 而且 0≤m≤n−∣p..." />
+    <meta name="keywords" content="题解" />
+    <script src="https://doittomorrow.xyz/media/js/waterfall.min.js"></script>
+    <script src="https://doittomorrow.xyz/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://doittomorrow.xyz"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://doittomorrow.xyz" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/gong-ju-xiang" class="menu">
+                      工具箱
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/guan-yu-ben-zhan" class="menu">
+                      关于本站
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1714482324512" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://preview.cloud.189.cn/image/imageAction?param=BB0571DCADC5E229A55CDE8AA2FE19B2648B08CEF463983BF9F39CA2078893A36335F7F4237DF94FAB56480F03352BD82CED21F8CF9E5344C8DADCC2C2EA47C31CD8A969B744D9F7B72B1E76C34C98634B7800C35C35AEED03819190AF1F94776737BFF44CB264F4CDB58C6504322551EB6A1F27');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2024-01-12"><i class="fa fa-calendar"></i><span class="lately">4 个月前</span></time>
+              
+              <a href="https://doittomorrow.xyz/post/tavas-and-malekas-de-ti-jie/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/tavas-and-malekas-de-ti-jie/"> </span>
+              </a>
+              <span id="/tavas-and-malekas-de-ti-jie/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Tavas and Malekas 的题解</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p><a href="https://codeforces.com/problemset/problem/535/D">传送门</a></p>
+<h1 id="题目大意">题目大意</h1>
+<p>文本串长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，给你模式串在文本串中出现的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 个位置（必须在这些位置有出现过，也可以在其他位置出现），求可能的文本串数量，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">1\le n \le 10^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> 而且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mi>n</mi><mo>−</mo><mi mathvariant="normal">∣</mi><mi>p</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0 \le m \le n-|p|+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">p</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<h1 id="思路">思路</h1>
+<h3 id="简化">简化</h3>
+<p>首先我们可以考虑如果输入保证合法，那么因为字符串都是小写字母，所以答案就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><msup><mn>6</mn><mrow><mi>n</mi><mi>u</mi><mi>m</mi></mrow></msup></mrow><annotation encoding="application/x-tex">26^{num}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">num</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span> 指没有被标记过的数量。<br>
+但是如果将访问过的位置全部标记出来最坏的情况下会多次重复的标记应景标记的位置，所以还是会超时。这个时候我们可以考虑优化。<br>
+因为输入的位置保证单调增，所以在标记的一开始就可以从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>l</mi><mi>e</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\max(a_i,a_{i-1}+len)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 开始，有效避免重复标记。</p>
+<h3 id="分析">分析</h3>
+<p>如果我们需要判断合法的话，那么我们就需要将重复的部分依次比对。<br>
+所以将时间复杂度拖慢的主要部分就是比较，所以考虑将比较优化了，可以使用字符串哈希。<br>
+因为我们比较的都是上一个字符串的后缀和这一个字符串的前缀，所以只需要比较前缀与后置哈希就可以了。</p>
+<p>首先，我们先预处理出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 数组，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 表示 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>11</mn><msup><mn>3</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">113^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span> 次方，注意这里的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>113</mn></mrow><annotation encoding="application/x-tex">113</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">3</span></span></span></span> 就是哈希秘钥。</p>
+<pre><code class="language-c+">p[0]=1;
+for(int i=1;i&lt;=len;i++) p[i]=(p[i-1]*113)%mod;
+</code></pre>
+<p>接着，处理处字符串的前缀数组。</p>
+<pre><code class="language-c++">for(int i=1,v=s[i]-'a';i&lt;=len;i++,v=s[i]-'a') front[i]=(front[i-1]*113+v)%mod;
+</code></pre>
+<p>最后将后缀数组也处理了。<br>
+注意因为要与前缀相比较，所以哈希值应该与前缀的顺序相同，也就是需要倒序枚举。</p>
+<pre><code class="language-c++">for(int i=len,v=s[i]-'a';i&gt;=1;i--,v=s[i]-'a') back[i]=(back[i+1]+v*p[len-i])%mod;
+</code></pre>
+<p>接着在循环中就只需要判断前缀哈希与后缀哈希是否相同就好了。</p>
+<h1 id="ac-code">AC Code</h1>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+const int N=1e6+5,mod=1e9+7,INF=1e18;
+char ch;
+int ksm(int a,int b){ //求解 a^b
+	int ans=1;
+	while(b){
+		if(b&amp;1) ans=ans*a%mod;
+		a=a*a%mod;
+		b&gt;&gt;=1;
+	}return ans;
+}
+int n,m,a[N]={-INF}; //将 a[0] 设为极小值，保证第一次覆盖完全
+char s[N];
+int front[N],back[N],p[N],len,ans;
+bool vis[N];
+signed main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	cin&gt;&gt;s+1,len=strlen(s+1);
+	p[0]=1;
+	for(int i=1;i&lt;=len;i++) p[i]=(p[i-1]*113)%mod;
+	for(int i=1,v=s[i]-'a';i&lt;=len;i++,v=s[i]-'a') front[i]=(front[i-1]*113+v)%mod;
+	for(int i=len,v=s[i]-'a';i&gt;=1;i--,v=s[i]-'a') back[i]=(back[i+1]+v*p[len-i])%mod;
+	for(int i=1;i&lt;=m;i++){
+		cin&gt;&gt;a[i];
+		if(a[i-1]+len&gt;a[i]&amp;&amp;back[a[i]-a[i-1]+1]!=front[a[i-1]+len-a[i]]) cout&lt;&lt;0,exit(0);
+		for(int j=max(a[i],a[i-1]+len);j&lt;a[i]+len;j++) vis[j]=1;
+	}for(int i=1;i&lt;=n;i++) ans+=(!vis[i]);
+	cout&lt;&lt;ksm(26,ans)&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://bu.dusays.com/2023/07/16/64b2cd8354b26.webp');"></div>
+                 <a href="https://doittomorrow.xyz/post/abc144egluttony-de-ti-jie/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-01-19">2024-01-19</time>
+                  <h4 class="title white no-margin">[ABC144E]Gluttony 的题解</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://preview.cloud.189.cn/image/imageAction?param=0C21F5CA305EA1F67EE53E795B88F2DADBAE23BBB1152F1138FA99DEB159175CB856197454FB8D26779F5E71D0263179CD307ED32F0CA4E218F79927CFED1BDDFB6403E5385CE7CAABCD9E04C91FF343AA37DBF5774C6D38DD7B3E96EF6B77E6D6D8DD5430E91088D09239A05D71BDFA');"></div>
+                 <a href="https://doittomorrow.xyz/post/atcoder-dp-icoins-ti-jie/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-01-03">2024-01-03</time>
+                  <h4 class="title white no-margin">[Atcoder DP I]Coins 题解</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/">[CF1610D] Not Quite Lee  的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/">[CF991E] Bus Number 的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-16">2024-04-16</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/">atcoder 统计</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-1 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/fun/" class="ctag ctag-2 ctag-fun" aria-label="">不正经</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://doittomorrow.xyz/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">一个 OIer 的个人修养</a></h4>
+                    <p class="founder">给岁月以文明，而不是给文明以岁月。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://doittomorrow.xyz"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 63 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://doittomorrow.xyz/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

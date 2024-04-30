@@ -1,0 +1,458 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[CF749C] Voting | 一个 OIer 的个人修养</title>
+<meta name="description" content="给岁月以文明，而不是给文明以岁月。" />
+<link rel="shortcut icon" href="https://doittomorrow.xyz/favicon.ico">
+<link rel="stylesheet" href="https://doittomorrow.xyz/styles/main.css">
+
+<script src="https://doittomorrow.xyz/media/js/jquery.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/masonry.pkgd.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/aos.js"></script>
+<script src="https://doittomorrow.xyz/media/js/pace.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/view-image.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="题目大意
+给定一个字符串，字符串中字符为 D\texttt{D}D 或 R\texttt{R}R，代表两个团队。从 111 开始，每个人都有发言的权利，发言时，可以禁言一个人，使那个人以后都不能发言。
+如果一圈发言完还有1个以上的人能发言，..." />
+    <meta name="keywords" content="题解" />
+    <script src="https://doittomorrow.xyz/media/js/waterfall.min.js"></script>
+    <script src="https://doittomorrow.xyz/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://doittomorrow.xyz"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://doittomorrow.xyz" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/gong-ju-xiang" class="menu">
+                      工具箱
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/guan-yu-ben-zhan" class="menu">
+                      关于本站
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1714482324512" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xd9ydc9m.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2024-03-09"><i class="fa fa-calendar"></i><span class="lately">2 个月前</span></time>
+              
+              <a href="https://doittomorrow.xyz/post/cf749c-voting/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/cf749c-voting/"> </span>
+              </a>
+              <span id="/cf749c-voting/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">[CF749C] Voting</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h2 id="题目大意">题目大意</h2>
+<p>给定一个字符串，字符串中字符为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">D</mtext></mrow><annotation encoding="application/x-tex">\texttt{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">D</span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">R</mtext></mrow><annotation encoding="application/x-tex">\texttt{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">R</span></span></span></span></span>，代表两个团队。从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 开始，每个人都有发言的权利，发言时，可以禁言一个人，使那个人以后都不能发言。<br>
+如果一圈发言完还有1个以上的人能发言，就从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 重新开始，直到只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个人能发言，那个人所在的团队获胜。</p>
+<h2 id="思路">思路</h2>
+<p>当一个人发言时，他应该将另外一队在他后面发言中最靠近他的人禁言。</p>
+<p>因为一旦另外一队的人被禁言了一个，那么我们这一队可以发言的人就多了一个。如果禁言的人离正在发言的人很远，那么在紧挨着他的那个人就有机会将正在发言的人那一队的人禁言。而如果将距自己最近的人禁言了，那么自己之后的队友就可以发言并发将将后面的对方的人禁言的了。</p>
+<p>因为在发言时就模拟将对方禁言过于复杂，我们其实可以直接记录双方禁言对方的数量。</p>
+<p>如果对方禁言己方的数量大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 就说明自己被禁言了，将对方禁言的数量减 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，将自己标记为被禁言。反之说明对方并未将你禁言，将己方禁言对方的数量加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<h2 id="ac-code">AC Code</h2>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2e5+5;
+int n,s1,s2,cnt;
+bool vis[N];
+char a[N];
+signed main(){
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cin&gt;&gt;n&gt;&gt;a+1;
+	while(cnt&lt;=n){
+		for(int i=1;i&lt;=n;i++){
+			if(vis[i]) continue;
+			if(a[i]=='D'){
+				if(s2&gt;0) s2--,vis[i]=1;
+				else s1++,cnt++;
+			}
+			else{
+				if(s1&gt;0) vis[i]=1,s1--;
+				else s2++,cnt++;
+			}
+		}
+	}
+	if(s1&gt;s2) cout&lt;&lt;'D';
+	else cout&lt;&lt;'R';
+	return 0;
+}
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://preview.cloud.189.cn/image/imageAction?param=BB0571DCADC5E229A55CDE8AA2FE19B2648B08CEF463983BF9F39CA2078893A36335F7F4237DF94FAB56480F03352BD82CED21F8CF9E5344C8DADCC2C2EA47C31CD8A969B744D9F7B72B1E76C34C98634B7800C35C35AEED03819190AF1F94776737BFF44CB264F4CDB58C6504322551EB6A1F27');"></div>
+                 <a href="https://doittomorrow.xyz/post/cf1511d-min-cost-string-de-ti-jie/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-03-20">2024-03-20</time>
+                  <h4 class="title white no-margin">[CF1511D] Min Cost String 的题解</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></div>
+                 <a href="https://doittomorrow.xyz/post/abc243c-collision-2-de-ti-jie/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-03-09">2024-03-09</time>
+                  <h4 class="title white no-margin">[ABC243C] Collision 2 的题解</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/">[CF1610D] Not Quite Lee  的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/">[CF991E] Bus Number 的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-16">2024-04-16</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/">atcoder 统计</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-1 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/fun/" class="ctag ctag-2 ctag-fun" aria-label="">不正经</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://doittomorrow.xyz/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">一个 OIer 的个人修养</a></h4>
+                    <p class="founder">给岁月以文明，而不是给文明以岁月。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://doittomorrow.xyz"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 63 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://doittomorrow.xyz/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

@@ -1,0 +1,2096 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>atcoder 统计 | 一个 OIer 的个人修养</title>
+<meta name="description" content="给岁月以文明，而不是给文明以岁月。" />
+<link rel="shortcut icon" href="https://doittomorrow.xyz/favicon.ico">
+<link rel="stylesheet" href="https://doittomorrow.xyz/styles/main.css">
+
+<script src="https://doittomorrow.xyz/media/js/jquery.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/masonry.pkgd.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/aos.js"></script>
+<script src="https://doittomorrow.xyz/media/js/pace.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/view-image.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="使用插件：油猴
+// ==UserScript==
+// @name         ac-predictor
+// @namespace    http://ac-predictor.azurewebsites.net/
+// @vers..." />
+    <meta name="keywords" content="" />
+    <script src="https://doittomorrow.xyz/media/js/waterfall.min.js"></script>
+    <script src="https://doittomorrow.xyz/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://doittomorrow.xyz"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://doittomorrow.xyz" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/gong-ju-xiang" class="menu">
+                      工具箱
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/guan-yu-ben-zhan" class="menu">
+                      关于本站
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1714482324512" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2024-04-16"><i class="fa fa-calendar"></i><span class="lately">14 天前</span></time>
+              
+              <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/atcoder-tong-ji/"> </span>
+              </a>
+              <span id="/atcoder-tong-ji/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">atcoder 统计</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>使用插件：油猴</p>
+<pre><code class="language-css">// ==UserScript==
+// @name         ac-predictor
+// @namespace    http://ac-predictor.azurewebsites.net/
+// @version      2.0.5
+// @description  コンテスト中にAtCoderのパフォーマンスを予測します
+// @author       keymoon
+// @license      MIT
+// @match        https://atcoder.jp/*
+// @exclude      /^https://atcoder\.jp/[^#?]*/json/
+// @grant        none
+// @downloadURL https://update.greasyfork.org/scripts/369954/ac-predictor.user.js
+// @updateURL https://update.greasyfork.org/scripts/369954/ac-predictor.meta.js
+// ==/UserScript==
+var config_header_text$1 = &quot;ac-predictor 設定&quot;;
+var config_hideDuringContest_label$1 = &quot;コンテスト中に予測を非表示にする&quot;;
+var config_hideUntilFixed_label$1 = &quot;パフォーマンスが確定するまで予測を非表示にする&quot;;
+var config_useFinalResultOnVirtual_label$1 = &quot;バーチャル参加時のパフォーマンス計算に最終結果を用いる&quot;;
+var config_useFinalResultOnVirtual_description$1 = &quot;チェックを入れると、当時の参加者が既にコンテストを終えているものとしてパフォーマンスを計算します。&quot;;
+var config_dropdown$1 = &quot;ac-predictor 設定&quot;;
+var standings_performance_column_label$1 = &quot;perf&quot;;
+var standings_rate_change_column_label$1 = &quot;レート変化&quot;;
+var standings_click_to_compute_label$1 = &quot;クリックして計算&quot;;
+var standings_not_provided_label$1 = &quot;提供不可&quot;;
+var jaJson = {
+	config_header_text: config_header_text$1,
+	config_hideDuringContest_label: config_hideDuringContest_label$1,
+	config_hideUntilFixed_label: config_hideUntilFixed_label$1,
+	config_useFinalResultOnVirtual_label: config_useFinalResultOnVirtual_label$1,
+	config_useFinalResultOnVirtual_description: config_useFinalResultOnVirtual_description$1,
+	config_dropdown: config_dropdown$1,
+	standings_performance_column_label: standings_performance_column_label$1,
+	standings_rate_change_column_label: standings_rate_change_column_label$1,
+	standings_click_to_compute_label: standings_click_to_compute_label$1,
+	standings_not_provided_label: standings_not_provided_label$1
+};
+
+var config_header_text = &quot;ac-predictor settings&quot;;
+var config_hideDuringContest_label = &quot;hide prediction during contests&quot;;
+var config_hideUntilFixed_label = &quot;hide prediction until performances are fixed&quot;;
+var config_useFinalResultOnVirtual_label = &quot;use final result as a performance reference during the virtual participation&quot;;
+var config_useFinalResultOnVirtual_description = &quot;If enabled, the performance is calculated as if the original participant had already done the contest.&quot;;
+var config_dropdown = &quot;ac-predictor&quot;;
+var standings_performance_column_label = &quot;perf&quot;;
+var standings_rate_change_column_label = &quot;rating delta&quot;;
+var standings_click_to_compute_label = &quot;click to compute&quot;;
+var standings_not_provided_label = &quot;not provided&quot;;
+var enJson = {
+	config_header_text: config_header_text,
+	config_hideDuringContest_label: config_hideDuringContest_label,
+	config_hideUntilFixed_label: config_hideUntilFixed_label,
+	config_useFinalResultOnVirtual_label: config_useFinalResultOnVirtual_label,
+	config_useFinalResultOnVirtual_description: config_useFinalResultOnVirtual_description,
+	config_dropdown: config_dropdown,
+	standings_performance_column_label: standings_performance_column_label,
+	standings_rate_change_column_label: standings_rate_change_column_label,
+	standings_click_to_compute_label: standings_click_to_compute_label,
+	standings_not_provided_label: standings_not_provided_label
+};
+
+// should not be here
+function getCurrentLanguage() {
+    const elems = document.querySelectorAll(&quot;#navbar-collapse .dropdown &gt; a&quot;);
+    if (elems.length == 0)
+        return &quot;JA&quot;;
+    for (let i = 0; i &lt; elems.length; i++) {
+        if (elems[i].textContent?.includes(&quot;English&quot;))
+            return &quot;EN&quot;;
+        if (elems[i].textContent?.includes(&quot;日本語&quot;))
+            return &quot;JA&quot;;
+    }
+    console.warn(&quot;language detection failed. fallback to English&quot;);
+    return &quot;EN&quot;;
+}
+const language = getCurrentLanguage();
+const currentJson = { &quot;EN&quot;: enJson, &quot;JA&quot;: jaJson }[language];
+function getTranslation(label) {
+    return currentJson[label];
+}
+function substitute(input) {
+    for (const key in currentJson) {
+        // @ts-ignore
+        input = input.replaceAll(`{${key}}`, currentJson[key]);
+    }
+    return input;
+}
+
+const configKey = &quot;ac-predictor-config&quot;;
+const defaultConfig = {
+    useResults: true,
+    hideDuringContest: false,
+    isDebug: false,
+    hideUntilFixed: false,
+    useFinalResultOnVirtual: false
+};
+function getConfigObj() {
+    const val = localStorage.getItem(configKey) ?? &quot;{}&quot;;
+    let config;
+    try {
+        config = JSON.parse(val);
+    }
+    catch {
+        console.warn(&quot;invalid config found&quot;, val);
+        config = {};
+    }
+    return { ...defaultConfig, ...config };
+}
+function storeConfigObj(config) {
+    localStorage.setItem(configKey, JSON.stringify(config));
+}
+function getConfig(configKey) {
+    return getConfigObj()[configKey];
+}
+function setConfig(key, value) {
+    const config = getConfigObj();
+    config[key] = value;
+    storeConfigObj(config);
+}
+
+const isDebug = location.hash.includes(&quot;ac-predictor-debug&quot;) || getConfig(&quot;isDebug&quot;);
+function isDebugMode() {
+    return isDebug;
+}
+
+var modalHTML = &quot;&lt;div id=\&quot;modal-ac-predictor-settings\&quot; class=\&quot;modal fade\&quot; tabindex=\&quot;-1\&quot; role=\&quot;dialog\&quot;&gt;\n\t&lt;div class=\&quot;modal-dialog\&quot; role=\&quot;document\&quot;&gt;\n\t&lt;div class=\&quot;modal-content\&quot;&gt;\n\t\t&lt;div class=\&quot;modal-header\&quot;&gt;\n\t\t\t&lt;button type=\&quot;button\&quot; class=\&quot;close\&quot; data-dismiss=\&quot;modal\&quot; aria-label=\&quot;Close\&quot;&gt;&lt;span aria-hidden=\&quot;true\&quot;&gt;×&lt;/span&gt;&lt;/button&gt;\n\t\t\t&lt;h4 class=\&quot;modal-title\&quot;&gt;{config_header_text}&lt;/h4&gt;\n\t\t&lt;/div&gt;\n\t\t&lt;div class=\&quot;modal-body\&quot;&gt;\n\t\t\t&lt;div class=\&quot;container-fluid\&quot;&gt;\n\t\t\t\t&lt;div class=\&quot;settings-row\&quot; class=\&quot;row\&quot;&gt;\n\n\t\t\t\t&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t\t&lt;div class=\&quot;modal-footer\&quot;&gt;\n\t\t\t&lt;button type=\&quot;button\&quot; class=\&quot;btn btn-default\&quot; data-dismiss=\&quot;modal\&quot;&gt;close&lt;/button&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+
+var newDropdownElem = &quot;&lt;li&gt;&lt;a id=\&quot;ac-predictor-settings-dropdown-button\&quot; data-toggle=\&quot;modal\&quot; data-target=\&quot;#modal-ac-predictor-settings\&quot; style=\&quot;cursor : pointer;\&quot;&gt;&lt;i class=\&quot;a-icon a-icon-setting\&quot;&gt;&lt;/i&gt; {config_dropdown}&lt;/a&gt;&lt;/li&gt;\n&quot;;
+
+var legacyDropdownElem = &quot;&lt;li&gt;&lt;a id=\&quot;ac-predictor-settings-dropdown-button\&quot; data-toggle=\&quot;modal\&quot; data-target=\&quot;#modal-ac-predictor-settings\&quot; style=\&quot;cursor : pointer;\&quot;&gt;&lt;span class=\&quot;glyphicon glyphicon-wrench\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;/span&gt; {config_dropdown}&lt;/a&gt;&lt;/li&gt;\n&quot;;
+
+class ConfigView {
+    modalElement;
+    constructor(modalElement) {
+        this.modalElement = modalElement;
+    }
+    addCheckbox(label, val, description, handler) {
+        const settingsRow = this.getSettingsRow();
+        const div = document.createElement(&quot;div&quot;);
+        div.classList.add(&quot;checkbox&quot;);
+        const labelElem = document.createElement(&quot;label&quot;);
+        const input = document.createElement(&quot;input&quot;);
+        input.type = &quot;checkbox&quot;;
+        input.checked = val;
+        labelElem.append(input);
+        labelElem.append(label);
+        if (description) {
+            const descriptionDiv = document.createElement(&quot;div&quot;);
+            descriptionDiv.append(description);
+            descriptionDiv.classList.add(&quot;small&quot;);
+            descriptionDiv.classList.add(&quot;gray&quot;);
+            labelElem.append(descriptionDiv);
+        }
+        div.append(labelElem);
+        settingsRow.append(div);
+        input.addEventListener(&quot;change&quot;, () =&gt; {
+            handler(input.checked);
+        });
+    }
+    addHeader(level, content) {
+        const settingsRow = this.getSettingsRow();
+        const div = document.createElement(`h${level}`);
+        div.textContent = content;
+        settingsRow.append(div);
+    }
+    getSettingsRow() {
+        return this.modalElement.querySelector(&quot;.settings-row&quot;);
+    }
+    static Create() {
+        document.querySelector(&quot;body&quot;)?.insertAdjacentHTML(&quot;afterbegin&quot;, substitute(modalHTML));
+        document.querySelector(&quot;.header-mypage_list li:nth-last-child(1)&quot;)?.insertAdjacentHTML(&quot;beforebegin&quot;, substitute(newDropdownElem));
+        document.querySelector(&quot;.navbar-right .dropdown-menu .divider:nth-last-child(2)&quot;)?.insertAdjacentHTML(&quot;beforebegin&quot;, substitute(legacyDropdownElem));
+        const element = document.querySelector(&quot;#modal-ac-predictor-settings&quot;);
+        if (element === null) {
+            throw new Error(&quot;settings modal not found&quot;);
+        }
+        return new ConfigView(element);
+    }
+}
+
+class ConfigController {
+    register() {
+        const configView = ConfigView.Create();
+        // TODO: 流石に処理をまとめたい
+        configView.addCheckbox(getTranslation(&quot;config_useFinalResultOnVirtual_label&quot;), getConfig(&quot;useFinalResultOnVirtual&quot;), getTranslation(&quot;config_useFinalResultOnVirtual_description&quot;), val =&gt; setConfig(&quot;useFinalResultOnVirtual&quot;, val));
+        configView.addCheckbox(getTranslation(&quot;config_hideDuringContest_label&quot;), getConfig(&quot;hideDuringContest&quot;), null, val =&gt; setConfig(&quot;hideDuringContest&quot;, val));
+        configView.addCheckbox(getTranslation(&quot;config_hideUntilFixed_label&quot;), getConfig(&quot;hideUntilFixed&quot;), null, val =&gt; setConfig(&quot;hideUntilFixed&quot;, val));
+        if (isDebugMode()) {
+            configView.addCheckbox(&quot;[DEBUG] enable debug mode&quot;, getConfig(&quot;isDebug&quot;), null, val =&gt; setConfig(&quot;isDebug&quot;, val));
+            configView.addCheckbox(&quot;[DEBUG] use results&quot;, getConfig(&quot;useResults&quot;), null, val =&gt; setConfig(&quot;useResults&quot;, val));
+        }
+    }
+}
+
+async function getAPerfs(contestScreenName) {
+    const result = await fetch(`https://data.ac-predictor.com/aperfs/${contestScreenName}.json`);
+    if (!result.ok) {
+        throw new Error(`Failed to fetch aperfs: ${result.status}`);
+    }
+    return await result.json();
+}
+
+// [start, end]
+class Range {
+    start;
+    end;
+    constructor(start, end) {
+        this.start = start;
+        this.end = end;
+    }
+    contains(val) {
+        return this.start &lt;= val &amp;&amp; val &lt;= this.end;
+    }
+    hasValue() {
+        return this.start &lt;= this.end;
+    }
+}
+
+class ContestDetails {
+    contestName;
+    contestScreenName;
+    contestType;
+    startTime;
+    duration;
+    ratedrange;
+    constructor(contestName, contestScreenName, contestType, startTime, duration, ratedRange) {
+        this.contestName = contestName;
+        this.contestScreenName = contestScreenName;
+        this.contestType = contestType;
+        this.startTime = startTime;
+        this.duration = duration;
+        this.ratedrange = ratedRange;
+    }
+    get endTime() {
+        return new Date(this.startTime.getTime() + this.duration * 1000);
+    }
+    get defaultAPerf() {
+        if (this.contestType == &quot;heuristic&quot;)
+            return 1000;
+        if (!this.ratedrange.hasValue()) {
+            throw new Error(&quot;unrated contest&quot;);
+        }
+        if (this.ratedrange.end == 1199)
+            return 800;
+        if (this.ratedrange.end == 1999)
+            return 800;
+        const DEFAULT_CHANGED_AT = new Date(&quot;2019-05-25&quot;); // maybe wrong
+        if (this.ratedrange.end == 2799) {
+            if (this.startTime &lt; DEFAULT_CHANGED_AT)
+                return 1600;
+            else
+                return 1000;
+        }
+        if (4000 &lt;= this.ratedrange.end) {
+            if (this.startTime &lt; DEFAULT_CHANGED_AT)
+                return 1600;
+            else
+                return 1200;
+        }
+        throw new Error(&quot;unknown contest type&quot;);
+    }
+    get performanceCap() {
+        if (this.contestType == &quot;heuristic&quot;)
+            return Infinity;
+        if (!this.ratedrange.hasValue()) {
+            throw new Error(&quot;unrated contest&quot;);
+        }
+        if (this.ratedrange.end == 1199)
+            return 1600;
+        if (this.ratedrange.end == 1999)
+            return 2400;
+        if (this.ratedrange.end == 2799)
+            return 3200;
+        if (4000 &lt;= this.ratedrange.end)
+            return Infinity;
+        throw new Error(&quot;unknown contest type&quot;);
+    }
+    beforeContest(dateTime) {
+        return dateTime &lt; this.startTime;
+    }
+    duringContest(dateTime) {
+        return this.startTime &lt; dateTime &amp;&amp; dateTime &lt; this.endTime;
+    }
+    isOver(dateTime) {
+        return this.endTime &lt; dateTime;
+    }
+}
+
+async function getContestDetails() {
+    const result = await fetch(`https://data.ac-predictor.com/contest-details.json`);
+    if (!result.ok) {
+        throw new Error(`Failed to fetch contest details: ${result.status}`);
+    }
+    const parsed = await result.json();
+    const res = [];
+    for (const elem of parsed) {
+        if (typeof elem !== &quot;object&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        if (typeof elem.contestName !== &quot;string&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const contestName = elem.contestName;
+        if (typeof elem.contestScreenName !== &quot;string&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const contestScreenName = elem.contestScreenName;
+        if (elem.contestType !== &quot;algorithm&quot; &amp;&amp; elem.contestType !== &quot;heuristic&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const contestType = elem.contestType;
+        if (typeof elem.startTime !== &quot;number&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const startTime = new Date(elem.startTime * 1000);
+        if (typeof elem.duration !== &quot;number&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const duration = elem.duration;
+        if (typeof elem.ratedrange !== &quot;object&quot; || typeof elem.ratedrange[0] !== &quot;number&quot; || typeof elem.ratedrange[1] !== &quot;number&quot;)
+            throw new Error(&quot;invalid object returned&quot;);
+        const ratedRange = new Range(elem.ratedrange[0], elem.ratedrange[1]);
+        res.push(new ContestDetails(contestName, contestScreenName, contestType, startTime, duration, ratedRange));
+    }
+    return res;
+}
+
+class Cache {
+    cacheDuration;
+    cacheExpires = new Map();
+    cacheData = new Map();
+    constructor(cacheDuration) {
+        this.cacheDuration = cacheDuration;
+    }
+    has(key) {
+        return this.cacheExpires.has(key) || Date.now() &lt;= this.cacheExpires.get(key);
+    }
+    set(key, content) {
+        const expire = Date.now() + this.cacheDuration;
+        this.cacheExpires.set(key, expire);
+        this.cacheData.set(key, content);
+    }
+    get(key) {
+        if (!this.has(key)) {
+            throw new Error(`invalid key: ${key}`);
+        }
+        return this.cacheData.get(key);
+    }
+}
+
+const handlers = [];
+function addHandler(handler) {
+    handlers.push(handler);
+}
+// absurd hack to steal ajax response data for caching
+// @ts-ignore
+$(document).on(&quot;ajaxComplete&quot;, (_, xhr, settings) =&gt; {
+    if (xhr.status == 200) {
+        for (const handler of handlers) {
+            handler(xhr.responseText, settings.url);
+        }
+    }
+});
+
+let StandingsWrapper$2 = class StandingsWrapper {
+    data;
+    constructor(data) {
+        this.data = data;
+    }
+    toRanks(onlyRated = false, contestType = &quot;algorithm&quot;) {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            if (onlyRated &amp;&amp; !this.isRated(data, contestType))
+                continue;
+            const userScreenName = typeof (data.Additional[&quot;standings.extendedContestRank&quot;]) == &quot;undefined&quot; ? `extended:${data.UserScreenName}` : data.UserScreenName;
+            res.set(userScreenName, data.Rank);
+        }
+        return res;
+    }
+    toRatedUsers(contestType) {
+        const res = [];
+        for (const data of this.data.StandingsData) {
+            if (this.isRated(data, contestType)) {
+                res.push(data.UserScreenName);
+            }
+        }
+        return res;
+    }
+    toScores() {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            const userScreenName = typeof (data.Additional[&quot;standings.extendedContestRank&quot;]) == &quot;undefined&quot; ? `extended:${data.UserScreenName}` : data.UserScreenName;
+            res.set(userScreenName, { score: data.TotalResult.Score, penalty: data.TotalResult.Elapsed });
+        }
+        return res;
+    }
+    isRated(data, contestType) {
+        if (contestType === &quot;algorithm&quot;) {
+            return data.IsRated &amp;&amp; typeof (data.Additional[&quot;standings.extendedContestRank&quot;]) != &quot;undefined&quot;;
+        }
+        else {
+            return data.IsRated &amp;&amp; typeof (data.Additional[&quot;standings.extendedContestRank&quot;]) != &quot;undefined&quot; &amp;&amp; data.TotalResult.Count !== 0;
+        }
+    }
+};
+const STANDINGS_CACHE_DURATION$2 = 10 * 1000;
+const cache$4 = new Cache(STANDINGS_CACHE_DURATION$2);
+async function getExtendedStandings(contestScreenName) {
+    if (!cache$4.has(contestScreenName)) {
+        const result = await fetch(`https://atcoder.jp/contests/${contestScreenName}/standings/extended/json`);
+        if (!result.ok) {
+            throw new Error(`Failed to fetch extended standings: ${result.status}`);
+        }
+        cache$4.set(contestScreenName, await result.json());
+    }
+    return new StandingsWrapper$2(cache$4.get(contestScreenName));
+}
+addHandler((content, path) =&gt; {
+    const match = path.match(/^\/contests\/([^/]*)\/standings\/extended\/json$/);
+    if (!match)
+        return;
+    const contestScreenName = match[1];
+    cache$4.set(contestScreenName, JSON.parse(content));
+});
+
+class EloPerformanceProvider {
+    ranks;
+    ratings;
+    cap;
+    rankMemo = new Map();
+    constructor(ranks, ratings, cap) {
+        this.ranks = ranks;
+        this.ratings = ratings;
+        this.cap = cap;
+    }
+    availableFor(userScreenName) {
+        return this.ranks.has(userScreenName);
+    }
+    getPerformance(userScreenName) {
+        if (!this.availableFor(userScreenName)) {
+            throw new Error(`User ${userScreenName} not found`);
+        }
+        const rank = this.ranks.get(userScreenName);
+        return this.getPerformanceForRank(rank);
+    }
+    getPerformances() {
+        const performances = new Map();
+        for (const userScreenName of this.ranks.keys()) {
+            performances.set(userScreenName, this.getPerformance(userScreenName));
+        }
+        return performances;
+    }
+    getPerformanceForRank(rank) {
+        let upper = 6144;
+        let lower = -2048;
+        while (upper - lower &gt; 0.5) {
+            const mid = (upper + lower) / 2;
+            if (rank &gt; this.getRankForPerformance(mid))
+                upper = mid;
+            else
+                lower = mid;
+        }
+        return Math.min(this.cap, Math.round((upper + lower) / 2));
+    }
+    getRankForPerformance(performance) {
+        if (this.rankMemo.has(performance))
+            return this.rankMemo.get(performance);
+        const res = this.ratings.reduce((val, APerf) =&gt; val + 1.0 / (1.0 + Math.pow(6.0, (performance - APerf) / 400.0)), 0.5);
+        this.rankMemo.set(performance, res);
+        return res;
+    }
+}
+
+function getRankToUsers(ranks) {
+    const rankToUsers = new Map();
+    for (const [userScreenName, rank] of ranks) {
+        if (!rankToUsers.has(rank))
+            rankToUsers.set(rank, []);
+        rankToUsers.get(rank).push(userScreenName);
+    }
+    return rankToUsers;
+}
+function getMaxRank(ranks) {
+    return Math.max(...ranks.values());
+}
+class InterpolatePerformanceProvider {
+    ranks;
+    maxRank;
+    rankToUsers;
+    baseProvider;
+    constructor(ranks, baseProvider) {
+        this.ranks = ranks;
+        this.maxRank = getMaxRank(ranks);
+        this.rankToUsers = getRankToUsers(ranks);
+        this.baseProvider = baseProvider;
+    }
+    availableFor(userScreenName) {
+        return this.ranks.has(userScreenName);
+    }
+    getPerformance(userScreenName) {
+        if (!this.availableFor(userScreenName)) {
+            throw new Error(`User ${userScreenName} not found`);
+        }
+        if (this.performanceCache.has(userScreenName))
+            return this.performanceCache.get(userScreenName);
+        let rank = this.ranks.get(userScreenName);
+        while (rank &lt;= this.maxRank) {
+            const perf = this.getPerformanceIfAvailable(rank);
+            if (perf !== null) {
+                return perf;
+            }
+            rank++;
+        }
+        this.performanceCache.set(userScreenName, -Infinity);
+        return -Infinity;
+    }
+    performanceCache = new Map();
+    getPerformances() {
+        let currentPerformance = -Infinity;
+        const res = new Map();
+        for (let rank = this.maxRank; rank &gt;= 0; rank--) {
+            const users = this.rankToUsers.get(rank);
+            if (users === undefined)
+                continue;
+            const perf = this.getPerformanceIfAvailable(rank);
+            if (perf !== null)
+                currentPerformance = perf;
+            for (const userScreenName of users) {
+                res.set(userScreenName, currentPerformance);
+            }
+        }
+        this.performanceCache = res;
+        return res;
+    }
+    cacheForRank = new Map();
+    getPerformanceIfAvailable(rank) {
+        if (!this.rankToUsers.has(rank))
+            return null;
+        if (this.cacheForRank.has(rank))
+            return this.cacheForRank.get(rank);
+        for (const userScreenName of this.rankToUsers.get(rank)) {
+            if (!this.baseProvider.availableFor(userScreenName))
+                continue;
+            const perf = this.baseProvider.getPerformance(userScreenName);
+            this.cacheForRank.set(rank, perf);
+            return perf;
+        }
+        return null;
+    }
+}
+
+function normalizeRank(ranks) {
+    const rankValues = [...new Set(ranks.values()).values()];
+    const rankToUsers = new Map();
+    for (const [userScreenName, rank] of ranks) {
+        if (!rankToUsers.has(rank))
+            rankToUsers.set(rank, []);
+        rankToUsers.get(rank).push(userScreenName);
+    }
+    rankValues.sort((a, b) =&gt; a - b);
+    const res = new Map();
+    let currentRank = 1;
+    for (const rank of rankValues) {
+        const users = rankToUsers.get(rank);
+        const averageRank = currentRank + (users.length - 1) / 2;
+        for (const userScreenName of users) {
+            res.set(userScreenName, averageRank);
+        }
+        currentRank += users.length;
+    }
+    return res;
+}
+
+//Copyright © 2017 koba-e964.
+//from : https://github.com/koba-e964/atcoder-rating-estimator
+const finf = bigf(400);
+function bigf(n) {
+    let pow1 = 1;
+    let pow2 = 1;
+    let numerator = 0;
+    let denominator = 0;
+    for (let i = 0; i &lt; n; ++i) {
+        pow1 *= 0.81;
+        pow2 *= 0.9;
+        numerator += pow1;
+        denominator += pow2;
+    }
+    return Math.sqrt(numerator) / denominator;
+}
+function f(n) {
+    return ((bigf(n) - finf) / (bigf(1) - finf)) * 1200.0;
+}
+/**
+ * calculate unpositivized rating from performance history
+ * @param {Number[]} [history] performance history with ascending order
+ * @returns {Number} unpositivized rating
+ */
+function calcAlgRatingFromHistory(history) {
+    const n = history.length;
+    let pow = 1;
+    let numerator = 0.0;
+    let denominator = 0.0;
+    for (let i = n - 1; i &gt;= 0; i--) {
+        pow *= 0.9;
+        numerator += Math.pow(2, history[i] / 800.0) * pow;
+        denominator += pow;
+    }
+    return Math.log2(numerator / denominator) * 800.0 - f(n);
+}
+/**
+ * calculate unpositivized rating from last state
+ * @param {Number} [last] last unpositivized rating
+ * @param {Number} [perf] performance
+ * @param {Number} [ratedMatches] count of participated rated contest
+ * @returns {number} estimated unpositivized rating
+ */
+function calcAlgRatingFromLast(last, perf, ratedMatches) {
+    if (ratedMatches === 0)
+        return perf - 1200;
+    last += f(ratedMatches);
+    const weight = 9 - 9 * 0.9 ** ratedMatches;
+    const numerator = weight * 2 ** (last / 800.0) + 2 ** (perf / 800.0);
+    const denominator = 1 + weight;
+    return Math.log2(numerator / denominator) * 800.0 - f(ratedMatches + 1);
+}
+/**
+ * calculate the performance required to reach a target rate
+ * @param {Number} [targetRating] targeted unpositivized rating
+ * @param {Number[]} [history] performance history with ascending order
+ * @returns {number} performance
+ */
+function calcRequiredPerformance(targetRating, history) {
+    let valid = 10000.0;
+    let invalid = -10000.0;
+    for (let i = 0; i &lt; 100; ++i) {
+        const mid = (invalid + valid) / 2;
+        const rating = Math.round(calcAlgRatingFromHistory(history.concat([mid])));
+        if (targetRating &lt;= rating)
+            valid = mid;
+        else
+            invalid = mid;
+    }
+    return valid;
+}
+/**
+ * calculate unpositivized rating from performance history
+ * @param {Number[]} [history] performance histories
+ * @returns {Number} unpositivized rating
+ */
+function calcHeuristicRatingFromHistory(history) {
+    const S = 724.4744301;
+    const R = 0.8271973364;
+    const qs = [];
+    for (const perf of history) {
+        for (let i = 1; i &lt;= 100; i++) {
+            qs.push(perf - S * Math.log(i));
+        }
+    }
+    qs.sort((a, b) =&gt; b - a);
+    let num = 0.0;
+    let den = 0.0;
+    for (let i = 99; i &gt;= 0; i--) {
+        num = num * R + qs[i];
+        den = den * R + 1.0;
+    }
+    return num / den;
+}
+/**
+ * (-inf, inf) -&gt; (0, inf)
+ * @param {Number} [rating] unpositivized rating
+ * @returns {number} positivized rating
+ */
+function positivizeRating(rating) {
+    if (rating &gt;= 400.0) {
+        return rating;
+    }
+    return 400.0 * Math.exp((rating - 400.0) / 400.0);
+}
+/**
+ * (0, inf) -&gt; (-inf, inf)
+ * @param {Number} [rating] positivized rating
+ * @returns {number} unpositivized rating
+ */
+function unpositivizeRating(rating) {
+    if (rating &gt;= 400.0) {
+        return rating;
+    }
+    return 400.0 + 400.0 * Math.log(rating / 400.0);
+}
+const colorNames = [&quot;unrated&quot;, &quot;gray&quot;, &quot;brown&quot;, &quot;green&quot;, &quot;cyan&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;orange&quot;, &quot;red&quot;];
+function getColor(rating) {
+    const colorIndex = rating &gt; 0 ? Math.min(Math.floor(rating / 400) + 1, 8) : 0;
+    return colorNames[colorIndex];
+}
+
+const PATH_PREFIX = &quot;/contests/&quot;;
+function getContestScreenName() {
+    const location = document.location.pathname;
+    if (!location.startsWith(PATH_PREFIX)) {
+        throw Error(&quot;not on the contest page&quot;);
+    }
+    return location.substring(PATH_PREFIX.length).split(&quot;/&quot;)[0];
+}
+
+function hasOwnProperty(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
+class StandingsLoadingView {
+    loaded;
+    element;
+    hooks;
+    constructor(element) {
+        this.loaded = false;
+        this.element = element;
+        this.hooks = [];
+        this.initHandler();
+    }
+    onLoad(hook) {
+        this.hooks.push(hook);
+    }
+    initHandler() {
+        new MutationObserver(() =&gt; {
+            if (!this.loaded) {
+                if (document.getElementById(&quot;standings-tbody&quot;) === null)
+                    return;
+                this.loaded = true;
+                this.hooks.forEach(f =&gt; f());
+            }
+        }).observe(this.element, { attributes: true });
+    }
+    static Get() {
+        const loadingElem = document.querySelector(&quot;#vue-standings .loading-show&quot;);
+        if (loadingElem === null) {
+            throw new Error(&quot;loadingElem not found&quot;);
+        }
+        return new StandingsLoadingView(loadingElem);
+    }
+}
+
+function toSignedString (n) {
+    return `${n &gt;= 0 ? &quot;+&quot; : &quot;-&quot;}${Math.abs(n)}`;
+}
+
+function addStyle(styleSheet) {
+    const styleElem = document.createElement(&quot;style&quot;);
+    styleElem.textContent = styleSheet;
+    document.getElementsByTagName(&quot;head&quot;)[0].append(styleElem);
+}
+
+function getSpan(innerElements, classList) {
+    const span = document.createElement(&quot;span&quot;);
+    span.append(...innerElements);
+    span.classList.add(...classList);
+    return span;
+}
+
+function getRatingSpan(rate) {
+    return getSpan([rate.toString()], [&quot;bold&quot;, &quot;user-&quot; + getColor(rate)]);
+}
+
+var style = &quot;/* Tooltip container */\n.my-tooltip {\n  position: relative;\n  display: inline-block;\n}\n\n/* Tooltip text */\n.my-tooltip .my-tooltiptext {\n  visibility: hidden;\n  width: 120px;\n  background-color: black;\n  color: #fff;\n  text-align: center;\n  padding: 5px 0;\n  border-radius: 6px;\n  /* Position the tooltip text - see examples below! */\n  position: absolute;\n  top: 50%;\n  right: 100%;\n  z-index: 1;\n}\n\n/* Show the tooltip text when you mouse over the tooltip container */\n.my-tooltip:hover .my-tooltiptext {\n  visibility: visible;\n}&quot;;
+
+addStyle(style);
+function getFadedSpan(innerElements) {
+    return getSpan(innerElements, [&quot;grey&quot;]);
+}
+function getRatedRatingElem(result) {
+    const elem = document.createElement(&quot;div&quot;);
+    elem.append(getRatingSpan(result.oldRating), &quot; → &quot;, getRatingSpan(result.newRating), &quot; &quot;, getFadedSpan([`(${toSignedString(result.newRating - result.oldRating)})`]));
+    return elem;
+}
+function getUnratedRatingElem(result) {
+    const elem = document.createElement(&quot;div&quot;);
+    elem.append(getRatingSpan(result.oldRating), &quot; &quot;, getFadedSpan([&quot;(unrated)&quot;]));
+    return elem;
+}
+function getDefferedRatingElem(result) {
+    const elem = document.createElement(&quot;div&quot;);
+    elem.append(getRatingSpan(result.oldRating), &quot; → &quot;, getSpan([&quot;???&quot;], [&quot;bold&quot;]), document.createElement(&quot;br&quot;), getFadedSpan([`(${getTranslation(&quot;standings_click_to_compute_label&quot;)})`]));
+    async function listener() {
+        elem.removeEventListener(&quot;click&quot;, listener);
+        elem.replaceChildren(getFadedSpan([&quot;loading...&quot;]));
+        let newRating;
+        try {
+            newRating = await result.newRatingCalculator();
+        }
+        catch (e) {
+            elem.append(getSpan([&quot;error on load&quot;], []), document.createElement(&quot;br&quot;), getSpan([&quot;(hover to see details)&quot;], [&quot;grey&quot;, &quot;small&quot;]), getSpan([e.toString()], [&quot;my-tooltiptext&quot;]));
+            elem.classList.add(&quot;my-tooltip&quot;);
+            return;
+        }
+        const newElem = getRatedRatingElem({ type: &quot;rated&quot;, performance: result.performance, oldRating: result.oldRating, newRating: newRating });
+        elem.replaceChildren(newElem);
+    }
+    elem.addEventListener(&quot;click&quot;, listener);
+    return elem;
+}
+function getPerfOnlyRatingElem(result) {
+    const elem = document.createElement(&quot;div&quot;);
+    elem.append(getFadedSpan([`(${getTranslation(&quot;standings_not_provided_label&quot;)})`]));
+    return elem;
+}
+function getErrorRatingElem(result) {
+    const elem = document.createElement(&quot;div&quot;);
+    elem.append(getSpan([&quot;error on load&quot;], []), document.createElement(&quot;br&quot;), getSpan([&quot;(hover to see details)&quot;], [&quot;grey&quot;, &quot;small&quot;]), getSpan([result.message], [&quot;my-tooltiptext&quot;]));
+    elem.classList.add(&quot;my-tooltip&quot;);
+    return elem;
+}
+function getRatingElem(result) {
+    if (result.type == &quot;rated&quot;)
+        return getRatedRatingElem(result);
+    if (result.type == &quot;unrated&quot;)
+        return getUnratedRatingElem(result);
+    if (result.type == &quot;deffered&quot;)
+        return getDefferedRatingElem(result);
+    if (result.type == &quot;perfonly&quot;)
+        return getPerfOnlyRatingElem();
+    if (result.type == &quot;error&quot;)
+        return getErrorRatingElem(result);
+    throw new Error(&quot;unreachable&quot;);
+}
+function getPerfElem(result) {
+    if (result.type == &quot;error&quot;)
+        return getSpan([&quot;-&quot;], []);
+    return getRatingSpan(result.performance);
+}
+const headerHtml = `&lt;th class=&quot;ac-predictor-standings-elem&quot; style=&quot;width:84px;min-width:84px;&quot;&gt;${getTranslation(&quot;standings_performance_column_label&quot;)}&lt;/th&gt;&lt;th class=&quot;ac-predictor-standings-elem&quot; style=&quot;width:168px;min-width:168px;&quot;&gt;${getTranslation(&quot;standings_rate_change_column_label&quot;)}&lt;/th&gt;`;
+function modifyHeader(header) {
+    header.insertAdjacentHTML(&quot;beforeend&quot;, headerHtml);
+}
+function isFooter(row) {
+    return row.firstElementChild?.classList.contains(&quot;colspan&quot;);
+}
+async function modifyStandingsRow(row, results) {
+    let userScreenName = row.querySelector(&quot;.standings-username .username span&quot;)?.textContent ?? null;
+    // TODO: この辺のロジックがここにあるの嫌だね……
+    if (userScreenName !== null &amp;&amp; row.querySelector(&quot;.standings-username .username img[src='//img.atcoder.jp/assets/icon/ghost.svg']&quot;)) {
+        userScreenName = `ghost:${userScreenName}`;
+    }
+    if (userScreenName !== null &amp;&amp; row.classList.contains(&quot;info&quot;) &amp;&amp; 3 &lt;= row.children.length &amp;&amp; row.children[2].textContent == &quot;-&quot;) {
+        // 延長線順位表用
+        userScreenName = `extended:${userScreenName}`;
+    }
+    const perfCell = document.createElement(&quot;td&quot;);
+    perfCell.classList.add(&quot;ac-predictor-standings-elem&quot;, &quot;standings-result&quot;);
+    const ratingCell = document.createElement(&quot;td&quot;);
+    ratingCell.classList.add(&quot;ac-predictor-standings-elem&quot;, &quot;standings-result&quot;);
+    if (userScreenName === null) {
+        perfCell.append(&quot;-&quot;);
+        ratingCell.append(&quot;-&quot;);
+    }
+    else {
+        const result = await results(userScreenName);
+        perfCell.append(getPerfElem(result));
+        ratingCell.append(getRatingElem(result));
+    }
+    row.insertAdjacentElement(&quot;beforeend&quot;, perfCell);
+    row.insertAdjacentElement(&quot;beforeend&quot;, ratingCell);
+}
+function modifyFooter(footer) {
+    footer.insertAdjacentHTML(&quot;beforeend&quot;, '&lt;td class=&quot;ac-predictor-standings-elem&quot; colspan=&quot;2&quot;&gt;-&lt;/td&gt;');
+}
+class StandingsTableView {
+    element;
+    provider;
+    refreshHooks = [];
+    constructor(element, resultDataProvider) {
+        this.element = element;
+        this.provider = resultDataProvider;
+        this.initHandler();
+    }
+    onRefreshed(hook) {
+        this.refreshHooks.push(hook);
+    }
+    update() {
+        this.removeOldElement();
+        const header = this.element.querySelector(&quot;thead tr&quot;);
+        if (!header)
+            console.warn(&quot;header element not found&quot;, this.element);
+        else
+            modifyHeader(header);
+        this.element.querySelectorAll(&quot;tbody tr&quot;).forEach((row) =&gt; {
+            if (isFooter(row))
+                modifyFooter(row);
+            else
+                modifyStandingsRow(row, this.provider);
+        });
+    }
+    removeOldElement() {
+        this.element.querySelectorAll(&quot;.ac-predictor-standings-elem&quot;).forEach((elem) =&gt; elem.remove());
+    }
+    initHandler() {
+        new MutationObserver(() =&gt; this.update()).observe(this.element.tBodies[0], {
+            childList: true,
+        });
+        const statsRow = this.element.querySelector(&quot;.standings-statistics&quot;);
+        if (statsRow === null) {
+            throw new Error(&quot;statsRow not found&quot;);
+        }
+        const acElems = statsRow.querySelectorAll(&quot;.standings-ac&quot;);
+        const refreshObserver = new MutationObserver((records) =&gt; {
+            if (isDebugMode())
+                console.log(&quot;fire refreshHooks&quot;, records);
+            this.refreshHooks.forEach(f =&gt; f());
+        });
+        acElems.forEach(elem =&gt; refreshObserver.observe(elem, { childList: true }));
+    }
+    static Get(resultDataProvider) {
+        const tableElem = document.querySelector(&quot;.table-responsive table&quot;);
+        return new StandingsTableView(tableElem, resultDataProvider);
+    }
+}
+
+class ExtendedStandingsPageController {
+    contestDetails;
+    performanceProvider;
+    standingsTableView;
+    async register() {
+        const loading = StandingsLoadingView.Get();
+        loading.onLoad(() =&gt; this.initialize());
+    }
+    async initialize() {
+        const contestScreenName = getContestScreenName();
+        const contestDetailsList = await getContestDetails();
+        const contestDetails = contestDetailsList.find(details =&gt; details.contestScreenName == contestScreenName);
+        if (contestDetails === undefined) {
+            throw new Error(&quot;contest details not found&quot;);
+        }
+        this.contestDetails = contestDetails;
+        this.standingsTableView = StandingsTableView.Get(async (userScreenName) =&gt; {
+            if (!this.performanceProvider)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;performanceProvider missing&quot; };
+            if (!this.performanceProvider.availableFor(userScreenName))
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: `performance not available for ${userScreenName}` };
+            const originalPerformance = this.performanceProvider.getPerformance(userScreenName);
+            const positivizedPerformance = Math.round(positivizeRating(originalPerformance));
+            return { type: &quot;perfonly&quot;, performance: positivizedPerformance };
+        });
+        this.standingsTableView.onRefreshed(async () =&gt; {
+            await this.updateData();
+            this.standingsTableView.update();
+        });
+        await this.updateData();
+        this.standingsTableView.update();
+    }
+    async updateData() {
+        if (!this.contestDetails)
+            throw new Error(&quot;contestDetails missing&quot;);
+        const extendedStandings = await getExtendedStandings(this.contestDetails.contestScreenName);
+        const aperfsObj = await getAPerfs(this.contestDetails.contestScreenName);
+        const defaultAPerf = this.contestDetails.defaultAPerf;
+        const normalizedRanks = normalizeRank(extendedStandings.toRanks(true, this.contestDetails.contestType));
+        const aperfsList = extendedStandings.toRatedUsers(this.contestDetails.contestType).map(userScreenName =&gt; hasOwnProperty(aperfsObj, userScreenName) ? aperfsObj[userScreenName] : defaultAPerf);
+        const basePerformanceProvider = new EloPerformanceProvider(normalizedRanks, aperfsList, this.contestDetails.performanceCap);
+        const ranks = extendedStandings.toRanks();
+        this.performanceProvider = new InterpolatePerformanceProvider(ranks, basePerformanceProvider);
+    }
+}
+
+class HistoriesWrapper {
+    data;
+    constructor(data) {
+        this.data = data;
+    }
+    toPerformances() {
+        const results = [];
+        for (const history of this.data) {
+            if (!history.IsRated)
+                continue;
+            results.push(history.Performance);
+        }
+        return results;
+    }
+    toPerformanceAndTimes() {
+        const results = [];
+        for (const history of this.data) {
+            if (!history.IsRated)
+                continue;
+            const date = new Date(history.EndTime);
+            results.push({ performance: history.Performance, date });
+        }
+        return results;
+    }
+}
+const HISTORY_CACHE_DURATION = 60 * 60 * 1000;
+const cache$3 = new Cache(HISTORY_CACHE_DURATION);
+async function getHistory(userScreenName, contestType = &quot;algorithm&quot;) {
+    const key = `${userScreenName}:${contestType}`;
+    if (!cache$3.has(key)) {
+        const result = await fetch(`https://atcoder.jp/users/${userScreenName}/history/json?contestType=${contestType}`);
+        if (!result.ok) {
+            throw new Error(`Failed to fetch history: ${result.status}`);
+        }
+        cache$3.set(key, await result.json());
+    }
+    return new HistoriesWrapper(cache$3.get(key));
+}
+
+// @ts-nocheck
+var dom$1 = &quot;&lt;div id=\&quot;estimator-alert\&quot;&gt;&lt;/div&gt;\n&lt;div class=\&quot;row\&quot;&gt;\n\t&lt;div class=\&quot;input-group\&quot;&gt;\n\t\t&lt;span class=\&quot;input-group-addon\&quot; id=\&quot;estimator-input-desc\&quot;&gt;&lt;/span&gt;\n\t\t&lt;input type=\&quot;number\&quot; class=\&quot;form-control\&quot; id=\&quot;estimator-input\&quot;&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;row\&quot;&gt;\n\t&lt;div class=\&quot;input-group\&quot;&gt;\n\t\t&lt;span class=\&quot;input-group-addon\&quot; id=\&quot;estimator-res-desc\&quot;&gt;&lt;/span&gt;\n\t\t&lt;input class=\&quot;form-control\&quot; id=\&quot;estimator-res\&quot; disabled=\&quot;disabled\&quot;&gt;\n\t\t&lt;span class=\&quot;input-group-btn\&quot;&gt;\n\t\t\t&lt;button class=\&quot;btn btn-default\&quot; id=\&quot;estimator-toggle\&quot;&gt;入替&lt;/button&gt;\n\t\t&lt;/span&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;row\&quot; style=\&quot;margin: 10px 0px;\&quot;&gt;\n\t&lt;a class=\&quot;btn btn-default col-xs-offset-8 col-xs-4\&quot; rel=\&quot;nofollow\&quot; onclick=\&quot;window.open(encodeURI(decodeURI(this.href)),'twwindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1'); return false;\&quot; id=\&quot;estimator-tweet\&quot;&gt;ツイート&lt;/a&gt;\n&lt;/div&gt;&quot;;
+class EstimatorModel {
+    inputDesc;
+    resultDesc;
+    perfHistory;
+    constructor(inputValue, perfHistory) {
+        this.inputDesc = &quot;&quot;;
+        this.resultDesc = &quot;&quot;;
+        this.perfHistory = perfHistory;
+        this.updateInput(inputValue);
+    }
+    inputValue;
+    resultValue;
+    updateInput(value) {
+        this.inputValue = value;
+        this.resultValue = this.calcResult(value);
+    }
+    toggle() {
+        return null;
+    }
+    calcResult(input) {
+        return input;
+    }
+}
+class CalcRatingModel extends EstimatorModel {
+    constructor(inputValue, perfHistory) {
+        super(inputValue, perfHistory);
+        this.inputDesc = &quot;パフォーマンス&quot;;
+        this.resultDesc = &quot;到達レーティング&quot;;
+    }
+    // @ts-ignore
+    toggle() {
+        return new CalcPerfModel(this.resultValue, this.perfHistory);
+    }
+    calcResult(input) {
+        return positivizeRating(calcAlgRatingFromHistory(this.perfHistory.concat([input])));
+    }
+}
+class CalcPerfModel extends EstimatorModel {
+    constructor(inputValue, perfHistory) {
+        super(inputValue, perfHistory);
+        this.inputDesc = &quot;目標レーティング&quot;;
+        this.resultDesc = &quot;必要パフォーマンス&quot;;
+    }
+    // @ts-ignore
+    toggle() {
+        return new CalcRatingModel(this.resultValue, this.perfHistory);
+    }
+    calcResult(input) {
+        return calcRequiredPerformance(unpositivizeRating(input), this.perfHistory);
+    }
+}
+function GetEmbedTweetLink(content, url) {
+    return `https://twitter.com/share?text=${encodeURI(content)}&amp;url=${encodeURI(url)}`;
+}
+function getLS(key) {
+    const val = localStorage.getItem(key);
+    return (val ? JSON.parse(val) : val);
+}
+function setLS(key, val) {
+    try {
+        localStorage.setItem(key, JSON.stringify(val));
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+const models = [CalcPerfModel, CalcRatingModel];
+function GetModelFromStateCode(state, value, history) {
+    let model = models.find((model) =&gt; model.name === state);
+    if (!model)
+        model = CalcPerfModel;
+    return new model(value, history);
+}
+function getPerformanceHistories(history) {
+    const onlyRated = history.filter((x) =&gt; x.IsRated);
+    onlyRated.sort((a, b) =&gt; {
+        return new Date(a.EndTime).getTime() - new Date(b.EndTime).getTime();
+    });
+    return onlyRated.map((x) =&gt; x.Performance);
+}
+function roundValue(value, numDigits) {
+    return Math.round(value * Math.pow(10, numDigits)) / Math.pow(10, numDigits);
+}
+class EstimatorElement {
+    id;
+    title;
+    document;
+    constructor() {
+        this.id = &quot;estimator&quot;;
+        this.title = &quot;Estimator&quot;;
+        this.document = dom$1;
+    }
+    async afterOpen() {
+        const estimatorInputSelector = document.getElementById(&quot;estimator-input&quot;);
+        const estimatorResultSelector = document.getElementById(&quot;estimator-res&quot;);
+        let model = GetModelFromStateCode(getLS(&quot;sidemenu_estimator_state&quot;), getLS(&quot;sidemenu_estimator_value&quot;), getPerformanceHistories((await getHistory(userScreenName)).data));
+        updateView();
+        document.getElementById(&quot;estimator-toggle&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+            model = model.toggle();
+            updateLocalStorage();
+            updateView();
+        });
+        estimatorInputSelector.addEventListener(&quot;keyup&quot;, () =&gt; {
+            updateModel();
+            updateLocalStorage();
+            updateView();
+        });
+        /** modelをinputの値に応じて更新 */
+        function updateModel() {
+            const inputNumber = estimatorInputSelector.valueAsNumber;
+            if (!isFinite(inputNumber))
+                return;
+            model.updateInput(inputNumber);
+        }
+        /** modelの状態をLSに保存 */
+        function updateLocalStorage() {
+            setLS(&quot;sidemenu_estimator_value&quot;, model.inputValue);
+            setLS(&quot;sidemenu_estimator_state&quot;, model.constructor.name);
+        }
+        /** modelを元にviewを更新 */
+        function updateView() {
+            const roundedInput = roundValue(model.inputValue, 2);
+            const roundedResult = roundValue(model.resultValue, 2);
+            document.getElementById(&quot;estimator-input-desc&quot;).innerText = model.inputDesc;
+            document.getElementById(&quot;estimator-res-desc&quot;).innerText = model.resultDesc;
+            estimatorInputSelector.value = String(roundedInput);
+            estimatorResultSelector.value = String(roundedResult);
+            const tweetStr = `AtCoderのハンドルネーム: ${userScreenName}\n${model.inputDesc}: ${roundedInput}\n${model.resultDesc}: ${roundedResult}\n`;
+            document.getElementById(&quot;estimator-tweet&quot;).href = GetEmbedTweetLink(tweetStr, &quot;https://greasyfork.org/ja/scripts/369954-ac-predictor&quot;);
+        }
+    }
+    ;
+    GetHTML() {
+        return `&lt;div class=&quot;menu-wrapper&quot;&gt;
+&lt;div class=&quot;menu-header&quot;&gt;
+    &lt;h4 class=&quot;sidemenu-txt&quot;&gt;${this.title}&lt;span class=&quot;glyphicon glyphicon-menu-up&quot; style=&quot;float: right&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;/div&gt;
+&lt;div class=&quot;menu-box&quot;&gt;&lt;div class=&quot;menu-content&quot; id=&quot;${this.id}&quot;&gt;${this.document}&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;`;
+    }
+}
+const estimator = new EstimatorElement();
+var sidemenuHtml = &quot;&lt;style&gt;\n    #menu-wrap {\n        display: block;\n        position: fixed;\n        top: 0;\n        z-index: 20;\n        width: 400px;\n        right: -350px;\n        transition: all 150ms 0ms ease;\n        margin-top: 50px;\n    }\n\n    #sidemenu {\n        background: #000;\n        opacity: 0.85;\n    }\n    #sidemenu-key {\n        border-radius: 5px 0px 0px 5px;\n        background: #000;\n        opacity: 0.85;\n        color: #FFF;\n        padding: 30px 0;\n        cursor: pointer;\n        margin-top: 100px;\n        text-align: center;\n    }\n\n    #sidemenu {\n        display: inline-block;\n        width: 350px;\n        float: right;\n    }\n\n    #sidemenu-key {\n        display: inline-block;\n        width: 50px;\n        float: right;\n    }\n\n    .sidemenu-active {\n        transform: translateX(-350px);\n    }\n\n    .sidemenu-txt {\n        color: #DDD;\n    }\n\n    .menu-wrapper {\n        border-bottom: 1px solid #FFF;\n    }\n\n    .menu-header {\n        margin: 10px 20px 10px 20px;\n        user-select: none;\n    }\n\n    .menu-box {\n        overflow: hidden;\n        transition: all 300ms 0s ease;\n    }\n    .menu-box-collapse {\n        height: 0px !important;\n    }\n    .menu-box-collapse .menu-content {\n        transform: translateY(-100%);\n    }\n    .menu-content {\n        padding: 10px 20px 10px 20px;\n        transition: all 300ms 0s ease;\n    }\n    .cnvtb-fixed {\n        z-index: 19;\n    }\n&lt;/style&gt;\n&lt;div id=\&quot;menu-wrap\&quot;&gt;\n    &lt;div id=\&quot;sidemenu\&quot; class=\&quot;container\&quot;&gt;&lt;/div&gt;\n    &lt;div id=\&quot;sidemenu-key\&quot; class=\&quot;glyphicon glyphicon-menu-left\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;&quot;;
+class SideMenu {
+    pendingElements;
+    constructor() {
+        this.pendingElements = [];
+        this.Generate();
+    }
+    Generate() {
+        document.getElementById(&quot;main-div&quot;).insertAdjacentHTML(&quot;afterbegin&quot;, sidemenuHtml);
+        resizeSidemenuHeight();
+        const key = document.getElementById(&quot;sidemenu-key&quot;);
+        const wrap = document.getElementById(&quot;menu-wrap&quot;);
+        key.addEventListener(&quot;click&quot;, () =&gt; {
+            this.pendingElements.forEach((elem) =&gt; {
+                elem.afterOpen();
+            });
+            this.pendingElements.length = 0;
+            key.classList.toggle(&quot;glyphicon-menu-left&quot;);
+            key.classList.toggle(&quot;glyphicon-menu-right&quot;);
+            wrap.classList.toggle(&quot;sidemenu-active&quot;);
+        });
+        window.addEventListener(&quot;onresize&quot;, resizeSidemenuHeight);
+        document.getElementById(&quot;sidemenu&quot;).addEventListener(&quot;click&quot;, (event) =&gt; {
+            const target = event.target;
+            const header = target.closest(&quot;.menu-header&quot;);
+            if (!header)
+                return;
+            const box = target.closest(&quot;.menu-wrapper&quot;).querySelector(&quot;.menu-box&quot;);
+            box.classList.toggle(&quot;menu-box-collapse&quot;);
+            const arrow = target.querySelector(&quot;.glyphicon&quot;);
+            arrow.classList.toggle(&quot;glyphicon-menu-down&quot;);
+            arrow.classList.toggle(&quot;glyphicon-menu-up&quot;);
+        });
+        function resizeSidemenuHeight() {
+            document.getElementById(&quot;sidemenu&quot;).style.height = `${window.innerHeight}px`;
+        }
+    }
+    addElement(element) {
+        const sidemenu = document.getElementById(&quot;sidemenu&quot;);
+        sidemenu.insertAdjacentHTML(&quot;afterbegin&quot;, element.GetHTML());
+        const content = sidemenu.querySelector(&quot;.menu-content&quot;);
+        content.parentElement.style.height = `${content.offsetHeight}px`;
+        // element.afterAppend();
+        this.pendingElements.push(element);
+    }
+}
+function add() {
+    const sidemenu = new SideMenu();
+    const elements = [estimator];
+    for (let i = elements.length - 1; i &gt;= 0; i--) {
+        sidemenu.addElement(elements[i]);
+    }
+}
+
+class ResultsWrapper {
+    data;
+    constructor(data) {
+        this.data = data;
+    }
+    toPerformanceMaps() {
+        const res = new Map();
+        for (const result of this.data) {
+            if (!result.IsRated)
+                continue;
+            res.set(result.UserScreenName, result.Performance);
+        }
+        return res;
+    }
+    toIsRatedMaps() {
+        const res = new Map();
+        for (const result of this.data) {
+            res.set(result.UserScreenName, result.IsRated);
+        }
+        return res;
+    }
+    toOldRatingMaps() {
+        const res = new Map();
+        for (const result of this.data) {
+            res.set(result.UserScreenName, result.OldRating);
+        }
+        return res;
+    }
+    toNewRatingMaps() {
+        const res = new Map();
+        for (const result of this.data) {
+            res.set(result.UserScreenName, result.NewRating);
+        }
+        return res;
+    }
+}
+const RESULTS_CACHE_DURATION = 10 * 1000;
+const cache$2 = new Cache(RESULTS_CACHE_DURATION);
+async function getResults(contestScreenName) {
+    if (!cache$2.has(contestScreenName)) {
+        const result = await fetch(`https://atcoder.jp/contests/${contestScreenName}/results/json`);
+        if (!result.ok) {
+            throw new Error(`Failed to fetch results: ${result.status}`);
+        }
+        cache$2.set(contestScreenName, await result.json());
+    }
+    return new ResultsWrapper(cache$2.get(contestScreenName));
+}
+addHandler((content, path) =&gt; {
+    const match = path.match(/^\/contests\/([^/]*)\/results\/json$/);
+    if (!match)
+        return;
+    const contestScreenName = match[1];
+    cache$2.set(contestScreenName, JSON.parse(content));
+});
+
+let StandingsWrapper$1 = class StandingsWrapper {
+    data;
+    constructor(data) {
+        this.data = data;
+    }
+    toRanks(onlyRated = false, contestType = &quot;algorithm&quot;) {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            if (onlyRated &amp;&amp; !this.isRated(data, contestType))
+                continue;
+            res.set(data.UserScreenName, data.Rank);
+        }
+        return res;
+    }
+    toRatedUsers(contestType) {
+        const res = [];
+        for (const data of this.data.StandingsData) {
+            if (this.isRated(data, contestType)) {
+                res.push(data.UserScreenName);
+            }
+        }
+        return res;
+    }
+    toIsRatedMaps(contestType) {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            res.set(data.UserScreenName, this.isRated(data, contestType));
+        }
+        return res;
+    }
+    toOldRatingMaps(unpositivize = false) {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            const rating = this.data.Fixed ? data.OldRating : data.Rating;
+            res.set(data.UserScreenName, unpositivize ? unpositivizeRating(rating) : rating);
+        }
+        return res;
+    }
+    toCompetitionMaps() {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            res.set(data.UserScreenName, data.Competitions);
+        }
+        return res;
+    }
+    toScores() {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            res.set(data.UserScreenName, { score: data.TotalResult.Score, penalty: data.TotalResult.Elapsed });
+        }
+        return res;
+    }
+    isRated(data, contestType = &quot;algorithm&quot;) {
+        if (contestType === &quot;algorithm&quot;) {
+            return data.IsRated;
+        }
+        if (contestType === &quot;heuristic&quot;) {
+            return data.IsRated &amp;&amp; data.TotalResult.Count !== 0;
+        }
+        throw new Error(&quot;unreachable&quot;);
+    }
+};
+const STANDINGS_CACHE_DURATION$1 = 10 * 1000;
+const cache$1 = new Cache(STANDINGS_CACHE_DURATION$1);
+async function getStandings(contestScreenName) {
+    if (!cache$1.has(contestScreenName)) {
+        const result = await fetch(`https://atcoder.jp/contests/${contestScreenName}/standings/json`);
+        if (!result.ok) {
+            throw new Error(`Failed to fetch standings: ${result.status}`);
+        }
+        cache$1.set(contestScreenName, await result.json());
+    }
+    return new StandingsWrapper$1(cache$1.get(contestScreenName));
+}
+addHandler((content, path) =&gt; {
+    const match = path.match(/^\/contests\/([^/]*)\/standings\/json$/);
+    if (!match)
+        return;
+    const contestScreenName = match[1];
+    cache$1.set(contestScreenName, JSON.parse(content));
+});
+
+class FixedPerformanceProvider {
+    result;
+    constructor(result) {
+        this.result = result;
+    }
+    availableFor(userScreenName) {
+        return this.result.has(userScreenName);
+    }
+    getPerformance(userScreenName) {
+        if (!this.availableFor(userScreenName)) {
+            throw new Error(`User ${userScreenName} not found`);
+        }
+        return this.result.get(userScreenName);
+    }
+    getPerformances() {
+        return this.result;
+    }
+}
+
+class IncrementalAlgRatingProvider {
+    unpositivizedRatingMap;
+    competitionsMap;
+    constructor(unpositivizedRatingMap, competitionsMap) {
+        this.unpositivizedRatingMap = unpositivizedRatingMap;
+        this.competitionsMap = competitionsMap;
+    }
+    availableFor(userScreenName) {
+        return this.unpositivizedRatingMap.has(userScreenName);
+    }
+    async getRating(userScreenName, newPerformance) {
+        if (!this.availableFor(userScreenName)) {
+            throw new Error(`rating not available for ${userScreenName}`);
+        }
+        const rating = this.unpositivizedRatingMap.get(userScreenName);
+        const competitions = this.competitionsMap.get(userScreenName);
+        return Math.round(positivizeRating(calcAlgRatingFromLast(rating, newPerformance, competitions)));
+    }
+}
+
+class ConstRatingProvider {
+    ratings;
+    constructor(ratings) {
+        this.ratings = ratings;
+    }
+    availableFor(userScreenName) {
+        return this.ratings.has(userScreenName);
+    }
+    async getRating(userScreenName, newPerformance) {
+        if (!this.availableFor(userScreenName)) {
+            throw new Error(`rating not available for ${userScreenName}`);
+        }
+        return this.ratings.get(userScreenName);
+    }
+}
+
+class FromHistoryHeuristicRatingProvider {
+    performancesProvider;
+    constructor(performancesProvider) {
+        this.performancesProvider = performancesProvider;
+    }
+    availableFor(userScreenName) {
+        return true;
+    }
+    async getRating(userScreenName, newPerformance) {
+        const performances = await this.performancesProvider(userScreenName);
+        performances.push(newPerformance);
+        return Math.round(positivizeRating(calcHeuristicRatingFromHistory(performances)));
+    }
+}
+
+class StandingsPageController {
+    contestDetails;
+    performanceProvider;
+    ratingProvider;
+    oldRatings = new Map();
+    isRatedMaps = new Map();
+    standingsTableView;
+    async register() {
+        const loading = StandingsLoadingView.Get();
+        loading.onLoad(() =&gt; this.initialize());
+    }
+    async initialize() {
+        const contestScreenName = getContestScreenName();
+        const contestDetailsList = await getContestDetails();
+        const contestDetails = contestDetailsList.find(details =&gt; details.contestScreenName == contestScreenName);
+        if (contestDetails === undefined) {
+            throw new Error(&quot;contest details not found&quot;);
+        }
+        this.contestDetails = contestDetails;
+        if (this.contestDetails.beforeContest(new Date()))
+            return;
+        if (getConfig(&quot;hideDuringContest&quot;) &amp;&amp; this.contestDetails.duringContest(new Date()))
+            return;
+        const standings = await getStandings(this.contestDetails.contestScreenName);
+        if (getConfig(&quot;hideUntilFixed&quot;) &amp;&amp; !standings.data.Fixed)
+            return;
+        this.standingsTableView = StandingsTableView.Get(async (userScreenName) =&gt; {
+            if (!this.ratingProvider)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;ratingProvider missing&quot; };
+            if (!this.performanceProvider)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;performanceProvider missing&quot; };
+            if (!this.isRatedMaps)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;isRatedMapping missing&quot; };
+            if (!this.oldRatings)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;oldRatings missing&quot; };
+            if (!this.oldRatings.has(userScreenName))
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: `oldRating not found for ${userScreenName}` };
+            const oldRating = this.oldRatings.get(userScreenName);
+            if (!this.performanceProvider.availableFor(userScreenName))
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: `performance not available for ${userScreenName}` };
+            const originalPerformance = this.performanceProvider.getPerformance(userScreenName);
+            const positivizedPerformance = Math.round(positivizeRating(originalPerformance));
+            if (this.isRatedMaps.get(userScreenName)) {
+                if (!this.ratingProvider.provider.availableFor(userScreenName))
+                    return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: `rating not available for ${userScreenName}` };
+                if (this.ratingProvider.lazy) {
+                    const newRatingCalculator = () =&gt; this.ratingProvider.provider.getRating(userScreenName, originalPerformance);
+                    return { type: &quot;deffered&quot;, oldRating, performance: positivizedPerformance, newRatingCalculator };
+                }
+                else {
+                    const newRating = await this.ratingProvider.provider.getRating(userScreenName, originalPerformance);
+                    return { type: &quot;rated&quot;, oldRating, performance: positivizedPerformance, newRating };
+                }
+            }
+            else {
+                return { type: &quot;unrated&quot;, oldRating, performance: positivizedPerformance };
+            }
+        });
+        this.standingsTableView.onRefreshed(async () =&gt; {
+            await this.updateData();
+            this.standingsTableView.update();
+        });
+        await this.updateData();
+        this.standingsTableView.update();
+    }
+    async updateData() {
+        if (!this.contestDetails)
+            throw new Error(&quot;contestDetails missing&quot;);
+        if (isDebugMode())
+            console.log(&quot;data updating...&quot;);
+        const standings = await getStandings(this.contestDetails.contestScreenName);
+        let basePerformanceProvider = undefined;
+        if (standings.data.Fixed &amp;&amp; getConfig(&quot;useResults&quot;)) {
+            try {
+                const results = await getResults(this.contestDetails.contestScreenName);
+                if (results.data.length === 0) {
+                    throw new Error(&quot;results missing&quot;);
+                }
+                basePerformanceProvider = new FixedPerformanceProvider(results.toPerformanceMaps());
+                this.isRatedMaps = results.toIsRatedMaps();
+                this.oldRatings = results.toOldRatingMaps();
+                this.ratingProvider = { provider: new ConstRatingProvider(results.toNewRatingMaps()), lazy: false };
+            }
+            catch (e) {
+                console.warn(&quot;getResults failed&quot;, e);
+            }
+        }
+        if (basePerformanceProvider === undefined) {
+            const aperfsDict = await getAPerfs(this.contestDetails.contestScreenName);
+            const defaultAPerf = this.contestDetails.defaultAPerf;
+            const normalizedRanks = normalizeRank(standings.toRanks(true, this.contestDetails.contestType));
+            const aperfsList = standings.toRatedUsers(this.contestDetails.contestType).map(user =&gt; hasOwnProperty(aperfsDict, user) ? aperfsDict[user] : defaultAPerf);
+            basePerformanceProvider = new EloPerformanceProvider(normalizedRanks, aperfsList, this.contestDetails.performanceCap);
+            this.isRatedMaps = standings.toIsRatedMaps(this.contestDetails.contestType);
+            this.oldRatings = standings.toOldRatingMaps();
+            if (this.contestDetails.contestType == &quot;algorithm&quot;) {
+                this.ratingProvider = { provider: new IncrementalAlgRatingProvider(standings.toOldRatingMaps(true), standings.toCompetitionMaps()), lazy: false };
+            }
+            else {
+                this.ratingProvider = {
+                    provider: new FromHistoryHeuristicRatingProvider(async (userScreenName) =&gt; {
+                        const histories = await getHistory(userScreenName, &quot;heuristic&quot;);
+                        histories.data = histories.data.filter(x =&gt; new Date(x.EndTime) &lt; this.contestDetails.endTime);
+                        return histories.toPerformances();
+                    }),
+                    lazy: true
+                };
+            }
+        }
+        this.performanceProvider = new InterpolatePerformanceProvider(standings.toRanks(), basePerformanceProvider);
+        if (isDebugMode())
+            console.log(&quot;data updated&quot;);
+    }
+}
+
+class StandingsWrapper {
+    data;
+    constructor(data) {
+        this.data = data;
+    }
+    toRanks(onlyRated = false, contestType = &quot;algorithm&quot;) {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            if (onlyRated &amp;&amp; !this.isRated(data, contestType))
+                continue;
+            const userScreenName = data.Additional[&quot;standings.virtualElapsed&quot;] === -2 ? `ghost:${data.UserScreenName}` : data.UserScreenName;
+            res.set(userScreenName, data.Rank);
+        }
+        return res;
+    }
+    toRatedUsers(contestType) {
+        const res = [];
+        for (const data of this.data.StandingsData) {
+            if (this.isRated(data, contestType)) {
+                res.push(data.UserScreenName);
+            }
+        }
+        return res;
+    }
+    toScores() {
+        const res = new Map();
+        for (const data of this.data.StandingsData) {
+            const userScreenName = data.Additional[&quot;standings.virtualElapsed&quot;] === -2 ? `ghost:${data.UserScreenName}` : data.UserScreenName;
+            res.set(userScreenName, { score: data.TotalResult.Score, penalty: data.TotalResult.Elapsed });
+        }
+        return res;
+    }
+    isRated(data, contestType) {
+        if (contestType === &quot;algorithm&quot;) {
+            return data.IsRated &amp;&amp; data.Additional[&quot;standings.virtualElapsed&quot;] === -2;
+        }
+        else {
+            return data.IsRated &amp;&amp; data.Additional[&quot;standings.virtualElapsed&quot;] === -2 &amp;&amp; data.TotalResult.Count !== 0;
+        }
+    }
+}
+function createCacheKey(contestScreenName, showGhost) {
+    return `${contestScreenName}:${showGhost}`;
+}
+const STANDINGS_CACHE_DURATION = 10 * 1000;
+const cache = new Cache(STANDINGS_CACHE_DURATION);
+async function getVirtualStandings(contestScreenName, showGhost) {
+    const cacheKey = createCacheKey(contestScreenName, showGhost);
+    if (!cache.has(cacheKey)) {
+        const result = await fetch(`https://atcoder.jp/contests/${contestScreenName}/standings/virtual/json${showGhost ? &quot;?showGhost=true&quot; : &quot;&quot;}`);
+        if (!result.ok) {
+            throw new Error(`Failed to fetch standings: ${result.status}`);
+        }
+        cache.set(cacheKey, await result.json());
+    }
+    return new StandingsWrapper(cache.get(cacheKey));
+}
+addHandler((content, path) =&gt; {
+    const match = path.match(/^\/contests\/([^/]*)\/standings\/virtual\/json(\?showGhost=true)?$/);
+    if (!match)
+        return;
+    const contestScreenName = match[1];
+    const showGhost = match[2] != &quot;&quot;;
+    cache.set(createCacheKey(contestScreenName, showGhost), JSON.parse(content));
+});
+
+function isVirtualStandingsPage() {
+    return /^\/contests\/[^/]*\/standings\/virtual\/?$/.test(document.location.pathname);
+}
+
+function duringVirtualParticipation() {
+    if (!isVirtualStandingsPage()) {
+        throw new Error(&quot;not available in this page&quot;);
+    }
+    const timerText = document.getElementById(&quot;virtual-timer&quot;)?.textContent ?? &quot;&quot;;
+    if (timerText &amp;&amp; !timerText.includes(&quot;終了&quot;) &amp;&amp; !timerText.includes(&quot;over&quot;))
+        return true;
+    else
+        return false;
+}
+
+function forgeCombinedRanks(a, b) {
+    const res = new Map();
+    const merged = [...a.entries(), ...b.entries()].sort((a, b) =&gt; a[1].score !== b[1].score ? b[1].score - a[1].score : a[1].penalty - b[1].penalty);
+    let rank = 0;
+    let prevScore = NaN;
+    let prevPenalty = NaN;
+    for (const [userScreenName, { score, penalty }] of merged) {
+        if (score !== prevScore || penalty !== prevPenalty) {
+            rank++;
+            prevScore = score;
+            prevPenalty = penalty;
+        }
+        res.set(userScreenName, rank);
+    }
+    return res;
+}
+function remapKey(map, mappingFunction) {
+    const newMap = new Map();
+    for (const [key, val] of map) {
+        newMap.set(mappingFunction(key), val);
+    }
+    return newMap;
+}
+class VirtualStandingsPageController {
+    contestDetails;
+    performanceProvider;
+    standingsTableView;
+    async register() {
+        const loading = StandingsLoadingView.Get();
+        loading.onLoad(() =&gt; this.initialize());
+    }
+    async initialize() {
+        const contestScreenName = getContestScreenName();
+        const contestDetailsList = await getContestDetails();
+        const contestDetails = contestDetailsList.find(details =&gt; details.contestScreenName == contestScreenName);
+        if (contestDetails === undefined) {
+            throw new Error(&quot;contest details not found&quot;);
+        }
+        this.contestDetails = contestDetails;
+        this.standingsTableView = StandingsTableView.Get(async (userScreenName) =&gt; {
+            if (!this.performanceProvider)
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: &quot;performanceProvider missing&quot; };
+            if (!this.performanceProvider.availableFor(userScreenName))
+                return { &quot;type&quot;: &quot;error&quot;, &quot;message&quot;: `performance not available for ${userScreenName}` };
+            const originalPerformance = this.performanceProvider.getPerformance(userScreenName);
+            const positivizedPerformance = Math.round(positivizeRating(originalPerformance));
+            return { type: &quot;perfonly&quot;, performance: positivizedPerformance };
+        });
+        this.standingsTableView.onRefreshed(async () =&gt; {
+            await this.updateData();
+            this.standingsTableView.update();
+        });
+        await this.updateData();
+        this.standingsTableView.update();
+    }
+    async updateData() {
+        if (!this.contestDetails)
+            throw new Error(&quot;contestDetails missing&quot;);
+        const virtualStandings = await getVirtualStandings(this.contestDetails.contestScreenName, true);
+        const results = await getResults(this.contestDetails.contestScreenName);
+        let ranks;
+        let basePerformanceProvider;
+        if ((!duringVirtualParticipation() || getConfig(&quot;useFinalResultOnVirtual&quot;)) &amp;&amp; getConfig(&quot;useResults&quot;)) {
+            const standings = await getStandings(this.contestDetails.contestScreenName);
+            const referencePerformanceMap = remapKey(results.toPerformanceMaps(), userScreenName =&gt; `reference:${userScreenName}`);
+            basePerformanceProvider = new FixedPerformanceProvider(referencePerformanceMap);
+            ranks = forgeCombinedRanks(remapKey(standings.toScores(), userScreenName =&gt; `reference:${userScreenName}`), virtualStandings.toScores());
+        }
+        else {
+            const aperfsObj = await getAPerfs(this.contestDetails.contestScreenName);
+            const defaultAPerf = this.contestDetails.defaultAPerf;
+            const normalizedRanks = normalizeRank(virtualStandings.toRanks(true, this.contestDetails.contestType));
+            const aperfsList = virtualStandings.toRatedUsers(this.contestDetails.contestType).map(userScreenName =&gt; hasOwnProperty(aperfsObj, userScreenName) ? aperfsObj[userScreenName] : defaultAPerf);
+            basePerformanceProvider = new EloPerformanceProvider(normalizedRanks, aperfsList, this.contestDetails.performanceCap);
+            ranks = virtualStandings.toRanks();
+        }
+        this.performanceProvider = new InterpolatePerformanceProvider(ranks, basePerformanceProvider);
+    }
+}
+
+function isExtendedStandingsPage() {
+    return /^\/contests\/[^/]*\/standings\/extended\/?$/.test(document.location.pathname);
+}
+
+function isStandingsPage() {
+    return /^\/contests\/[^/]*\/standings\/?$/.test(document.location.pathname);
+}
+
+{
+    const controller = new ConfigController();
+    controller.register();
+    add();
+}
+if (isStandingsPage()) {
+    const controller = new StandingsPageController();
+    controller.register();
+}
+if (isVirtualStandingsPage()) {
+    const controller = new VirtualStandingsPageController();
+    controller.register();
+}
+if (isExtendedStandingsPage()) {
+    const controller = new ExtendedStandingsPageController();
+    controller.register();
+}
+
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/">[CF1610D] Not Quite Lee  的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/">[CF991E] Bus Number 的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-16">2024-04-16</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/">atcoder 统计</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-1 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/fun/" class="ctag ctag-2 ctag-fun" aria-label="">不正经</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://doittomorrow.xyz/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">一个 OIer 的个人修养</a></h4>
+                    <p class="founder">给岁月以文明，而不是给文明以岁月。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://doittomorrow.xyz"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 63 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://doittomorrow.xyz/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

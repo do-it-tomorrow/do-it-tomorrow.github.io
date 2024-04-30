@@ -1,0 +1,1030 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STL常用函数 | 一个 OIer 的个人修养</title>
+<meta name="description" content="给岁月以文明，而不是给文明以岁月。" />
+<link rel="shortcut icon" href="https://doittomorrow.xyz/favicon.ico">
+<link rel="stylesheet" href="https://doittomorrow.xyz/styles/main.css">
+
+<script src="https://doittomorrow.xyz/media/js/jquery.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/masonry.pkgd.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/aos.js"></script>
+<script src="https://doittomorrow.xyz/media/js/pace.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/view-image.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://doittomorrow.xyz/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="STL简介
+STL 是 Standard Template Library 的简称，中文名称为标准模板库，从根本上讲， 就是各种 STL 容器的集合，容器可以理解为能够实现很多功能的系统的函数。常见的容器有vector，stack，queu..." />
+    <meta name="keywords" content="笔记" />
+    <script src="https://doittomorrow.xyz/media/js/waterfall.min.js"></script>
+    <script src="https://doittomorrow.xyz/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://doittomorrow.xyz"><img src="\media\images\custom-headerLogo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://doittomorrow.xyz" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/gong-ju-xiang" class="menu">
+                      工具箱
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/guan-yu-ben-zhan" class="menu">
+                      关于本站
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1714482324512" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('https://preview.cloud.189.cn/image/imageAction?param=BB0571DCADC5E229A55CDE8AA2FE19B2648B08CEF463983BF9F39CA2078893A36335F7F4237DF94FAB56480F03352BD82CED21F8CF9E5344C8DADCC2C2EA47C31CD8A969B744D9F7B72B1E76C34C98634B7800C35C35AEED03819190AF1F94776737BFF44CB264F4CDB58C6504322551EB6A1F27');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2023-12-31"><i class="fa fa-calendar"></i><span class="lately">4 个月前</span></time>
+              
+              <a href="https://doittomorrow.xyz/post/stl-chang-yong-han-shu/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/stl-chang-yong-han-shu/"> </span>
+              </a>
+              <span id="/stl-chang-yong-han-shu/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-0 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">STL常用函数</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h2 id="stl简介">STL简介</h2>
+<p>STL 是 Standard Template Library 的简称，中文名称为标准模板库，从根本上讲， 就是各种 STL 容器的集合，容器可以理解为能够实现很多功能的系统的函数。常见的容器有<code>vector</code>，<code>stack</code>，<code>queue</code>，<code>map</code>，<code>set</code>等。</p>
+<h2 id="迭代器">迭代器</h2>
+<p>迭代器（<code>iterators</code>）是用来访问容器中的元素，类似于指针。迭代器全部包含两个函数：</p>
+<p>1.<code>begin()</code> ，返回一个容器开头的迭代器;</p>
+<p>2.<code>end()</code> ，返回一个容器末尾的迭代器，但是<strong>不包括最后一个元素，而是最后一个元素的下一个地址。</strong></p>
+<p>定义：</p>
+<pre><code class="language-c++">containers &lt;typename&gt;::iterators name;
+//containers为容器类型，typename为容器内的数据类型，name为迭代器名
+</code></pre>
+<hr>
+<h2 id="string">string</h2>
+<h4 id="简介">简介</h4>
+<p>在 C 语言中，一般使用字符数组<code>char str[ ]</code>来存放字符串，但是操作起来非常麻烦，容易出错。 在 C++中加入了<code>string</code> 类型用来存放字符串，使用起来更加方便。</p>
+<p>使用时，需要添加头文件<code>string</code> ，即<code>#include&lt;string&gt;</code>。</p>
+<h4 id="定义">定义</h4>
+<pre><code class="language-c++">string name; // name是变量名
+string name2=&quot;abcde&quot;; //可直接赋值
+</code></pre>
+<p>如果需要存放多个字符串，定义<code>string</code> 类型数组：</p>
+<pre><code class="language-c++">string name [N];
+//name[N]可以存放N个字符串。
+</code></pre>
+<h4 id="输入输出">输入输出</h4>
+<p>如果要输入输出，只能使用<code>cin</code>和<code>cout</code>。使用<code>cin</code>读入<code>string</code> 类型，就像用<code>scanf()</code>读字符 数组一样，忽略开头的(制表符、换行符、空格），当再次碰到空字符就停止（并不会读取空字符）。</p>
+<pre><code class="language-c++">string s;
+cin&gt;&gt;s;
+</code></pre>
+<p>读入时忽略了空字符，可以将其记作<code>cin</code>读字符串读的是单词。当然，有时我们更希望读取的是句子。  C++ 提供了<code>getline</code>函数以供使用。</p>
+<p><code>getline</code>的原型是：<code>getline(cin,s);</code>，<code>cin</code>指的是读入流，一般情况下我们直接写<code>cin</code>即可，<code>s</code>是字符串，即我们读入的东西要存放的字符串。</p>
+<pre><code class="language-c++">string s;
+getline(cin,s); // getline()读入一行的字符，会舍弃换行符
+</code></pre>
+<h4 id="访问">访问</h4>
+<p><strong>（1）通过下标访问</strong></p>
+<p>对于<code>string</code> 类型的字符串进行访问，与字符数组访问一样，使用下标。如果有<code>string</code> 类型变量名 为<code>s</code>，可直接访问对应字符<code>s[0]</code>，<code>s[1]</code>，<code>s[2]</code>……，<code>s[s.size()-1]</code>，<code>s.size()</code>是用来求<code>string</code> 类型的长度。</p>
+<p><strong>（2）通过迭代器访问</strong></p>
+<pre><code class="language-c++">string::iterator it;
+</code></pre>
+<p>定义了<code>string</code> 的迭代器<code>it</code>，可以通过<code>*it</code>访问<code>string</code> 中的每一个字符，在常用的STL容器 中，只有<code>vector</code>和<code>string</code> 允许使用<code>v.begin()+5</code>这种迭代器加上整数的写法，等价于访问<code>s[5]</code>。同时，迭代器可以进行自加、自减操作，即<code>it++</code>，<code>++it</code>，<code>it--</code>，<code>--it</code>。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s=&quot;abcdef&quot;;
+for(string::iterator it=s.begin();it!=s.end();it++) //输出abcdef
+	cout&lt;&lt;*it&lt;&lt;&quot; &quot;;
+cout&lt;&lt;endl;
+for(string::iterator it=s.begin()+3;it!=s.end();it++) //输出def
+	cout&lt;&lt;*it&lt;&lt;&quot; &quot;;
+</code></pre>
+<p><code>s.end()</code>不是取<code>s</code>的尾元素地址，而是尾元素地址的下一个地址，不存储任何元素，不支持<code>it&lt;end()</code>的写法。</p>
+<h4 id="运算">运算</h4>
+<p>①<code>string</code> 类型可以直接进行加法运算。但是加法是将两个字符串拼接起来。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s1=&quot;abc&quot;,s2=&quot;efgh&quot;;
+cout&lt;&lt;s1+s2; //输出abcefgh
+</code></pre>
+<p>② string 类型可以互相进行复制。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s3;
+s3=s2;
+cout&lt;&lt;s3; //输出efgh
+</code></pre>
+<p>③ string 类型可以直接进行关系运算。直接比较大小，按照字典序进行比较。</p>
+<pre><code class="language-c++">if(s1&gt;s2) cout&lt;&lt;1; 
+else cout&lt;&lt;0; //最后结果为0，&quot;efgh&quot;字典序大于&quot;abc&quot; 
+//判断是否相等。 s
+tring s1=&quot;abc&quot;,s2=&quot;abc&quot;;
+if(s1==s2) cout&lt;&lt;1; //会输出1
+</code></pre>
+<h4 id="常用函数">常用函数</h4>
+<p><strong>① size()和length()</strong></p>
+<p>这两个函数都是返回<code>string</code> 类型的长度（字符个数）。时间复杂度 O(1)。</p>
+<p><strong>② clear()和empty()</strong></p>
+<p><code>clear()</code>用来清空<code>string</code> 中的所有元素，时间复杂度为O(1) 。</p>
+<p><code>empty()</code>用来判断<code>string</code> 是否为空，是返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>例如：</p>
+<pre><code class="language-c">string s=&quot;abcde&quot;;
+cout&lt;&lt;s.size (); //输出5
+s.clear();
+cout&lt;&lt;s.length(); //输出0
+if(s.empty()) cout&lt;&lt;1;
+else cout&lt;&lt;0; //输出1
+</code></pre>
+<p><strong>③ insert(pos,s2)</strong></p>
+<p>在<code>s</code>下标为<code>pos</code>的元素前插入<code>string</code> 类型<code>s2</code>。 例如：</p>
+<pre><code class="language-c++">string s=&quot;abcde&quot;,s2=&quot;opq&quot;;
+s.insert(3,s2);
+cout&lt;&lt;s; //输出abcopqde
+</code></pre>
+<p><strong>④ erase(pos,len)</strong></p>
+<p>删除<code>s</code>中下标为<code>pos</code>开始的<code>len</code> 个字符 。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s=&quot;abcdefgh&quot;;
+s.erase(3,3);
+cout&lt;&lt;s; //输出abcgh
+</code></pre>
+<p><strong>⑤ find(s2)</strong></p>
+<p>当<code>s2</code>是<code>s</code>子串时，返回在<code>s</code>中第一次出现的位置，否则，返回<code>string::npos</code>。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s=&quot;abcdefabcde&quot;,s2=&quot;cde&quot;;
+if(s.find(s2)!=string::npos) cout&lt;&lt;s.find(s2); //输出2
+//s.find(s2,pos)，是在 s 中以 pos 位置起查找 s2 第一次出现的位置，返回值s.find(s2)相同
+</code></pre>
+<p><strong>⑥ replace(pos,len,s2)</strong></p>
+<p>删除<code>s</code>中下标为<code>pos</code>开始的<code>len</code>个字符，并在下标为<code>pos</code>处插入<code>s2</code>。</p>
+<p>例如：</p>
+<pre><code class="language-c++">string s1=&quot;asfgg&quot;,s2=&quot;ad&quot;;
+s1.replace(1,1,s2);
+cout&lt;&lt;s1&lt;&lt;endl; //输出aadfgg
+</code></pre>
+<hr>
+<h2 id="vector">vector</h2>
+<h3 id="简介-2">简介</h3>
+<p><code>vector</code>为变成数组，即长度可以根据需要进行改变的数组。在信息学竞赛中，有些题目需要定义很大 的数组，这样会出现&quot;超出内存限制&quot;的错误，使用<code>vector</code>简洁方便，还可以节省空间。</p>
+<p>使用时，需要添加头文件<code>vector</code>，即<code>#include&lt;vector&gt;</code>。</p>
+<h3 id="定义-2">定义</h3>
+<pre><code class="language-c++">vector&lt;typename&gt; name;
+</code></pre>
+<p>以上定义相当于定义了一个一维数组<code>name[size]</code>，只是<code>size</code>不确定，大小可以根据需要而变化。 其中 t<code>yepename</code>为基本类型，如<code>int</code>、<code>double</code>、<code>char</code>、结构体等，也可以是STL的容器，如<code>string</code> 、<code>queue</code>，<code>vector</code>等。</p>
+<p>例如：</p>
+<pre><code class="language-c++">vector&lt;int&gt; a;
+vector&lt;double&gt; score;
+vector&lt;node&gt; stu; //node为已经定义了得结构体
+</code></pre>
+<p>但是，如果<code>typename</code>也是一个 STL 容器，那么定义时，需要在两个 &quot;&gt;&quot;之间加上一个空格，因为&quot;&gt;&gt;&quot;会被当作右移运算，从而导致编译出错，例如：</p>
+<pre><code class="language-c++">vector&lt;int&gt; a[100]; //定义一个一维长度固定为100，另一维不确定的二维数组a[100][size]
+vector&lt;vector&lt;int&gt; &gt; a; //定义一个两维都可变的二维数组a[size][size]
+</code></pre>
+<h3 id="常用函数-2">常用函数</h3>
+<p><strong>（1）push_back(x)</strong></p>
+<p>在<code>vector</code>数组后面添加一个元素<code>x</code>，下标从<code>0</code>开始，时间复杂度为 O(1) 。</p>
+<p><strong>（2）size()</strong></p>
+<p>如果是一维数组，<code>size()</code>获得<code>vector</code>中元素的个数;如果是二维数组，<code>size()</code>获得<code>vector</code>中 的第二维的元素个数，时间复杂度为 O(1)。</p>
+<p><strong>（3）pop_back()</strong></p>
+<p>删除<code>vector</code>的末尾元素，时间复杂度为O(1) 。</p>
+<p><strong>（4）clear()</strong></p>
+<p>清空<code>vector</code>中的元素，时间复杂度为O(n) ，n 为<code>vector</code>中元素的个数。</p>
+<p><strong>（5）insert(it,x)</strong></p>
+<p>在<code>vecto</code>r 迭代器 it 处插入一个元素 x ， x 后的元素后移，时间复杂度为**O(n)  .</p>
+<p><strong>（6）erase(it)、erase(first,last)</strong></p>
+<p>删除<code>vector</code>中的元素元素。<code>erase(it)</code>，删除迭代器<code>it</code>处的元素; erase(first,last) ，删除左闭右开区间内的所以元素。</p>
+<p>例如：</p>
+<pre><code class="language-c++">vector&lt;int&gt; v;
+for(int i=1;i&lt;=5;i++) v.push_back(i); //数组元素为1 2 3 4 5
+for(int i=0;i&lt;v.size();i++) cout&lt;&lt;v[i]&lt;&lt;&quot; &quot;; //输出1 2 3 4 5
+cout&lt;&lt;endl;
+v.pop_back();
+for(int i=0;i&lt;v.size();i++) cout&lt;&lt;v[i]&lt;&lt;&quot; &quot;; //输出1 2 3 4
+cout&lt;&lt;endl;
+v.insert(v.begin()+2,10); //将10插入到v[2]处
+for(int i=0;i&lt;v.size();i++) cout&lt;&lt;v[i]&lt;&lt;&quot; &quot;; //输出1 2 10 3 4
+cout&lt;&lt;endl;
+v.erase(v.begin()+1,v.begin()+3); //删除v[1],v[2],
+for(int i=0;i&lt;v.size();i++) cout&lt;&lt;v[i]&lt;&lt;&quot; &quot;; //输出1 3 4
+cout&lt;&lt;endl;
+v.clear();
+cout&lt;&lt;v.size(); //输出0
+</code></pre>
+<h3 id="访问-2">访问</h3>
+<p>访问<code>vector</code>中的元素一般有两种方式。</p>
+<p>（1）通过下标进行访问，对于容器<code>vector</code> <code>v</code>，可以使用<code>v[i]</code>来访问第<code>i</code>个元素。</p>
+<p>（2）通过迭代器访问</p>
+<p>定义：</p>
+<pre><code class="language-c++">vector&lt;int&gt;::iterator it;
+</code></pre>
+<p>定义一个迭代器<code>it</code>，通过<code>*it</code>访问<code>int</code>类型的<code>vector</code>中的元素。</p>
+<p>在常用的容器中，只有<code>vector</code>和<code>string</code> 允许使用<code>v.begin()+5</code>这种迭代器加上整数的写法。</p>
+<pre><code class="language-c++">vector&lt;int&gt; v;
+for(int i=1;i&lt;=5;i++) v.push_back(i); //数组元素为1 2 3 4 5
+vector&lt;int&gt;::iterator it=v.begin();
+for(int i=0;i&lt;v.size();i++)
+	cout&lt;&lt;(it+i)&lt;&lt;&quot; &quot;; //输出1 2 3 4 5
+    
+</code></pre>
+<p>同时，迭代器可以进行自加、自减操作，即<code>it++</code>，<code>++it</code>，<code>it--</code>，<code>--it</code>。</p>
+<pre><code class="language-c++">vector&lt;int&gt; v;
+for(int i=1;i&lt;=5;i++) v.push_back(i); //数组元素为1 2 3 4 5
+for(vector&lt;int&gt;::iterator it=v.begin();it!=v.end();it++)
+	cout&lt;&lt;*it&lt;&lt;&quot; &quot;; //输出1 2 3 4 5
+</code></pre>
+<hr>
+<h2 id="stack">stack</h2>
+<h3 id="简介-3">简介</h3>
+<p><code>stack</code>翻译为栈，实现先进后出的容器。</p>
+<p>使用时，需要添加头文件<code>stack</code>，即<code>#include&lt;stack&gt;</code>。</p>
+<h3 id="定义-3">定义</h3>
+<pre><code class="language-c++">stack&lt;typename&gt; name;
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-c++">stack&lt;int&gt; s; //定义一个int类型的栈s
+</code></pre>
+<h3 id="常用函数-3">常用函数</h3>
+<p><strong>（1）push(x)</strong></p>
+<p>将元素 <code>x</code> 压栈，时间复杂度为 O(1) 。</p>
+<p><strong>（2）top()</strong></p>
+<p>获取栈顶元素，时间复杂度为O(1) 。</p>
+<p><strong>（3）pop()</strong></p>
+<p>弹出栈顶元素，时间复杂度为O(1) 。</p>
+<p><strong>（4）empty()</strong></p>
+<p>检测<code>stack()</code>是否为空，空返回<code>true</code>，否则返回<code>false</code>，时间复杂度为 。在使用<code>top()</code>和<code>pop()</code>之前，须用<code>q.empty()</code>判断是否为空，否则可能因为栈空出现错误。</p>
+<p><strong>（5）size()</strong></p>
+<p>返回<code>stack</code>内的元素个数，时间复杂度为 O(1)。</p>
+<p>例如：</p>
+<pre><code class="language-c++">stack&lt;int&gt; s;
+for(int i=1;i&lt;=5;i++) s.push(i); //栈元素为1 2 3 4 5
+s.pop(); //删除栈顶元素5
+cout&lt;&lt;s.top()&lt;&lt;endl; //输出4
+cout&lt;&lt;s.size()&lt;&lt;endl; //输出4
+while(!s.empty())
+{
+	cout&lt;&lt;s.top(); //输出 4 3 2 1
+	s.pop();
+}
+</code></pre>
+<hr>
+<h2 id="queue">queue</h2>
+<h3 id="简介-4">简介</h3>
+<p><code>queue</code>翻译为队列，是一个&quot;先进先出&quot;的容器。 使用时，需要添加头文件<code>queue</code>，即<code>#include &lt;queue&gt;</code>。</p>
+<h3 id="定义-4">定义</h3>
+<pre><code class="language-c++">queue &lt;typename&gt; name; // name是变量名
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-c++">queue &lt;int&gt; q; //定义一个int类型，名为q的队列
+</code></pre>
+<h3 id="常用函数-4">常用函数</h3>
+<p><strong>（1）push(x)</strong></p>
+<p>将<code>x</code>入队，时间复杂度O(1) 。</p>
+<p><strong>（2）front()和back()</strong></p>
+<p>分别用来访问队首和队尾元素，时间复杂度O(1) 。</p>
+<p><strong>（3）pop()</strong></p>
+<p>删除队首元素。</p>
+<p><strong>(4）empty()</strong></p>
+<p>用来检查队首是否为空，返回<code>true</code>或者<code>false</code>，时间复杂度 。在使用<code>front()</code>和<code>pop()</code>之前，须用<code>empty()</code>判断是否为空，否则可能因为队空出现错误。</p>
+<p><strong>（5）size()</strong></p>
+<p>返回中的元素个数，时间复杂度O(1) 。</p>
+<h2 id="priority_queue">priority_queue</h2>
+<h3 id="简介-5">简介</h3>
+<p><code>priority_queue</code>翻译为优先队列，其底层是用堆实现的。</p>
+<p>在优先队列中，任何时刻，队首元素一定是当前优先级最高（值最大）的一个（大根堆），也可以是值 最小的一个（小根堆）。你可以不断往队列中添加或删除优先级不同的元素，每次操作队列都会自动调 整，始终保证队首优先级最高。</p>
+<p>优先队列的优先级设置一般是数字越大优先级越大，对于<code>char</code>，字典序越大优先级越大。</p>
+<p>使用时，需要添加头文件<code>queue</code>，即<code>#include &lt;queue&gt;</code>。</p>
+<h2 id="定义-5">定义</h2>
+<pre><code class="language-c++">priority_queue &lt;typename&gt; name;
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-c++">priority_queue &lt;int&gt; q; //定义一个int类型，名为q的优先队列：
+</code></pre>
+<p>这样定义的是一个大根堆，它的原型其实是：</p>
+<pre><code class="language-c++">priority_queue &lt;int,vector&lt;int&gt;,less&lt;int&gt; &gt; q;
+</code></pre>
+<p>尖括号中多了两个参数，<code>vector&lt;int&gt;</code>，表示的是承载底层数据结构——堆的容器，类型与第一个参 数一致; less ，是对第一个参数的比较类，表示数字越大优先级越大（大根堆），而如果用 greater ，则表示数字越小优先级越大。</p>
+<p>因此，定义大根堆有两种方法，这两种方法是等价的：</p>
+<pre><code class="language-c++">priority_queue &lt;int&gt; q;
+priority_queue &lt;int,vector&lt;int&gt;,less&lt;int&gt; &gt; q;
+</code></pre>
+<p>定义小根堆：</p>
+<pre><code class="language-c++">priority_queue &lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt; q;
+</code></pre>
+<p>注意，最后的&quot;&gt;&gt;&quot; ，两个&quot;&gt;&quot;之间是有空格的，没有空格会被当作右移运算，会出现编译错误。</p>
+<h3 id="常用函数-5">常用函数</h3>
+<p><strong>（1）push(x)</strong></p>
+<p>将<code>x</code>入队，加入后，会自动调整整个优先 队列内部结构，保证队首（堆顶）优先级最高。</p>
+<p><strong>（2）top()</strong></p>
+<p>获取队首元素（堆顶元素），时间复杂度 O(1)。</p>
+<p><strong>（3）pop()</strong></p>
+<p>删除队首元素（堆顶元素），加入后，会自 动调整整个优先队列内部结构，保证队首（堆顶）优先级最高。</p>
+<p><strong>（4）empty()</strong></p>
+<p>用来检查队首是否为空，返回<code>true</code>或者<code>false</code>，时间复杂度 O(1) 。在使用<code>top()</code>和<code>pop()</code>之前，须用<code>empty()</code>判断是否为空，否则可能因为队空出现错误。</p>
+<p>例如：</p>
+<pre><code class="language-c++">priority_queue &lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt; q; //定义小根堆
+q.push(4);
+q.push(6);
+q.push(3);
+q.push(9);
+if(!q.empty()) cout&lt;&lt;q.top(); //输出3
+q.pop();
+if(!q.empty()) cout&lt;&lt;q.top(); //输出4
+</code></pre>
+<h3 id="结构体">结构体</h3>
+<p>如果优先队列的元素是结构体。</p>
+<p>现在读入若干学生的语文、数学成绩和姓名，按照按语文从大到小排序，语文相同按数学大到小排序， 数学相同，按名字字典序排序。</p>
+<p>也可以使用<code>pair</code>，更方便。</p>
+<p>例如：</p>
+<pre><code class="language-c">struct stu
+{
+	int chinese;
+	int math;
+	string name;
+	bool operator&lt;(const stu &amp;x) const{
+		if(chinese&lt;x.chinese) return 1; //语文大的在前,和sort相反
+		if(chinese&gt;x.chinese) return 0;
+		if(math&lt;x.math) return 1; //语文相等，数学大的在前
+		if(math&gt;x.math) return 0;
+		if(name&gt;x.name) return 1; //语文数学都相等，字典序大的在前
+		return 0;
+	}
+};
+priority_queue&lt;stu&gt; q;
+int main()
+{
+	stu a;
+	a.chinese=90;a.math=80;a.name=&quot;abc&quot;;
+	q.push(a); //放入
+	a.chinese=90;a.math=85;a.name=&quot;xyz&quot;;
+	q.push(a);
+	a.chinese=90;a.math=85;a.name=&quot;yyy&quot;;
+	q.push(a);
+	a.chinese=92;a.math=85;a.name=&quot;bcd&quot;;
+	q.push(a);
+	a=q.top();
+	cout&lt;&lt;a.chinese&lt;&lt;&quot; &quot;&lt;&lt;a.math&lt;&lt;&quot; &quot;&lt;&lt;a.name&lt;&lt;endl; //输出 92 85 bcd
+	q.pop(); //删除第一个
+	a=q.top();
+	cout&lt;&lt;a.chinese&lt;&lt;&quot; &quot;&lt;&lt;a.math&lt;&lt;&quot; &quot;&lt;&lt;a.name&lt;&lt;endl; //输出 90 85 xyz
+	return 0;
+}
+</code></pre>
+<hr>
+<h2 id="pair">pair</h2>
+<p><code>pair</code>是二元结构体，将两个元素捆绑在一起，相当于：</p>
+<pre><code class="language-c++">struct pair
+{
+	typename1 first;
+	typename2 second;
+}
+</code></pre>
+<p>使用时，需要添加头文件<code>#include&lt;utility&gt;</code>。</p>
+<h3 id="定义-6">定义</h3>
+<p><code>pair</code>有两个参数，可以是任意基本类型或容器。</p>
+<pre><code class="language-c++">pair &lt;typename1,typename2&gt; name;
+</code></pre>
+<h3 id="初始化">初始化</h3>
+<p><code>pair</code>使用<code>first</code>和<code>second</code>访问第一，第二个元素。</p>
+<p><code>pair</code>有三种初始化的方式，如下：</p>
+<pre><code class="language-c++">pair&lt;string,int&gt; p(&quot;abc&quot;,1); //初始化1
+cout&lt;&lt;p.first&lt;&lt;&quot; &quot;&lt;&lt;p.second&lt;&lt;endl; //输出abc 1
+p.first=&quot;bcd&quot;; //初始化2
+p.second=5;
+cout&lt;&lt;p.first&lt;&lt;&quot; &quot;&lt;&lt;p.second&lt;&lt;endl; //输出bcd 5
+p=make_pair(&quot;xyz&quot;,9); //初始化3
+cout&lt;&lt;p.first&lt;&lt;&quot; &quot;&lt;&lt;p.second&lt;&lt;endl; //输出xyz 9
+</code></pre>
+<p>如果有三个元素，也可以用<code>pair</code>实现：</p>
+<pre><code class="language-c">pair&lt;int,pair&lt;int,int&gt; &gt; p[100]; //&gt; &gt;中间有空格，否则会被当作位移运算
+p[1].first=1;
+p[1].second.first=5;
+p[1].second.second=2;
+cout&lt;&lt;p[1].first&lt;&lt;&quot; &quot;&lt;&lt;p[1].second.second; //输出1 2
+</code></pre>
+<p><code>pair</code>可以直接做比较。比较规则是先以<code>first</code>的大小作为标准，只有当<code>first</code>相等时才去判断<code>second</code>的大小。</p>
+<p>例如：</p>
+<pre><code class="language-c++">pair&lt;int,int&gt; p1(5,10);
+pair&lt;int,int&gt; p2(5,15);
+pair&lt;int,int&gt; p3(10,5);
+if(p1&lt;p3) cout&lt;&lt;&quot;p1&lt;p3&quot;&lt;&lt;endl; //输出p1&lt;p3
+if(p1&lt;p2) cout&lt;&lt;&quot;p1&lt;p2&quot;&lt;&lt;endl; //输出p1&lt;p2
+if(p1&lt;=p3) cout&lt;&lt;&quot;p1&lt;=p3&quot;&lt;&lt;endl; //输出p1&lt;=p3make&lt;int,int&gt; p1(5,10);
+</code></pre>
+<hr>
+<h2 id="map">map</h2>
+<h3 id="简介-6">简介</h3>
+<p><code>map</code>翻译为映射。其实，数组就是一种映射。<code>int a[100]</code>定义了一个<code>int</code>到<code>int</code>的映射，<code>a[5]=25</code>，把<code>5</code>映射到<code>25</code>。数组总是将<code>int</code>类型映射到其他类型。如果要将<code>string</code> 类型映射到<code>int</code>类型，数组就很不方便，此时可以使用<code>map</code>，<code>map</code>可以将任意基本类型（包括STL容器）映射 到任意基本类型（包括STL类型）。</p>
+<p><code>map</code>常用情形：</p>
+<p>1)建立字符(串)与整数之间的映射</p>
+<p>2)判断大整数(几千位)或者其他类型数据是否存在，可以将<code>map</code>当布尔数组使用，实现类似哈希表的功 能。</p>
+<p>3)字符串与字符串的映射。 使用时，需要添加头文件<code>map</code>，即<code>#include&lt;map&gt;</code>。</p>
+<h3 id="定义-7">定义</h3>
+<pre><code class="language-c++">map&lt;typename1,typename2&gt; name;
+</code></pre>
+<p><code>typename1</code>是映射前的类型(键 )，<code>typename2</code>是映射后的类型（value值 ），<code>name</code>为映射名称。</p>
+<p>普通<code>in</code>t 数组<code>a</code>就是：<code>map&lt;int,int&gt; a;</code></p>
+<p>字符串映射到整型，必须使用<code>string</code> ，不能使用<code>char</code>：<code>map&lt;string,int&gt; a;</code>。</p>
+<h3 id="访问-3">访问</h3>
+<p><strong>（1）通过下标进行访问</strong></p>
+<p>下标访问就像访问普通数组元素一样，如定义:<code>map&lt;char,int&gt; mp</code>，就可以通过<code>mp['c']</code>访问对应 元素，如<code>mp['c']=24</code>。</p>
+<p><strong>（2）通过迭代器进行访问</strong></p>
+<p><code>map</code>的每一对映射都有两个<code>typename</code>，所以用<code>it-&gt;first</code>访问键，使用<code>it-&gt;second</code>来访问值。</p>
+<h3 id="赋值">赋值</h3>
+<p><code>map</code>有两种种输入方式：</p>
+<p><strong>（1）用insert函数插入pair数据，pair可以作为map的键值对来插入。</strong></p>
+<pre><code class="language-c++">map&lt;string,int&gt; mp;
+mp.insert(pair&lt;string,int&gt;(&quot;xyz&quot;,1));
+mp.insert(pair&lt;string,int&gt;(&quot;def&quot;,2));
+mp.insert(pair&lt;string,int&gt;(&quot;abc&quot;,3));
+for(map&lt;string,int&gt;::iterator it=mp.begin();it!=mp.end();it++)
+cout&lt;&lt;it-&gt;first&lt;&lt;&quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;&quot; &quot;; //输出abc 3 def 2 xyz 1
+</code></pre>
+<p>可以看出，<code>map</code>建立映射后，会自动实现按键从小到大排序，这是因为<code>map</code>内部使用红黑树实现的 （<code>set</code>也是如此）。</p>
+<p><strong>（2）用数组进行插入</strong></p>
+<pre><code class="language-c++">map&lt;string,int&gt; mp;
+mp[&quot;abc&quot;]=1;
+mp[&quot;def&quot;]=2;
+mp[&quot;xyz&quot;]=3;
+for(map&lt;string,int&gt;::iterator it=mp.begin();it!=mp.end();it++)
+cout&lt;&lt;it-&gt;first&lt;&lt;&quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;&quot; &quot;; //输出abc 1 def 2 xyz 3
+</code></pre>
+<p>但是它们是有区别的，用<code>insert</code>函数插入数据，在数据的插入上涉及到集合的唯一性这个概念，即当<code>map</code>中有这个关键字时，<code>insert</code>操作是插入不了数据的，但是用数组方式就不同了，它可以覆盖以 前该关键字对应的值。</p>
+<h3 id="常用函数-6">常用函数</h3>
+<p><strong>（1）find(key)</strong></p>
+<p>返回键为key的映射的迭代器，如果未找到，返回<code>end()</code>的迭代器</p>
+<p>例如：</p>
+<pre><code class="language-c++">map&lt;int,int&gt; mp;
+mp.insert(pair&lt;int,int&gt;(1,10));
+if(mp.find(2)==mp.end()) cout&lt;&lt;&quot;Not exist&quot;; //输出Not exist
+</code></pre>
+<p><strong>（2）size()</strong></p>
+<p>返回<code>map</code>中映射的对数，时间复杂度为O(1) 。</p>
+<p><strong>（3）erase(it)和erase(first,last)</strong></p>
+<p><code>erase(it)</code>删除迭代器it的元素，也可以用<code>erase(key)</code>， 为要删除映射的键。</p>
+<p><code>erase(first,last)</code>，删除左闭右开区间(first,last] ，first 为起始迭代器，last 为末尾迭代器的下一个地址。</p>
+<p><strong>（4）clear()</strong></p>
+<p>清空<code>map</code>，时间复杂度为 O(n)。</p>
+<pre><code class="language-c++">map&lt;string,int&gt; mp;
+mp[&quot;xyz&quot;]=1;
+mp[&quot;def&quot;]=2;
+mp[&quot;abc&quot;]=3;
+cout&lt;&lt;mp.size()&lt;&lt;endl; //输出3
+map&lt;string,int&gt;::iterator it=mp.find(&quot;xyz&quot;);
+cout&lt;&lt;it-&gt;first&lt;&lt;&quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;endl; //输出xyz 1
+mp.erase(it);
+//将这句话与find可以和合并成一句话mp.erase(&quot;xyz&quot;)，时间复杂度相同
+for(map&lt;string,int&gt;::iterator it=mp.begin();it!=mp.end();it++)
+cout&lt;&lt;it-&gt;first&lt;&lt;&quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;&quot; &quot;; //输出abc 3 def 2
+it=mp.find(&quot;abc&quot;);
+mp.erase(it,mp.end());
+cout&lt;&lt;mp.size()&lt;&lt;endl; //输出0
+</code></pre>
+<hr>
+<h2 id="set">set</h2>
+<h3 id="简介-7">简介</h3>
+<p><code>set</code>翻译为集合，是一个内部自动有序切且不含重复元素的容器。<code>set</code>的主要作用就是**自动去重并按 升序排序 **，因此遇到不方便开数组的情况，比如元素较大或类型不是<code>int</code>，可以是一个<code>set</code>解决。<code>set</code>内部也是使用红黑树实现的。</p>
+<p>使用时，添加<code>set</code>头文件，即<code>#include&lt;set&gt;</code>。</p>
+<h3 id="定义-8">定义</h3>
+<pre><code class="language-c++">set&lt;typename&gt; name;
+</code></pre>
+<p><code>typenam</code>e 可以是任意类型或容器，<code>name</code>是集合名称。</p>
+<pre><code class="language-c++">set&lt;int&gt; st; //定义int的集合st
+set&lt;int&gt; st[100]; //定义int的100个集合st[0],st[1]...st[99]
+</code></pre>
+<h3 id="访问-4">访问</h3>
+<p><code>set</code>只能通过迭代器访问。</p>
+<pre><code class="language-c++">set&lt;typename&gt;::iterator it;
+</code></pre>
+<p>通过<code>*it</code>访问<code>set</code>中元素。</p>
+<h3 id="常用函数-7">常用函数</h3>
+<p><strong>（1）inset(x)</strong></p>
+<p>将<code>x</code>插入到<code>set</code>中，并自动排序去重。</p>
+<p>如果未找到，返回<code>end()</code>的迭代器。</p>
+<p>例如：</p>
+<pre><code class="language-c++">set&lt;int&gt; s;
+s.insert(10);
+if(s.find(5) != s.end()) cout&lt;&lt;&quot;exist&quot;&lt;&lt;endl;
+else cout&lt;&lt;&quot;Not exist&quot;&lt;&lt;endl; //输出Not exist
+</code></pre>
+<p><strong>（2）size()</strong></p>
+<p>返回<code>set</code>中的个数，时间复杂度为O(1) 。</p>
+<p><strong>（3）find(x)</strong></p>
+<p>返回<code>set</code>中对应值<code>x</code>的迭代器。</p>
+<p>** (4)clear**</p>
+<p>清空<code>set</code>中的元素，时间复杂度为O(n)  。</p>
+<p><strong>（5）erase(it)和erase(first,last)</strong></p>
+<p><code>erase(it)</code>删除迭代器<code>it</code>的元素，时间复杂度为 O(1)，也可以用<code>erase(value)</code>，<code>value</code>为要删除 元素的值。</p>
+<p><code>erase(first,last)</code>，删除左闭右开区间[first,last) ， first为起始迭代器， last为末尾迭代器的下一个地址，时间复杂度为 O(first-last)。</p>
+<pre><code class="language-c++">set&lt;int&gt; st;
+for(int i=5;i&lt;=10;i++) st.insert(i);
+cout&lt;&lt;(st.find(2))&lt;&lt;endl; //输出6
+set&lt;int&gt;::iterator it=st.find(8);
+st.erase(it,st.end()); //删除8 9 10
+for(it=st.begin();it!=st.end();it++)
+cout&lt;&lt;*it&lt;&lt;&quot; &quot;; //输出5 6 7
+</code></pre>
+<hr>
+<h2 id="multiset">multiset</h2>
+<h3 id="简介-8">简介</h3>
+<p><code>multiset</code>与<code>set</code>类似，区别是<code>multiset</code>能够保存重复的元素。</p>
+<h3 id="定义-9">定义</h3>
+<pre><code class="language-c++">multiset&lt;typename&gt; name;
+</code></pre>
+<h3 id="常用函数-8">常用函数</h3>
+<p><code>multiset</code>容器和<code>set</code>容器有相同的成员函数，但是因为<code>multiset</code>可以保存重复元素，有些函数的 表现会有些不同。和<code>set</code>容器中的成员函数表现不同的是：</p>
+<p><strong>（1）insert()</strong></p>
+<p>总是可以成功执行。当插入单个元素时，返回的迭代器指向插入的元素。</p>
+<p><strong>（2）find()</strong></p>
+<p>会返回和参数匹配的第一个元素的迭代器，如果都不匹配，则返回容器的结束迭代器。</p>
+<p><strong>（3）count()</strong></p>
+<p>返回和参数匹配的元素的个数。</p>
+<hr>
+<h2 id="algorithm">algorithm</h2>
+<h3 id="简介-9">简介</h3>
+<p><code>algorithm</code>翻译为算法，提供了大量函数</p>
+<h4 id="1maxxyminxyabsxswapxy">1.max(x,y)，min(x,y)，abs(x)，swap(x,y)</h4>
+<p><code>max(x,y)</code>，<code>min(x,y)</code>返回较大值和较小值，可以是整型，也可以是浮点型。</p>
+<p><code>abs(x)</code>返回<code>x</code>的绝对值，<code>x</code>必须是整数。如果要求浮点数绝对值，可以使用<code>math</code>头文件下的<code>fabs(x)</code></p>
+<p><code>swap(x,y)</code>用来交换<code>x</code>和<code>y</code>的值。</p>
+<h4 id="2next_permutation">2.next_permutation()</h4>
+<p>求一个序列中全排列的下一个序列。例如123的全排列为：123 ，132 ，213 ，312 ，321 ，231 ， 的 下一个排列就是 321.</p>
+<p>基本格式：<code>next_permutation</code>(起始元素地址，结束元素地址的下一个地址)</p>
+<pre><code class="language-c++">int a[10];
+a[1]=1;a[2]=2;a[3]=3;
+do{
+cout&lt;&lt;a[1]&lt;&lt;&quot; &quot;&lt;&lt;a[2]&lt;&lt;&quot; &quot;&lt;&lt;a[3]&lt;&lt;endl;
+}while(next_permutation(a+1,a+4)); //a[1],a[2],a[3]的排列
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-c">1 2 3
+1 3 2
+2 1 3
+2 3 1
+3 1 2
+3 2 1
+</code></pre>
+<h3 id="3sort">3.sort()</h3>
+<p><code>sort</code>是实现排序的函数。</p>
+<h4 id="1sort的基本格式">（1）sort的基本格式：</h4>
+<p><code>sort( 起始元素地址，结束元素地址的下一个地址，比较函数);</code></p>
+<p>比较函数缺少会默认对区间元素递增排序。</p>
+<pre><code class="language-c++">bool cmp(int x,int y) //定义比较函数，string、double、char类型均可
+{
+	if(x&gt;y) return 1; //如果a&gt;b成立，a放前面
+	return 0; //否则放在后面
+}
+int main()
+{
+	int a[6]={4,5,9,-2,5,-5};
+	sort(a,a+4); //a[0]~a[3]从小到大排序
+	for(int i=0;i&lt;6;i++) cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;; //输出 -2 4 5 9 5 -5
+	cout&lt;&lt;endl;
+	sort(a+2,a+6,cmp); //a[2]~a[5]从大到小排序
+	for(int i=0;i&lt;6;i++) cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;; //输出-2 4 9 5 5 -5
+	return 0;
+}
+</code></pre>
+<h4 id="2结构体sort">（2）结构体sort</h4>
+<p>现在对学生成绩排序，按语文从大到小排序，语文相同按数学大到小排序，数学相同，按名字字典序排序。</p>
+<pre><code class="language-c++">struct stu //结构体
+{
+	int chinese;
+	int math;
+	string name;
+}a[100];
+bool cmp(stu x,stu y) //结构体类型
+{
+	if(x.chinese&gt;y.chinese) return 1; //语文大的在前
+	if(x.chinese&lt;y.chinese) return 0;
+	if(x.math&gt;y.math) return 1; //语文相等，数学大的在前
+	if(x.math&lt;y.math) return 0;
+	if(x.name&gt;y.name) return 1; //语文数学都相等，字典序大的在前
+	return 0;
+}
+int main()
+{
+	for(int i=1;i&lt;=5;i++)
+	cin&gt;&gt;a[i].chinese&gt;&gt;a[i].math&gt;&gt;a[i].name;
+	sort(a+1,a+6,cmp);
+	for(int i=1;i&lt;=5;i++)
+	cout&lt;&lt;a[i].chinese&lt;&lt;&quot; &quot;&lt;&lt;a[i].math&lt;&lt;&quot; &quot;&lt;&lt;a[i].name&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<p>输入：</p>
+<pre><code>90 80 abc
+90 85 xyz
+92 85 ppt
+92 85 bcd
+100 53 hij
+</code></pre>
+<p>输出：</p>
+<pre><code>100 53 hij
+92 85 ppt
+92 85 bcd
+90 85 xyz
+90 80 abc
+</code></pre>
+<h4 id="3容器sort">（3）容器sort</h4>
+<p>STL中的容器中，只有<code>vector</code>、<code>string</code> 可以使用<code>sort()</code>。其他类型<code>map</code>、<code>set</code>等，其中元素 本身就是有序的，无法使用。</p>
+<pre><code class="language-c++">bool cmp(int x,int y) //结构体类型
+{
+	if(x&gt;y) return 1;
+	return 0;
+}
+int main()
+{
+	vector&lt;int&gt; v;
+	for(int i=1;i&lt;=5;i++) //输入 7 9 0 2 1
+	{
+		int t;
+		cin&gt;&gt;t;
+		v.push_back(t);
+	}
+	sort(v.begin(),v.end(),cmp);
+	for(int i=0;i&lt;v.size();i++)
+	cout&lt;&lt;v[i]&lt;&lt;&quot; &quot;; //输出9 7 2 1 0
+	return 0;
+}
+</code></pre>
+<h3 id="4lower_boundfirstlastval和upper_boundfirstlastval">4.lower_bound(first,last,val)和upper_bound(first,last,val)</h3>
+<p><code>lower_bound(first,last,val)</code>用来寻找一个有序(从小到大)数组或者容器[first,last)中，第一个 值大于或等于val的位置。如果是数组，返回该位置指针，如果是容器，返回该位置的迭代器。</p>
+<p><code>upper_bound(first,last,val)</code>用来寻找一个有序数组或容器 [first,last)中，第一个值大于val的位置。如果是数组，返回该位置指针，如果是容器，返回该位置的迭代器。</p>
+<p>如果数组或者容器中没有需要寻找的元素，则上面两个函数的返回值均为可以插入该位置的指针或迭代器 。</p>
+<p>例如：</p>
+<pre><code class="language-c++">int a[10]={1,2,2,3,3,3,5,5,5,5};
+int b[10]={5,5,5,5,3,3,3,2,2,1};
+int *t=lower_bound(a,a+10,2);
+cout&lt;&lt;t&lt;&lt;endl; //t为找到元素的地址
+cout&lt;&lt;t-a&lt;&lt;endl; //输出1
+//a为a[0]的地址，数组存储使用连续的地址，t-a即数组中第几个元素
+//a+2为a[2]的地址
+t=upper_bound(a+2,a+10,2); // t为找到元素的地址
+cout&lt;&lt;t-(a+2)&lt;&lt;endl; //输出3
+cout&lt;&lt;upper_bound(a,a+10,3)-a&lt;&lt;endl; //也可以不指针，输出6
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></div>
+                 <a href="https://doittomorrow.xyz/post/treap-xue-xi-bi-ji/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2023-12-31">2023-12-31</time>
+                  <h4 class="title white no-margin">Treap 学习笔记</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xd9ydc9m.png');"></div>
+                 <a href="https://doittomorrow.xyz/post/guan-yu-zhe-shi-wo-di-yi-ci-yong-you-zi-ji-de-wang-zhan-zhe-jian-shi/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2023-12-31">2023-12-31</time>
+                  <h4 class="title white no-margin">一些 C++ 的卡常技巧</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://doittomorrow.xyz/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/heteme7q.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf1610d-not-quite-lee-de-ti-jie/">[CF1610D] Not Quite Lee  的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/lduaajh2.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-17">2024-04-17</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/cf991e-bus-number-de-ti-jie/">[CF991E] Bus Number 的题解</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/ubca65yk.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2024-04-16">2024-04-16</time>
+                      <h4 class="title usmall">
+                        <a href="https://doittomorrow.xyz/post/atcoder-tong-ji/">atcoder 统计</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://doittomorrow.xyz/tag/xOeFdtwHb/" class="ctag ctag-0 ctag-xOeFdtwHb" aria-label="">题解</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/XQCTepZve/" class="ctag ctag-1 ctag-XQCTepZve" aria-label="">笔记</a>
+                    
+                      <a href="https://doittomorrow.xyz/tag/fun/" class="ctag ctag-2 ctag-fun" aria-label="">不正经</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://doittomorrow.xyz/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">一个 OIer 的个人修养</a></h4>
+                    <p class="founder">给岁月以文明，而不是给文明以岁月。</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://doittomorrow.xyz"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 63 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://doittomorrow.xyz/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
