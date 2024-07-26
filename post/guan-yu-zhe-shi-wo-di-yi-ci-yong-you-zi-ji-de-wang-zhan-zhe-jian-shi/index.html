@@ -1,0 +1,237 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>一些 C++ 的卡常技巧 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://www.doittomorrow.xyz/favicon.ico?v=1722005033168">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.doittomorrow.xyz/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+        <script src="https://blog-static.cnblogs.com/files/yjlblog/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1722005033168"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            一些 C++ 的卡常技巧
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2023-12-31 ·
+                            </time>
+                            
+                                <a href="https://www.doittomorrow.xyz/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <p>是的，这篇文章的主要内容非常好懂，相信各位同学也十分感兴趣 <s>毕竟哪位OIer不想自己的代码跑得飞快呢</s>？</p>
+<p>那么我们就进入正题吧！</p>
+<h1 id="first">First</h1>
+<p>众所周知，一份代码里面必然会有很多循环<s>打表的话当我没说</s>，而循环自然是十分占时间的。</p>
+<p>所以我们要做的就十分清楚了：<strong>加速循环！</strong></p>
+<h3 id="1-把-int-改成-register-int">1. 把 <code>int</code> 改成 <code>register int</code></h3>
+<p><code>register int</code> 表示使用cpu内部寄存器（寄存器为中央处理器内的组成部分，是有限存贮容量的高速存贮部件）的变量。</p>
+<p>而平时的 <code>int</code> 是把变量放在内存中，存到寄存器中可以加快变量的读写速度。</p>
+<h3 id="2-把-i-改成-i">2. 把 <code>i++</code> 改成 <code>++i</code></h3>
+<p><code>i++</code> 是先计算再储存,而 <code>++i</code> 是先储存再计算。</p>
+<p>一般情况，两者的效率相比之下，自然是 <code>++i</code> 更胜一筹。</p>
+<h1 id="second">Second</h1>
+<p>函数是很常用的一个东西，很大意义上，它可以看出我们做题的思路是否明晰。</p>
+<p>如果你想要让你的代码的运行速度更快，可以试着在你的函数类型前面加上  <code>inline</code>。</p>
+<p><code>inline</code> 可以把函数指定为内联函数，这样可以解决一些频繁调用的函数大量消耗栈空间（栈内存）的问题。</p>
+<h1 id="third">Third</h1>
+<p>俗话说得好，“十年OI一场空，不开 <code>long long</code> 见祖宗”。</p>
+<p>但是<code>long long</code> 占用的二进制位是 <code>int</code> 的两倍，所以计算机处理 <code>long long</code> 类型的变量的时候花费的时间会更长。</p>
+<h1 id="forth">Forth</h1>
+<p>有些题的输入和输出十分毒瘤，动不动就几十万几百万的数据能轻松把你的时间拉特别高。</p>
+<p>所以，快读快写出现了，以下为快读快写代码，可直接食用。</p>
+<pre><code class="language-c++">char ch;
+inline void read(int &amp;x)
+{
+    while((ch=getchar())&lt;48||ch&gt;57);
+    x=ch^48;
+    while((ch=getchar())&lt;58&amp;&amp;ch&gt;47)  x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48);
+}
+</code></pre>
+<h1 id="fifth">Fifth</h1>
+<p>因为位运算是直接对二进制的位进行运算，而且计算机处理位运算和三目运算符要比正常计算快。</p>
+<p>所以在写一些代码时，可以这样优化：</p>
+<pre><code class="language-c++">max(x,y)  -&gt;  x&gt;y?x:y
+min(x,y)  -&gt;  x&lt;y?x:y
+x%2  -&gt;  x&amp;1
+x/2  -&gt;  x&gt;&gt;1
+x*2  -&gt;  x&lt;&lt;1;
+</code></pre>
+<h1 id="sixth">Sixth</h1>
+<p>因为 <code>using namespace std</code> 的功能仅仅是让你在调用标准函数库的时候不在前面加上 <code>std::</code>，所以为了让代码更快完全可以将他删掉。</p>
+<p>但是因为每一次都要写 <code>std::</code> 太麻烦，我在这么干的时候一般都会 <code>define _ std::</code>。</p>
+
+                        </div>
+                    </article>
+                </div>
+
+                
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: '',
+		pageSize: 5,
+		recordIp: false,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        zask is the owner
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://www.doittomorrow.xyz/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>
