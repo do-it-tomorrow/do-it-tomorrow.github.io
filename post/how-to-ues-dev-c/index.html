@@ -1,0 +1,226 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>How to ues Dev C++ | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1746257775988">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1746257775988"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            How to ues Dev C++
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2023-12-31 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <p>对于Dev-C++这个&quot;老古董&quot;，合理利用设置去提升它的能力，是非常 <s>important</s> 重要的。</p>
+<h2 id="1打开全警告">1.打开全警告</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码警告-&gt;第二个和第三个选Yes
+</code></pre>
+<p>代码里，总是会出现奇奇怪怪的错误（<code>scanf</code>、<code>printf</code> 占位符和参数列表不匹配，<code>if</code> 里把 <code>==</code> 打成 <code>=</code> ，运算符优先级......），面对这种情况，我们需要编译器来帮我们检查。</p>
+<p>SO，打开全警告！！！</p>
+<p>这样，当你出现一些奇怪又合法的错误时，编译器会发出警告(但不会终止编译)，<s>所以看警告还是有用的</s>。</p>
+<h2 id="2打开c11">2.打开C++11</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;语言标准-&gt;ISO C++11
+</code></pre>
+<p>这个老古董居然有 C++11，当会用了 C++11 后，这就非常 nice 了。</p>
+<h2 id="3编译优化">3.编译优化</h2>
+<pre><code>方式：工具[T]-&gt;编译选项[C]-&gt;代码生成/优化-&gt;代码生成-&gt;优化级别-&gt;自己选吧
+</code></pre>
+<p>编译优化就是指编译器修改一些指令的执行方式（不会直接修改源代码）从而使生成的运行程序执行速度更快或内存更小。</p>
+<p><strong>关于优化级别：</strong></p>
+<ul>
+<li>O0：不优化</li>
+<li>O1(Low)：在略微占用编译时间的情况下，尝试缩小运行大小并提升运行速度。</li>
+<li>O2(Med)：做大量细节优化（常量表达式，无用语句，合并语句...），能提升运行速度。</li>
+<li>O3(High)：会尝试破坏运行顺序，做更多的优化，但可能增大运行内存。</li>
+<li>Ofast(lighest)：最高级优化，能显著提升STL的速度，但会严重破坏运行顺序，有极小概率出bug。</li>
+</ul>
+<h2 id="4去除结尾空白">4.去除结尾空白</h2>
+<pre><code>方式：工具[T]-&gt;编辑器选项[C]-&gt;基本-&gt;去除结尾空白
+</code></pre>
+<p>在编辑时，这老古董经常给源代码末尾添加一些空格，影响美观，增大源文件大小，更会残害强迫症，手动删又十分麻烦。</p>
+<p>SO，打开去除结尾空白后，Dev C++ 会自动删除除鼠标所在行以外的末尾空格，就很nice。</p>
+
+                        </div>
+                        
+                        <img src="http://img.hongyoubizhi.com/picture/pages/original/2021/08/23/10/58/83592061_p0.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/zheng-ming-wei-yi-fen-jie-ding-li/" class="post-title gt-a-link">
+                            【证明】唯一分解定理
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>
