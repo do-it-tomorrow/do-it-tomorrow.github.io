@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="https://明天动手.top/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compress Your C++ Code!</title>
+    <link rel="stylesheet" href="https://明天动手.top/media/compress/assets/css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://明天动手.top/media/compress/assets/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://明天动手.top/media/compress/js/ace/ace.js"></script>
+    <script src="https://明天动手.top/media/compress/js/ace/ext-language_tools.js"></script>
+    <script src="https://明天动手.top/media/compress/js/ace/mode-c_cpp.js"></script>
+    <script src="https://明天动手.top/media/compress/js/ace/theme-xcode.js"></script>
+    <script src="https://明天动手.top/media/compress/js/ace/snippets/c_cpp.js"></script>
+    <script src="https://明天动手.top/media/compress/js/compress.js"></script>
+    <script src="https://明天动手.top/media/compress/js/copytoclipboard.js"></script>
+    <script>
+      function setEditor() {
+        editor = ace.edit("code");
+        ace.config.set("basePath", ".");
+        editor.setTheme("ace/theme/xcode");
+        editor.session.setMode("ace/mode/c_cpp");
+        editor.getSession().setTabSize(4);
+        editor.setFontSize(20);
+        editor.setReadOnly(false);
+        editor.setHighlightActiveLine(true);
+        editor.setShowPrintMargin(false);
+        editor.setOption("wrap", "free");
+        ace.require("ace/ext/language_tools");
+        editor.setOptions({
+          enableBasicAutocompletion: true,
+          enableSnippets: true,
+          enableLiveAutocompletion: true,
+        });
+      }
+      window.onload = function () {
+        document.getElementById("compress").onclick = function () {
+          editor.session.setValue(compresswithformat(editor.getValue()));
+        };
+        document.getElementById("clear").onclick = function () {
+          editor.session.setValue("");
+        };
+        document.getElementById("copy").onclick = function () {
+          copyToClip(editor.getValue());
+        };
+        setEditor();
+      };
+    </script>
+    <style type="text/css">
+      html {
+        font-size: 120%;
+      }
+
+      #code {
+        height: calc(100% - 2rem);
+        width: 100%;
+      }
+
+      #header {
+        height: 2rem;
+        width: 100%;
+        line-height: 2rem;
+        color: #555;
+        text-align: center;
+        vertical-align: middle;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fafafa;
+      }
+
+      #header .btn {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        height: 2rem;
+        transition: all 0.2s;
+      }
+
+      #header .btn:hover {
+        background-color: #eee;
+      }
+
+      #header .btn i {
+        font-size: 1.5rem;
+        width: 2rem;
+        margin-left: 0.3rem;
+        vertical-align: middle;
+      }
+
+      #header .intro {
+        width: 8rem;
+        transition: all 0.2s;
+        color: unset;
+      }
+
+      #header .intro:hover {
+        background-color: #eee;
+      }
+
+      #header .description {
+        width: 5rem;
+        transition: all 0.2s;
+        font-weight: bold;
+      }
+
+      #header .description:hover {
+        background-color: #eee;
+      }
+
+      #header .by {
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+        color: #999;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+
+      #header .by a {
+        color: #888;
+        transition: all 0.2s;
+      }
+
+      #header .by a:hover {
+        color: #666;
+      }
+
+      #header:hover .by {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header" class="no-select">
+      <a
+        class="intro fl hand"
+        target="_blank"
+        >C++ 代码压行机</a
+      >
+      <div id="clear" class="btn hand fr">
+        清空<i class="fa fa-trash-o"></i>
+      </div>
+      <div id="copy" class="btn hand fr">
+        复制<i class="fa fa-clone" aria-hidden="true"></i>
+      </div>
+      <div id="compress" class="btn hand fr">
+        压行<i class="fa fa-compress" aria-hidden="true"></i>
+      </div>
+      <div id="maxlen">
+        <form name="width">
+          <input
+            name="maxlen"
+            style="display: none"
+          />
+        </form>
+      </div>
+    </div>
+    <pre id="code" class="ace_editor ace-xcode" style="font-size: 20px">
+#include&lt;cstdio&gt;&#10;int main(){&#10;&#9;puts("Hello World!");&#10;&#9;return 0;&#10;}</pre
+    >
+  </body>
+</html>
