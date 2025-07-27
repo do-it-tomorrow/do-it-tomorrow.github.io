@@ -1,0 +1,271 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>[ABC328D] Take ABC 题解 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            [ABC328D] Take ABC 题解
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-01-02 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/simulate/" class="post-tags">
+                                    # 模拟
+                                </a>
+                                
+                                <a href="https://明天动手.top/tag/Atcoder/" class="post-tags">
+                                    # Atcoder
+                                </a>
+                                
+                                <a href="https://明天动手.top/tag/xOeFdtwHb/" class="post-tags">
+                                    # 题解
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h1 id="题目翻译">题目翻译</h1>
+<h3 id="题目描述">题目描述</h3>
+<p>给你一个字符串 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 包含 <code>A</code>、<code>B</code> 和 <code>C</code> 三个不用的字符。<br>
+只要字符串 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 中包含连续的 <code>ABC</code> 就将 <code>ABC</code> 删除掉<br>
+再字符串 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 不能操作之后输出这个字符串</p>
+<h3 id="限制">限制</h3>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 的长度小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+<h1 id="思路1">思路1</h1>
+<p>总结一下这道题目的操作，可以发现就是将字符串删除一部分接着将剩下的部分合并，这不是链表的操作吗。<br>
+就直接扫描字符串，如果出现了连续的 <code>ABC</code> 就将其删除。<br>
+接着因为删除了这个连续的 <code>ABC</code> 之后，肯能会有新出现的 <code>ABC</code> 连接在一起，所以在最坏的情况下就需要向前回溯两个字符。<br>
+但是在回溯的时候需要注意一个细节那就是上一个可能就是第一个了，如果继续回溯就会RE。</p>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+char a[200005];
+int n;
+int nex[200005]; //储存第i个元素的下一个元素
+int fr[200005]; //储存第i个元素的上一个元素
+int head=1; //储存第一个元素
+int main(){
+	scanf(&quot;%s&quot;,a);
+	n=strlen(a);
+	for(register int i=n;i&gt;=1;i--) a[i]=a[i-1];
+	for(register int i=1;i&lt;=n;i++) nex[i]=i+1;
+	for(register int i=2;i&lt;=n;i++) fr[i]=i-1;
+	nex[n+1]=-1; //标记链表结尾
+	for(register int i=head;nex[i]!=-1&amp;&amp;nex[nex[i]]!=-1&amp;&amp;nex[nex[nex[i]]]!=-1;){ 
+		if(a[i]=='A'&amp;&amp;a[nex[i]]=='B'&amp;&amp;a[nex[nex[i]]]=='C'){  //如果满足要求
+			nex[fr[i]]=nex[nex[nex[i]]]; //删除这三个元素
+			fr[nex[nex[nex[i]]]]=fr[i];
+			if(i==head){ //如果上一个就是头
+				head=nex[nex[nex[i]]];
+				continue;
+			}if(fr[i]==head) i=head;
+			else i=fr[fr[i]];
+			continue;
+		}i=nex[i];
+	}for(register int i=head;nex[i]!=-1;i=nex[i]) putchar(a[i]); //将剩余的输出
+	return 0;
+} 
+</code></pre>
+<h1 id="思路2">思路2</h1>
+<p>其实这道题目之所以使用普通数组会超时，是因为在删除后将后面的元素向前转移会划分很多时间。<br>
+那么只要后面呢没有元素，就不会存在向前移动导致花费大量时间的问题了。<br>
+因为每一次删除操作只会影响前后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 个字符，所以可以考虑使用栈进行求解。<br>
+每次入一个元素入栈，如果站内的元素个数大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 个，就查看最后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 个元素是否是 <code>ABC</code>。<br>
+如果是就将其删除，否则继续插入元素。</p>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+string s;
+char q[200010];
+int top;
+int main(){
+	cin&gt;&gt;s;
+	for(int i=0;i&lt;s.size();i++){ //将元素一次插入栈中
+		q[++top]=s[i];
+		if(top&gt;2&amp;&amp;q[top]=='C'&amp;&amp;q[top-1]=='B'&amp;&amp;q[top-2]=='A') top-=3; //一定要判断元素的个数，否则会RE
+	}for(int i=1;i&lt;=top;i++) cout&lt;&lt;q[i]; //将栈内的元素一次输出
+	return 0;
+}
+</code></pre>
+<h1 id="总结">总结</h1>
+<p>其实这两种方法的本质都是一样的，只是的具体实现方法不一样。<br>
+链表的思维难度没有栈的做法高，但是对码力的要求与效率比栈要高一点。</p>
+
+                        </div>
+                        
+                        <img src="https://s2.loli.net/2024/06/03/2aSqo6zy1U5CMpd.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/thusch2017-da-mo-fa-shi/" class="post-title gt-a-link">
+                            [THUSCH2017] 大魔法师
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>[ARC111B] Reversible Cards 的题解 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            [ARC111B] Reversible Cards 的题解
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-04-11 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/Atcoder/" class="post-tags">
+                                    # Atcoder
+                                </a>
+                                
+                                <a href="https://明天动手.top/tag/xOeFdtwHb/" class="post-tags">
+                                    # 题解
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h2 id="题目大意">题目大意</h2>
+<p>有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 卡片在桌子上，每张卡牌正反两面分别有一个颜色。第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 牌的正面的颜色为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br>
+，背面为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。<br>
+对于每张牌，可以选择正面或者背面朝上。所有可能的情况中出现的不同的颜色的数量的最大值。</p>
+<h2 id="思路">思路</h2>
+<p>考虑建图，将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 连边。如果一个联通块内有环则整个联通块都可以选择，否则有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个点将被舍弃。</p>
+<p>因为如果出现环的情况，换上的所有点都可以通过自己一侧的边被选择，而因为环上的点全部都自给自足了，所有从环外连到环内的点都可以由向环内连接的那条进行选择。</p>
+<p>具体来说，假设一个联通块如图所示：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/ztu6usk9.png" alt="https://cdn.luogu.com.cn/upload/image_hosting/ztu6usk9.png" loading="lazy"></figure>
+<p>那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">1,2,3,4,5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span></span></span></span> 号在环上的节点均可以通过环上的边 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">a</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">b</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">c</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">d</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">e</mtext></mrow><annotation encoding="application/x-tex">\texttt{a},\texttt{b},\texttt{c},\texttt{d},\texttt{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80555em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord texttt">a</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">b</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">c</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">d</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">e</span></span></span></span></span> 进行选择。</p>
+<p>而因为这些环上的节点均已经通过环上的边进行选择，那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn><mo separator="true">,</mo><mn>7</mn><mo separator="true">,</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">6,7,8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span></span></span></span> 号节点就可以通过他们向环的方向连的边 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">f</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">g</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">h</mtext></mrow><annotation encoding="application/x-tex">\texttt{f},\texttt{g},\texttt{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.22222em;"></span><span class="mord text"><span class="mord texttt">f</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">g</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">h</span></span></span></span></span> 进行选择。</p>
+<p>对于不存在环的情况，如下图：</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.luogu.com.cn/upload/image_hosting/80ofweul.png" alt="https://cdn.luogu.com.cn/upload/image_hosting/80ofweul.png" loading="lazy"></figure>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>8</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">8,2,3,4,5,6,7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span></span></span></span> 号节点均可以通过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">h</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">b</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">c</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">e</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">f</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">g</mtext><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\texttt{h},\texttt{b},\texttt{c},\texttt{e},\texttt{f},\texttt{g},</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.22222em;"></span><span class="mord text"><span class="mord texttt">h</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">b</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">c</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">e</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">f</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">g</span></span><span class="mpunct">,</span></span></span></span> 进行选择。</p>
+<p>而 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号节点则无边可用，自然就被舍弃了。</p>
+<h2 id="ac-code">AC Code</h2>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+const int N=4e5+6;
+int n,m,ans,cnt,flag;
+bool vis[N];
+vector&lt;int&gt; v[N];
+void dfs(int x,int fa){
+	cnt++;
+	for(int i:v[x]){
+		if(i!=fa&amp;&amp;vis[i]){
+			flag=0;
+		}
+		if(!vis[i]){
+			vis[i]=1;
+			dfs(i,x);
+		}
+	}
+}
+signed main(){
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cin&gt;&gt;m;
+	for(int i=1,x,y;i&lt;=m;i++){
+		cin&gt;&gt;x&gt;&gt;y;
+		v[x].push_back(y);
+		v[y].push_back(x);
+		n=max({n,x,y});
+	}
+	for(int i=1;i&lt;=n;i++){
+		if(!vis[i]){
+			vis[i]=1;
+			flag=1,cnt=0;
+			dfs(i,0);
+			ans+=cnt-flag;
+		}
+	}
+	cout&lt;&lt;ans&lt;&lt;'\n';
+	return 0;
+}
+</code></pre>
+
+                        </div>
+                        
+                        <img src="https://s2.loli.net/2024/06/03/d45YBfQpb6HvTPZ.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/cf1067b-multihedgehog-de-ti-jie/" class="post-title gt-a-link">
+                            [CF1067B] Multihedgehog 的题解
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

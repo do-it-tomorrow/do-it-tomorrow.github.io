@@ -1,0 +1,654 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>神奇的 checker | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            神奇的 checker
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-05-05 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h1 id="使用方法">使用方法</h1>
+<ol>
+<li>在源代码开头根据注释填写信息。</li>
+</ol>
+<ul>
+<li><code>*data_maker_C_str</code> 数据生成器名</li>
+<li><code>test_C_str</code> 两个对拍的程序</li>
+<li><code>time_limit</code> 时间限制</li>
+<li><code>test_times</code> 测试次数</li>
+</ul>
+<ol start="2">
+<li>将所有需要的程序移到同一目录下，请不要重定向标准流到文件（请注释 <code>freopen</code>）。</li>
+<li>编译运行对拍程序（请使用 C++11 及以上标准）。</li>
+</ol>
+<pre><code class="language-c++">//下面是需填写的程序名（不要带扩展名）
+//请以字符串形式填写
+constexpr const char
+*data_maker_C_str(&quot;make&quot;),//数据生成器
+*test_C_str[]{&quot;yes&quot;,&quot;no&quot;};//需对拍的程序
+constexpr int
+time_limit(1000),//时间限制，单位ms
+test_times(5000);//测试程序的次数
+
+constexpr const char
+*order(&quot;-std=c++14 -Wall -Wl,-stack=134217728&quot;);//编译命令，可视情况吸氧
+//--------------------------------------------------
+
+#if __cplusplus&lt;201103
+#error This code must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#endif
+
+#include &lt;cstdio&gt;//输入输出
+#include &lt;fstream&gt;//文件读写
+#include &lt;future&gt;//多进程
+#include &lt;initializer_list&gt;//初始化列表
+#include &lt;vector&gt;//向量（动态数组）
+#include &lt;windows.h&gt;//system函数 &amp; Win32 API
+
+using std::async;
+
+template&lt;typename T&gt;
+constexpr inline T Min(const T&amp;a,const T&amp;b){//min
+    return a&lt;b?a:b;
+}
+
+constexpr int
+n((sizeof test_C_str)/(sizeof*test_C_str)),//需对拍的程序数量
+compile_thread_limit(Min(n+1,3)),//编译线程限制
+run_thread_limit(Min(n,3));//运行线程限制
+
+constexpr WORD
+Default(MAKEWORD(7,0)),//默认颜色
+AC_col(MAKEWORD(10,0)),//AC颜色
+WA_col(MAKEWORD(12,0)),//WA颜色
+RE_col(MAKEWORD(13,0)),//RE颜色
+TLE_col(MAKEWORD(14,0)),//TLE颜色
+UKE_col(MAKEWORD(9,0)),//UKE颜色
+Light(MAKEWORD(15,0));//高亮颜色
+
+enum Exit_mode{clean_data=1,clean_thread=2,need_enter=4,waiting_animation=12,show_window=16};
+
+class String{//当初脑子瓦特，觉得std::string不能向下转化为char数组，所以自己写了一个
+    static constexpr int max_size=300;
+    char s[max_size];
+    int len;
+public:
+    String(const char*s_=&quot;&quot;){//构造
+        len=0;
+        while(s_[len]){
+            s[len]=s_[len];
+            len++;
+        }
+        s[len]=0;
+    }
+    String(const String&amp;s_){//复制构造
+        len=0;
+        while(len!=s_.len){
+            s[len]=s_.s[len];
+            len++;
+        }
+        s[len]=0;
+    }
+
+    operator const char*()const{//转化为char数组
+        return s;
+    }
+
+    const String&amp;operator=(const String&amp;s_){//赋值
+        len=0;
+        while(len!=s_.len){
+            s[len]=s_.s[len];
+            len++;
+        }
+        s[len]=0;
+        return*this;
+    }
+    const String&amp;operator=(const char*s_){
+        len=0;
+        while(s_[len]){
+            s[len]=s_[len];
+            len++;
+        }
+        s[len]=0;
+        return*this;
+    }
+
+    String operator+(const String&amp;b)const{//连接字符串
+        String ans(*this);
+        for(int i=0;i&lt;b.len;i++)
+            ans.s[ans.len++]=b.s[i];
+        ans.s[ans.len]=0;
+        return ans;
+    }
+    friend String operator+(const char*a,const String&amp;b){
+        return String(a)+b;
+    }
+};
+
+namespace Ostream{//输出命名空间
+    std::mutex out;
+    WORD Now(Default);//当前窗口颜色
+    HANDLE hconsole(GetStdHandle(STD_OUTPUT_HANDLE));//获得标准输出设备的句柄
+
+    inline void write(const WORD&amp;col){
+        if(Now!=col)
+            SetConsoleTextAttribute(hconsole,Now=col);
+    }
+
+    template&lt;typename T&gt;
+    void unsigned_write(T&amp;&amp;x){
+        if(x&gt;9)
+            unsigned_write(x/10);
+        putchar(x%10^48);
+    }
+
+    template&lt;typename T&gt;
+    inline void write(T x){
+        if(x&lt;0){
+            putchar(45);
+            x=-x;
+        }
+        if(x&gt;9)
+            unsigned_write(x/10);
+        putchar(x%10^48);
+    }
+
+    inline void write(const char&amp;x){
+        putchar(x);
+    }
+
+    inline void write(const char*x){
+        while(*x)
+            putchar(*x++);
+    }
+
+    inline void write(const String&amp;x){
+        write((const char*)x);
+    }
+}
+template&lt;typename... Ar&gt;
+inline void write(const Ar&amp;...x){
+    using namespace Ostream;
+    out.lock();//为防止多线程输出混乱，给输出加上互斥锁，保证一次只有一个线程在输出
+    std::initializer_list&lt;int&gt;{(write(x),0)...};//但g++的编译信息还是可能与线程信息同时输出
+    out.unlock();
+}//快写
+
+const String data_maker(data_maker_C_str),make_data(data_maker+&quot;.exe &gt; .data_next.in&quot;);
+String test[n],run[n],check[n-1];
+int cnt,i,list_RE[n],list_TLE[n],list_UKE[n];
+bool err,extra_work,cont(true);
+std::atomic&lt;int&gt;compile_thread(compile_thread_limit),cnt_RE,cnt_TLE,cnt_UKE,now(n),finished,flag_Shutdown;
+std::condition_variable cv,Call[n];
+std::future&lt;int&gt;result[n],data_result;
+std::future&lt;void&gt;Future_Judge[run_thread_limit],Future_Run[n],Future_Data,Judge_result;
+std::promise&lt;int&gt;data_wait,Ret[n];
+std::promise&lt;void&gt;main_wait;
+std::mutex lock,Temp[n];
+decltype(std::chrono::steady_clock::now())st[n],ed[n];
+
+inline int Compile(const String&amp;x){//编译程序
+    if(system(&quot;g++ &quot;+x+&quot;.cpp -o &quot;+x+&quot;.exe &quot;+order)){
+        write(WA_col,&quot;Failed to compile &quot;,x,&quot;.cpp\n\n&quot;);
+        compile_thread++;
+        return -1;
+    }
+    write(Default,&quot;Compile &quot;,x,&quot;.cpp successfully\n&quot;);
+    compile_thread++;
+    return 0;
+}
+
+inline void Run(int i){
+    std::unique_lock&lt;std::mutex&gt;l(Temp[i]);
+    while(Call[i].wait(l),cont){
+        st[i]=std::chrono::steady_clock::now();
+        int&amp;&amp;tmp(system(run[i]));
+        ed[i]=std::chrono::steady_clock::now();
+        Ret[i].set_value(std::move(tmp));
+    }
+}
+
+inline void Judge__(const int&amp;&amp;i){
+    if(i&gt;=n)return;
+    result[i]=(Ret[i]=std::promise&lt;int&gt;()).get_future();
+    Temp[i].lock();
+    Temp[i].unlock();
+    Call[i].notify_one();//运行程序
+    switch(result[i].wait_for(std::chrono::milliseconds(time_limit))){//等待直到程序结束或超时
+    case std::future_status::ready://程序结束
+        if(result[i].get()){//进程返回值不是0
+            write(test[i],&quot;: Runtime Error\n&quot;);
+            list_RE[cnt_RE++]=i;
+        }
+        else
+            write(test[i],&quot;: spent &quot;,std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(ed[i]-st[i]).count(),&quot; ms.\n&quot;);
+        break;
+    case std::future_status::timeout://超时
+        write(test[i],&quot;: Time Limit Exceeded\n&quot;);
+        system(&quot;taskkill&gt;nul 2&gt;nul /f /im &quot;+test[i]+&quot;.exe\n&quot;);
+        list_TLE[cnt_TLE++]=i;
+        break;
+    default://其它情况（如进程未启动）
+        write(test[i],&quot;: Unknown Error\n&quot;);
+        system(&quot;taskkill&gt;nul 2&gt;nul /f /im &quot;+test[i]+&quot;.exe\n&quot;);
+        list_UKE[cnt_UKE++]=i;
+    }
+    if(now&lt;n)Judge__(now++);
+}
+
+inline void Make_data(){
+    std::unique_lock&lt;std::mutex&gt; l(lock);
+    main_wait.set_value();
+    while(cv.wait(l),cnt!=test_times){
+        l.unlock();
+        data_wait.set_value(system(make_data));
+        if(now&lt;n){
+            extra_work=true;
+            Judge__(now++);//数据已生成，参与运行
+            extra_work=false;
+        }
+        l.lock();
+    }
+}
+
+inline void Judge(){
+    std::unique_lock&lt;std::mutex&gt; l(lock);
+    while(cv.wait(l),cont){
+        l.unlock();
+        Judge__(now++);
+        if(++finished==run_thread_limit)main_wait.set_value();
+        l.lock();
+    }
+}
+
+inline void Classify_Output(){//将输出分类
+    std::vector&lt;int&gt;tp[n];
+    int cnt=0,j;
+    for(i=0;i&lt;n;i++){
+        for(j=0;j&lt;cnt&amp;&amp;system(&quot;fc&gt;nul 2&gt;nul &quot;+test[i]+&quot;.out &quot;+test[tp[j].front()]+&quot;.out&quot;);j++);
+        if(cnt==j)cnt++;
+        tp[j].emplace_back(i);
+    }
+    write(Light);
+    for(i=0;i&lt;cnt;i++){
+        if(i){
+            write(Default);
+            system(&quot;fc &quot;+test[tp[i-1][0]]+&quot;.out &quot;+test[tp[i][0]]+&quot;.out&quot;);
+        }
+        write(Light,&quot;Type of Output #&quot;,i+1,':');
+        for(int x:tp[i])
+            write(' ',test[x]);
+        write(&quot;\n\n&quot;);
+    }
+}
+
+inline void Taskkill(){
+    system(&quot;taskkill&gt;nul 2&gt;nul /f /im &quot;+data_maker+&quot;.exe&quot;);
+    for(i=0;i&lt;n;i++)
+        system(&quot;taskkill&gt;nul 2&gt;nul /f /im &quot;+test[i]+&quot;.exe&quot;);
+}
+
+[[noreturn]]inline void Exit(const int&amp;&amp;mode){//结束Checker
+    if(mode&amp;clean_data){
+        system(&quot;taskkill&gt;nul 2&gt;nul /f /im &quot;+data_maker+&quot;.exe&quot;);
+        system(&quot;del&gt;nul 2&gt;nul .data_next.in /f /q&quot;);
+    }
+    if(mode&amp;clean_thread){
+        cont=false;
+        cnt=test_times;
+        cv.notify_all();
+        for(i=0;i&lt;n;i++)
+            Call[i].notify_one();
+    }
+    if(flag_Shutdown)
+        exit(0);
+    if(mode&amp;show_window){
+        HWND hWnd=GetConsoleWindow();//获取当前控制台窗口句柄
+        ShowWindow(hWnd,SW_SHOWNORMAL);//显示窗口（退出最小化）
+        SetWindowPos(hWnd,HWND_TOP,0,0,450,300,0);//将窗口置于顶层的指定位置
+    }
+    if(mode&amp;need_enter){
+        write(Default,&quot;Please press Enter to continue&quot;);
+        result[0]=async(std::launch::async,getchar);
+        if((mode&amp;waiting_animation)==waiting_animation){
+            for(i=1;result-&gt;wait_for(std::chrono::seconds(1))!=std::future_status::ready;i=(i+1)&amp;3)//等待程序结束
+                if(i)
+                    write('.');
+                else{
+                    i=1;
+                    write(&quot;\b\b\b.  \b\b&quot;);
+                }
+        }
+        else{
+            write(&quot;...&quot;);
+            result-&gt;get();
+        }
+    }
+    exit(0);
+}
+
+inline void Add_bat(){//添加批处理
+    std::ofstream out;
+    out.open(&quot;.Compile_and_Run_Checker.bat&quot;);//编译和运行checker
+    out&lt;&lt;(const char*)(String(&quot;g++ \&quot;&quot;)+__FILE__+&quot;\&quot; -o \&quot;&quot;+__FILE__);
+    out.seekp(-3,std::ios::cur);
+    out&lt;&lt;(const char*)(String(&quot;exe\&quot; -Ofast -Wall -Werror\n@if %errorlevel%==0 (\n\&quot;&quot;)+__FILE__);
+    out.seekp(-3,std::ios::cur);
+    out&lt;&lt;&quot;exe\&quot;\n) else (\npause\n)&quot;;
+    out.close();
+    out.open(&quot;.Erase_Output_Files.bat&quot;);//删除输出文件
+    out&lt;&lt;&quot;del *.out /f /q&quot;;
+    out.close();
+    out.open(&quot;.Erase_Exe_Files.bat&quot;);//删除可执行文件
+    out&lt;&lt;&quot;del *.exe /f /q&quot;;
+    out.close();
+}
+
+int main(int argc,char**argv){
+    system(&quot;title Checker&quot;);
+    system(&quot;cls&quot;);
+    SetWindowPos(GetConsoleWindow(),HWND_TOP,0,0,450,300,SWP_NOMOVE);
+    if(system(&quot;g++&gt;nul 2&gt;nul -v&quot;)){
+        /*
+        未配置编译器，需将g++的文件路径添加到环境变量Path中
+        在（系统属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;Path 中）
+        新建一项，加入&quot;C:\TDM-GCC-64\bin&quot;
+        （这里因自己的编译器路径而改变，如果有Dev-C++可以写&quot;C:\Program Files (x86)\Dev-Cpp\MinGW64\bin&quot;）。
+        */
+        write(WA_col);
+        system(&quot;g++&quot;);
+        write(&quot;Complie Error\nDid you download Complier?\nPlease download GCC and check your Path.\n&quot;);
+        Exit(waiting_animation|show_window);
+    }
+    for(i=0;i&lt;n;i++)test[i]=test_C_str[i];
+    if(!SetConsoleCtrlHandler(PHANDLER_ROUTINE([](DWORD cevent){flag_Shutdown=1;Taskkill();return TRUE;}),true))
+        write(WA_col,&quot;Could not set control handler\n&quot;);
+    Future_Judge[0]=async(std::launch::async,Add_bat);
+    Taskkill();
+    system(&quot;del&gt;nul 2&gt;nul !data.in /f /q&quot;);
+    Future_Judge-&gt;wait();
+    write(Light,&quot;Compiling...\n&quot;);
+    for(i=0;i&lt;n;i++){
+        compile_thread--;
+        write(Light,&quot;Start to compile &quot;,test[i],&quot;.cpp\n&quot;);
+        result[i]=async(std::launch::async,Compile,test[i]);//启动一个新的编译线程
+        while(compile_thread&lt;1)//当前进程数量达到上限，等待
+            Sleep(1);
+    }
+    write(Light,&quot;Start to compile &quot;,data_maker,&quot;.cpp\n&quot;);
+    if((err=Compile(data_maker))){//编译数据生成器
+        write(Light,&quot;Retry to compile &quot;,data_maker,&quot;.cpp\n&quot;);
+        err=Compile(data_maker);
+    }
+    for(i=0;i&lt;n;i++)
+        if(result[i].get()&amp;&amp;!err){
+            write(Light,&quot;Retry to compile &quot;,test[i],&quot;.cpp\n&quot;);
+            err=Compile(test[i]);
+        }
+    if(err){
+        write(WA_col,&quot;Compilation failed\n&quot;);
+        Exit(need_enter|show_window);
+    }
+    write(AC_col,&quot;Compilation succeed\n&quot;);
+    Judge_result=main_wait.get_future();
+    Future_Data=async(std::launch::async,Make_data);//生成数据
+    data_result=data_wait.get_future();
+    Judge_result.get();
+    lock.lock();
+    lock.unlock();
+    cv.notify_one();
+    for(i=0;i&lt;run_thread_limit;i++)
+        Future_Judge[i]=async(std::launch::async,Judge);
+    for(i=0;i&lt;n;i++){
+        Future_Run[i]=async(std::launch::async,Run,i);
+        run[i]=test[i]+&quot;.exe &lt; !data.in &gt; &quot;+test[i]+&quot;.out&quot;;//运行用字符串
+    }
+    for(i=0;i&lt;n-1;i++)
+        check[i]=&quot;fc&gt;nul 2&gt;nul &quot;+test[i]+&quot;.out &quot;+test[i+1]+&quot;.out&quot;;//比较输出用字符串
+    while(cnt++!=test_times){
+        write(&quot;\x1B[2J\x1B[H&quot;,Light,&quot;Test#&quot;,cnt,&quot;:\nMaking data&quot;);
+        if(!extra_work){
+            for(i=1;data_result.wait_for(std::chrono::seconds(1))!=std::future_status::ready;i=(i+1)&amp;3)//等待数据生成
+                if(i)
+                    write('.');
+                else{
+                    i=1;
+                    write(&quot;\b\b\b.  \b\b&quot;);
+                }
+        }
+        if(data_result.get()){//数据生成器RE了
+            write(WA_col,&quot;\b\b\b\b\b\b\b\b\b\b\b\b\b\bMake data unsuccessfully\n&quot;);
+            Exit(clean_data|clean_thread|waiting_animation|show_window);
+        }
+        write(&quot;\b\b\b\b\b\b\b\b\b\b\b\b\b\bMake data successfully\n&quot;);
+        system(&quot;ren .data_next.in !data.in&quot;);
+        now=0;
+        finished=0;
+        Judge_result=(main_wait=decltype(main_wait)()).get_future();
+        data_result=(data_wait=decltype(data_wait)()).get_future();
+        cv.notify_all();
+        Judge_result.get();
+        while(extra_work)
+            Sleep(1);
+        if(cnt_RE||cnt_TLE||cnt_UKE){//输出信息
+            write(WA_col,&quot;\nUnaccepted on test#&quot;,cnt,'\n');
+            if(cnt_RE){
+                write(RE_col,&quot;Runtime Error: &quot;,Light);
+                for(i=0;i&lt;cnt_RE;i++)
+                    write(test[list_RE[i]],' ');
+                write('\n');
+            }
+            if(cnt_TLE){
+                write(TLE_col,&quot;Time Limit Exceeded: &quot;,Light);
+                for(i=0;i&lt;cnt_TLE;i++)
+                    write(test[list_TLE[i]],' ');
+                write('\n');
+            }
+            if(cnt_UKE){
+                write(UKE_col,&quot;Unknown Error: &quot;,Light);
+                for(i=0;i&lt;cnt_UKE;i++)
+                    write(test[list_UKE[i]],' ');
+                write('\n');
+            }
+            Exit(clean_data|clean_thread|waiting_animation|show_window);
+        }
+        for(i=0;i&lt;n-1&amp;&amp;!system(check[i]);i++);//检查输出
+        if(i&lt;n-1){//Wrong Answer
+            write(WA_col,&quot;\nUnaccepted on test#&quot;,cnt,&quot;\nWrong Answer!\n\n&quot;);
+            if(n&gt;2)Classify_Output();
+            else system(&quot;fc &quot;+*test+&quot;.out &quot;+test[1]+&quot;.out&quot;);
+            Exit(clean_data|clean_thread|waiting_animation|show_window);
+        }
+        write(AC_col,&quot;\nAccepted!&quot;);
+        system(&quot;del&gt;nul 2&gt;nul !data.in /f /q&quot;);
+    }
+    system(&quot;del&gt;nul 2&gt;nul !data.in .data_next.in &quot;+data_maker+&quot;.exe *.out /f /q&quot;);
+    for(i=0;i&lt;n;i++)
+        system(&quot;del&gt;nul 2&gt;nul &quot;+test[i]+&quot;.exe /f /q&quot;);
+    write(&quot;\x1B[2J\x1B[H&quot;);
+    write(Light,&quot;Tested &quot;,test_times,&quot; times\n&quot;,AC_col,&quot;All Accepted!\n&quot;);
+    Exit(clean_thread|waiting_animation|show_window);
+}
+</code></pre>
+
+                        </div>
+                        
+                        <img src="https://s2.loli.net/2024/06/13/yBuASeqf8mKbhka.webp" height="300">
+                    </article>
+                </div>
+
+                
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>P1262 间谍网络 题解 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            P1262 间谍网络 题解
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-01-02 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/graph_theory/" class="post-tags">
+                                    # 图论
+                                </a>
+                                
+                                <a href="https://明天动手.top/tag/xOeFdtwHb/" class="post-tags">
+                                    # 题解
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h4 id="题目描述">题目描述</h4>
+<p>给你一个<strong>有向图</strong>，可以付出代价获取一些指定的点。<br>
+在获取之后要求能以获取的点为<strong>出发点</strong>，将整个图都访问到，求<strong>最小的代价</strong>。</p>
+<h4 id="思路">思路</h4>
+<p>既然需要令总的代价<strong>最少</strong>，那么如果通过买一个点就可以访问到的所有点，自然会比买两个点的方案<strong>更优</strong>。<br>
+于是自然的就可以联想到可以将图划分成很多个<strong>强连通图</strong>，只要在这个图中有一个点访问到了，整个强连通图就被访问到了。</p>
+<p>既然要求强连通图，那么就自然的需要用到<strong>tarjan</strong>算法了。<br>
+再求出图内的所用强连通图之后对它们进行<strong>缩点</strong>，这样就只要能访问这个点就可以了。</p>
+<p>但是因为在缩点之后就不能简单的遍历这个强连通图，所以我们就需要将这个强连通图中代价<strong>最小</strong>的一个点记录下来。<br>
+这就需要使用一个<strong>辅助数组</strong> <code>min_cost</code> 来记录。<br>
+具体的实现也很简单，只需要在将栈内的元素弹出时进行比较就可以了。</p>
+<h1 id="ac-code">AC Code</h1>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,r,p,dfn[3200],low[3200],group[320![](https://明天动手.top/post-images/1704207640718.jpg)0],in[3200],cost[3200],cnt,num,min_cost[3200],ans;
+bool vis[3200];
+vector&lt;int&gt; v[3200];
+stack&lt;int&gt; s; 
+void tarjan(int x){ //tarjan的板子+缩点
+	dfn[x]=low[x]=++num; 
+	vis[x]=1;
+	s.push(x);
+	for(int i:v[x]){ //依次便利v[x]中的元素赋值给i
+		if(!dfn[i]){
+			tarjan(i);
+			low[x]=min(low[x],low[i]);
+		}else if(vis[i])
+			low[x]=min(low[x],dfn[i]);
+	}if(dfn[x]==low[x]){ //如果有环
+		group[x]=++cnt; 
+		min_cost[cnt]=cost[x]; 
+		vis[x]=0;
+		while(s.top()!=x){ //栈内有强连通图内的元素
+			group[s.top()]=cnt; 
+			min_cost[cnt]=min(min_cost[cnt],cost[s.top()]);
+			vis[s.top()]=0;
+			s.pop();
+		}s.pop(); 
+	}return ;
+}int find(int x){ //寻找这个强连通图内最小的点
+	for(int i=1;i&lt;=n;i++)
+		if(group[i]==x) 
+			return i; 
+	return n;
+}int main(){
+	memset(cost,0x3f,sizeof(cost));  //区分是否可以买
+	cin&gt;&gt;n&gt;&gt;p;
+	for(int i=1,a,b;i&lt;=p;i++){
+		cin&gt;&gt;a&gt;&gt;b;
+		cost[a]=b;
+	}cin&gt;&gt;r;
+	for(int i=1,a,b;i&lt;=r;i++){
+		cin&gt;&gt;a&gt;&gt;b;
+		v[a].push_back(b); //标记可以通过a直接访问到b
+	}for(int i=1;i&lt;=n;i++){
+		if(!dfn[i]&amp;&amp;cost[i]!=0x3f3f3f3f3f) //要判断是否可以买
+			tarjan(i);
+	}for(int i=1;i&lt;=n;i++){
+		for(int j:v[i]){ //依次便利v[i]中的元素赋值给i
+			if(group[j]!=group[i])
+				in[group[j]]++;
+		}
+	}for(int i=1;i&lt;=cnt;i++){
+		if(in[i]==0){ //因为入度为0，所以访问到这个具相当于将这一坨都购买了，比买有入度的点划算
+			ans+=min_cost[i];
+			if(min_cost[i]==0x3f3f3f3f){ //如果这个区间都不能买就不行
+				cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
+				cout&lt;&lt;find(i)&lt;&lt;endl;
+				return 0;
+			}
+		}
+	}cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+
+                        </div>
+                        
+                        <img src="http://img.hongyoubizhi.com/picture/pages/original/2023/10/25/13/119360040_p0.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/abc328d-take-abc-ti-jie/" class="post-title gt-a-link">
+                            [ABC328D] Take ABC 题解
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

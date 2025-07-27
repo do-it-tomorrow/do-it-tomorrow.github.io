@@ -1,0 +1,333 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>VS Code | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            VS Code
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-06-26 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h2 id="简介">简介</h2>
+<p>Visual Studio Code（以下简称 VS Code）是一个由微软开发，同时支持 Windows、Linux 和 macOS 等操作系统且开放源代码的代码编辑器。它是用 TypeScript 编写的，并且采用 Electron 架构。它带有对 JavaScript、TypeScript 和 Node.js 的内置支持，并为其他语言（如 C、C++、Java、Python、PHP、Go）提供了丰富的扩展生态系统。</p>
+<p>官网：<a href="https://code.visualstudio.com/">Visual Studio Code - Code Editing. Redefined</a></p>
+<h2 id="使用-code-runner-扩展运行代码">使用 Code Runner 扩展运行代码</h2>
+<p>VS Code 安装并配置扩展后可实现对 C/C++ 的支持，但配置过程比较复杂。一个简单的编译与运行 C++ 程序的方案是安装 Code Runner 扩展。</p>
+<p>Code Runner 是一个可以一键运行代码的扩展，在工程上一般用来验证代码片段，支持 Node.js、Python、C、C++、Java、PHP、Perl、Ruby、Go 等 40 多种语言。</p>
+<p>安装的方式是在扩展商店搜索 Code Runner 并点击 Install；或者前往 <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Marketplace</a> 并点击 Install，浏览器会自动打开 VS Code 并进行安装。</p>
+<figure data-type="image" tabindex="1"><img src="https://oi-wiki.org/tools/editor/images/vscode-1.jpg" alt="" loading="lazy"></figure>
+<p>安装完成后，打开需要运行的文件，点击右上角的小三角图标即可运行代码；按下快捷键<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>（在 macOS 下是<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>N</kbd>）也可以得到同样的效果。</p>
+<p>如果安装了 VS Code 与 Code Runner 后，代码仍然无法运行，很有可能是因为系统尚未安装 C/C++ 的运行环境，参考 <a href="../../lang/helloworld.md">Hello, World! 页面</a> 以安装。</p>
+<pre><code>记得勾选设置中的 Run In Terminal 选项，如图：![](./images/vscode-7.png)
+</code></pre>
+<h2 id="使用-cc-扩展编译并调试智能补全代码">使用 C/C++ 扩展编译并调试/智能补全代码</h2>
+<h3 id="安装扩展">安装扩展</h3>
+<p>在 VS Code 中打开扩展商店，在搜索栏中输入 <code>C++</code> 或者 <code>@category:&quot;programming languages&quot;</code>，然后找到 C/C++，点击 Install 安装扩展。</p>
+<figure data-type="image" tabindex="2"><img src="https://oi-wiki.org/tools/editor/images/vscode-2.png" alt="" loading="lazy"></figure>
+<p>在配置前，请确保系统已经安装了 G++ 或 Clang，并已添加到了 <code>PATH</code> 中。请使用 CMD 或者 PowerShell，而不是 Git Bash 作为集成终端。</p>
+<h3 id="配置-gdblldb-调试器">配置 GDB/LLDB 调试器</h3>
+<h4 id="gdb">GDB</h4>
+<p>在 VS Code 中新建一份 C++ 代码文件，按照 C++ 语法写入一些内容（如 <code>int main(){}</code>），保存并按下<kbd>F5</kbd>，进入调试模式。<br>
+如果出现了「选择调试器」的提示，选择 <code>C++ (GDB/LLDB)</code>。在「选择配置」中，G++ 用户选择 <code>g++.exe - 生成和调试活动文件</code>；Clang 用户选择 <code>clang++ - 生成和调试活动文件</code>。</p>
+<p>配置名称并非固定，而是可以自定义的。不同的操作系统可能具有不同的配置名称。</p>
+<p>完成后，VS Code 将自动完成初始化操作在下方的集成终端中启动调试。至此，GDB 所有的配置流程已经完毕。</p>
+<h4 id="lldb">LLDB</h4>
+<p>如果需要采用 LLDB，需要安装另外一款扩展<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>——<a href="https://kkgithub.com/vadimcn/vscode-lldb/">CodeLLDB</a>。从该项目的 Release 页面下载 .vsix 文件后<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，从 VS Code 的扩展页面安装。</p>
+<figure data-type="image" tabindex="3"><img src="https://oi-wiki.org/tools/editor/images/vscode-9.png" alt="" loading="lazy"></figure>
+<p>先按照上文 GDB 的配置过程操作一遍，然后删除 <code>.vscode/launch.json</code>，按下<kbd>F5</kbd>，选择 <code>LLDB</code>，再把 <code>launch.json</code> 中的 <code>${workspaceFolder}/&lt;executable file&gt;</code> 更改为 <code>${fileDirname}/${fileBasenameNoExtension}.exe</code> 即可。</p>
+<p>至此，LLDB 配置完成。再次按下<kbd>F5</kbd>即可看到软件下方的调试信息。</p>
+<p>若要在以后使用 VS Code 编译并调试代码，所有的源代码都需要保存至这个文件夹内。若要编译并调试其他文件夹中存放的代码，需要重新执行上述步骤（或将旧文件夹内的 <code>.vscode</code> 子文件夹复制到新文件夹内）。</p>
+<h3 id="开始调试代码">开始调试代码</h3>
+<p>使用 VS Code 打开一份代码，将鼠标悬停在行数左侧的空白区域，并单击出现的红点即可为该行代码设置断点。再次单击可取消设置断点。</p>
+<figure data-type="image" tabindex="4"><img src="https://oi-wiki.org/tools/editor/images/vscode-5.apng" alt="" loading="lazy"></figure>
+<p>按下<kbd>F5</kbd>进入调试模式，编辑器上方会出现一个调试工具栏，四个蓝色按钮从左至右分别代表 GDB 中的 <code>continue</code>,<code>next</code>,<code>step</code> 和 <code>until</code>：</p>
+<figure data-type="image" tabindex="5"><img src="https://oi-wiki.org/tools/editor/images/vscode-6.png" alt="" loading="lazy"></figure>
+<p>如果编辑器未自动跳转，点击左侧工具栏中的「调试」图标进入调试窗口，即可在左侧看到变量的值。</p>
+<p>在调试模式中，编辑器将以黄色底色显示下一步将要执行的代码。</p>
+<h3 id="配置-intellisense">配置 IntelliSense</h3>
+<p>用于调整 VS Code 的智能补全。</p>
+<p>如果你使用 Clang 编译器，在「IntelliSense 模式」中选择 <code>clang-x64</code> 而非默认的 <code>msvc-x64</code>；如果你使用 G++ 编译器，选择 <code>gcc-x64</code> 以使用自动补全等功能。否则会得到「IntelliSense 模式 msvc-x64 与编译器路径不兼容。」的错误。</p>
+<figure data-type="image" tabindex="6"><img src="https://oi-wiki.org/tools/editor/images/vscode-4.png" alt="" loading="lazy"></figure>
+<h2 id="配置-clangd">配置 clangd</h2>
+<p>由于功能冲突，安装 clangd 扩展后 C/C++ 扩展的 IntelliSense 功能将被禁用（调试等功能仍然使用 C/C++ 扩展）。如果 clangd 扩展的功能出现问题，可以查看是否禁用了 C/C++ 扩展的 IntelliSense 功能。</p>
+<h3 id="clangd-简介">clangd 简介</h3>
+<p>LLVM 官网上对 clangd 的介绍是这样的：</p>
+<blockquote>
+<p>Clangd is an implementation of the Language Server Protocol leveraging Clang. Clangd’s goal is to provide language &quot;smartness&quot; features like code completion, find references, etc. for clients such as C/C++ Editors.</p>
+</blockquote>
+<p>简单来说，clangd 是 Clang 对语言服务器协定（Language Server Protocol）的实现，提供了一些智能的特性，例如全项目索引、代码跳转、变量重命名、更快的代码补全、提示信息、格式化代码等，并且能利用 LSP 与 Vim、Emacs、VSCode 等编辑器协作。虽然官方给出的定义是 LSP 的实现，但 clangd 的功能更接近语言服务器（Language Server）而不仅仅只是协议本身。</p>
+<p>VS Code 的 C/C++ 扩展也有自动补全等功能，但在提示信息的易读程度的准确度等方面与 clangd 相比稍逊一筹，所以我们有时会使用 clangd 代替 C/C++ 扩展来实现代码自动补全等功能。</p>
+<h3 id="安装">安装</h3>
+<p>参见 <a href="https://clangd.llvm.org/installation">Getting started</a>。</p>
+<h3 id="vs-code-扩展">VS Code 扩展</h3>
+<p>打开 VS Code 扩展商店，在搜索栏中输入 <code>clangd</code> 找到 clangd 扩展并安装</p>
+<figure data-type="image" tabindex="7"><img src="https://oi-wiki.org/tools/editor/images/vscode-8.png" alt="" loading="lazy"></figure>
+<p>如果下方弹出 clangd 要求关闭 Intellisense 的对话框，点击 &quot;Disable Intellisense&quot;，重新加载工作区，就可以享受 clangd 的自动补全等功能了。</p>
+<h2 id="编辑">编辑</h2>
+<h3 id="语法设置">语法设置</h3>
+<p>在新打开的编辑器中点击「选择语言」，即可打开对应的语法高亮，如图：</p>
+<figure data-type="image" tabindex="8"><img src="https://oi-wiki.org/tools/editor/images/vscode-11.apng" alt="" loading="lazy"></figure>
+<h3 id="快捷键">快捷键</h3>
+<p>部分快捷键：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>C</kbd>/<kbd>X</kbd></td>
+<td>复制/剪切当前行（当没有选择内容时）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd></td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td><kbd>Alt</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd></td>
+<td>行上移/下移</td>
+</tr>
+<tr>
+<td><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd></td>
+<td>行向上/向下复制</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>/</kbd></td>
+<td>切换行注释</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>[</kbd>/<kbd>]</kbd></td>
+<td>行向左/右缩进</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>[</kbd>/<kbd>]</kbd></td>
+<td>行折叠/展开</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>打开最近打开的文件</td>
+</tr>
+<tr>
+<td><kbd>Alt</kbd>+<kbd>Z</kbd></td>
+<td>切换自动折行</td>
+</tr>
+<tr>
+<td><kbd>Alt</kbd>+<kbd>F12</kbd></td>
+<td>速览定义（如函数的定义）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd></td>
+<td>跳转到匹配括号</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+<td>在工作区中查找符号（在文件夹中查找指定名称函数等）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="多光标">多光标</h3>
+<p>按住<kbd>Alt</kbd>并单击即可在编辑器中添加光标，多数编辑操作都可同时进行；按住鼠标中键并在编辑器中移动也可添加多行光标，如图：</p>
+<figure data-type="image" tabindex="9"><img src="https://oi-wiki.org/tools/editor/images/vscode-12.gif" alt="" loading="lazy"></figure>
+<p>按<kbd>Ctrl</kbd>+<kbd>F2</kbd>可在编辑器中同时更改所有匹配项，如图：</p>
+<figure data-type="image" tabindex="10"><img src="https://oi-wiki.org/tools/editor/images/vscode-13.gif" alt="" loading="lazy"></figure>
+<p>注意此时在右上角会有一个工具栏，可在其中开启查找匹配项时是否开启大小写匹配、全字匹配等。</p>
+<h2 id="参考资料与注释">参考资料与注释</h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>VS Code 的 C/C++ 扩展如果选择 lldb 作调试器，则会默认采用 lldb-mi 程序，而它已经被 LLVM 开发团队从项目中分离出来，需要自己编译该程序。而它本身就有一些 bug，使用体验和方便程度都不如 CodeLLDB 扩展。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>从扩展商店安装 CodeLLDB 后它会再从 GitHub 下载本体，下载速度奇慢，有时下载出错，所以最好直接下载本体然后安装。更新也可直接按照以上步骤下载安装。 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+                        </div>
+                        
+                        <img src="http://img.hongyoubizhi.com/picture/pages/original/2023/10/25/12/119552003_p0.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/emacs/" class="post-title gt-a-link">
+                            Dev-C++
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

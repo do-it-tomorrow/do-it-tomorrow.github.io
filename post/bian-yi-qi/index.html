@@ -1,0 +1,291 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>编译器 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            编译器
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-06-26 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <p>本页面主要介绍了各系统下各类编译器/解释器的安装步骤。</p>
+<h2 id="gcc">GCC</h2>
+<h3 id="windows">Windows</h3>
+<h4 id="手动下载安装">手动下载安装</h4>
+<p>访问 <a href="https://www.mingw-w64.org/downloads">MinGW-w64</a> 的下载页面，有多个构建版本。方便起见，我们使用由 WinLibs 提供的构建版本。</p>
+<p>首先前往 <a href="https://winlibs.com">WinLibs</a> 下载最新的安装包，选择合适的版本，本文选择了 GCC 12.3.0 + LLVM/Clang/LLD/LLDB 16.0.4 + MinGW-w64 11.0.0 (UCRT)：</p>
+<p>默认会附带安装 LLVM Clang，如果不想安装，你也可以选择右边的 without LLVM/Clang/LLD/LLDB。</p>
+<figure data-type="image" tabindex="1"><img src="https://oi-wiki.org/tools/images/compiler1.png" alt="" loading="lazy"></figure>
+<p>下载好后将其解压到电脑中的某个位置，教程中将其解压到了 C 盘的根目录。目录名中最好不要包含非英文字符和空格，否则可能会在后期导致一些问题。</p>
+<figure data-type="image" tabindex="2"><img src="https://oi-wiki.org/tools/images/compiler2.png" alt="" loading="lazy"></figure>
+<p>接下来我们需要将编译器的可执行文件目录添加到系统环境变量中，这样在编译时就不需要指定编译器的路径了，方便使用。上方我们将 MinGW 解压到了 <code>C:\mingw64</code> 目录中，那么可执行文件所在的目录就是 <code>C:\mingw64\bin</code>。</p>
+<p>按下 Windows 徽标 + R 组合键，输入 <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code>，打开系统环境变量设置窗口，并在「系统变量」一节中选中名为「Path」的变量，然后点击「编辑」按钮：</p>
+<figure data-type="image" tabindex="3"><img src="https://oi-wiki.org/tools/images/compiler3.png" alt="" loading="lazy"></figure>
+<p>在编辑窗口中点击右侧的「新建」按钮，为「Path」变量新建一个条目，并填入上文中记录下的可执行文件所在的目录（教程中为 <code>C:\mingw64\bin</code>）。</p>
+<figure data-type="image" tabindex="4"><img src="https://oi-wiki.org/tools/images/compiler4.png" alt="" loading="lazy"></figure>
+<p>部分老版本系统只能手动修改变量的文本值，那么需要在变量的值的末尾插入一个 <strong>半角分号</strong>，再将可执行文件所在的目录粘贴到这个半角分号的后面，如图所示：</p>
+<figure data-type="image" tabindex="5"><img src="https://oi-wiki.org/tools/images/compiler5.png" alt="" loading="lazy"></figure>
+<p>完成后一路点击「确定」按钮退出即可。</p>
+<p>接下来打开终端，输入 <code>g++ --version</code> 并按下回车，如果出现如图所示的提示则代表安装成功。</p>
+<figure data-type="image" tabindex="6"><img src="https://oi-wiki.org/tools/images/compiler6.png" alt="" loading="lazy"></figure>
+<h4 id="scoop-安装">Scoop 安装</h4>
+<p>打开 PowerShell，运行以下脚本：</p>
+<pre><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+scoop install mingw-winlibs
+</code></pre>
+<h3 id="linux">Linux</h3>
+<h4 id="debianubuntu">Debian/Ubuntu</h4>
+<p>首先先更新软件包列表：</p>
+<pre><code class="language-bash">sudo apt update
+</code></pre>
+<p>再使用命令直接安装即可：</p>
+<pre><code class="language-bash">sudo apt install g++
+</code></pre>
+<h4 id="arch-linux">Arch Linux</h4>
+<p>使用命令直接安装即可：</p>
+<pre><code class="language-bash">sudo pacman -Syu gcc
+</code></pre>
+<h4 id="opensuse">openSUSE</h4>
+<p>使用命令直接安装即可：</p>
+<pre><code class="language-bash">sudo zypper in gcc-c++
+</code></pre>
+<h3 id="macos">macOS</h3>
+<p>首先更新包管理器：</p>
+<pre><code class="language-bash">brew upgrade
+brew update
+</code></pre>
+<p>再使用命令直接安装即可：</p>
+<pre><code class="language-bash">brew install gcc
+</code></pre>
+<h2 id="jdk">JDK</h2>
+<p>JDK 的发行版有很多，以下介绍两种：</p>
+<ul>
+<li>OpenJDK 中的 <a href="https://adoptium.net/zh-cn/">Eclipse Temurin</a><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：参见 <a href="https://adoptium.net/zh-CN/installation/">Install Eclipse Temurin™ | Adoptium</a>。</li>
+<li>Oracle JDK：可参见 <a href="https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html">JDK Installation Guide（JDK 17）</a>。</li>
+</ul>
+<h2 id="python-3">Python 3</h2>
+<p>Python 的实现也有很多<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，以 CPython 3 为例，参见 <a href="https://www.python.org/downloads/">Download Python | Python.org</a>。</p>
+<h2 id="llvm">LLVM</h2>
+<h4 id="直接安装">直接安装</h4>
+<p>访问 <a href="https://github.com/llvm/llvm-project/releases/latest">LLVM</a> 的下载页面，选择 LLVM-*-win64.exe 下载。</p>
+<p>如果你的网络质量不佳，你也可以选择访问 <a href="https://mirrors.tuna.tsinghua.edu.cn/github-release/llvm/llvm-project/LatestRelease/">清华大学开源软件镜像站</a> 进行下载。</p>
+<p>打开 .exe 文件，安装时勾选 Add LLVM to system PATH for current user，随后一直点击下一步即可安装完成。</p>
+<p>打开终端，输入 <code>clang++ --version</code> 并回车，出现</p>
+<pre><code class="language-text">clang version 15.0.1
+Target: x86_64-pc-windows-msvc
+Thread model: posix
+InstalledDir: &lt;omitted&gt;
+</code></pre>
+<p>类似物即代表成功。</p>
+<h4 id="scoop-安装-2">Scoop 安装</h4>
+<p>打开 PowerShell，运行以下脚本：</p>
+<pre><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+scoop install llvm
+</code></pre>
+<h3 id="linux-2">Linux</h3>
+<h4 id="opensuse-2">openSUSE</h4>
+<p>使用命令直接安装即可：</p>
+<pre><code class="language-bash">sudo zypper in llvm clang
+</code></pre>
+<h2 id="msvc-visual-studio">MSVC (Visual Studio)</h2>
+<p>访问 <a href="https://visualstudio.microsoft.com/zh-hans/downloads/">下载 Visual Studio</a> 页面，找到「下载」一节中的「社区」部分，点击「免费下载」。下载完成后打开安装器选择「Community 2022 安装」。在随后弹出来的窗口中仅选择「使用 C++ 的桌面开发」，然后单击安装。</p>
+<p>如果你不想安装完整的 Visual Studio，可以滚动到下方「所有下载」一节，在「用于 Visual Studio 的工具」中找到「Visual Studio 生成工具」，点击后方的「下载」。下载完成后打开安装器，按照提示步骤选择「使用 C++ 的桌面开发」后安装即可。也可以使用 <a href="https://github.com/Data-Oriented-House/PortableBuildTools">PortableBuildTools</a> 工具以仅安装 MSVC 编译器。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://adoptium.net/">Eclipse Temurin</a> 即为原 <a href="https://adoptopenjdk.net/">AdoptOpenJDK</a>，后者已于 2021 年 7 月移交至 <a href="https://www.eclipse.org/org/foundation/">Eclipse 基金会</a>。具体可见 <a href="https://blog.adoptopenjdk.net/2021/03/transition-to-eclipse-an-update/">本声明</a>。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://www.python.org/download/alternatives/">Alternative Python Implementations | Python.org</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+                        </div>
+                        
+                        <img src="http://img.hongyoubizhi.com/picture/pages/original/2023/10/25/14/118573585_p0.png" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/eclipse/" class="post-title gt-a-link">
+                            CP Editor
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

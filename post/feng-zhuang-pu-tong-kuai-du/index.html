@@ -1,0 +1,262 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>封装快读 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            封装快读
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2024-06-12 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h1 id="封装普通快读">封装普通快读</h1>
+<p>你还在因背不下来快读而烦恼吗？<br>
+你还在因突然发现代码需要快读，然而改起来很麻烦而烦恼吗？<br>
+快使用我们的封装快读，近乎完美兼容 <code>cin</code>！<br>
+目前支持：整形全家桶（<code>int</code>，<code>short</code>，<code>long</code>，<code>long long</code>，<code>__int128</code>），<code>double</code>（如要 <code>long double</code> 在代码里加入 <code>#define double long double</code>），<code>string</code>，<code>char</code>。</p>
+<p>食用方法：</p>
+<ol>
+<li>首先保证你代码输入用的 <code>cin</code>。</li>
+<li>如果代码出现形如 <code>while(cin&gt;&gt;x)</code> 的代码，复制代码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>，否则复制代码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>（有于代码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 里含有大量 <code>if</code>，会导致效率降低，但只有这样才可以支持 <code>while(cin&gt;&gt;x)</code> 所以立了两个版本）。</li>
+<li>粘贴代码。</li>
+</ol>
+<p>然后你就会神奇的发现，你的 <code>cin</code> 变成快读啦 (●'◡'●)。</p>
+<p>代码1：</p>
+<pre><code class="language-c++">#define cin fastCin
+struct fastCin_v1_0_1{
+#define gc() getchar()
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(char&amp;x){x=gc();return*this;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(char*x){char ch=gc();while(ch==' '||ch=='\n'||ch=='\t') ch=gc();while(ch!=' '&amp;&amp;ch!='\n'&amp;&amp;ch!='\t')*x=ch,x++,ch=gc();*x='\0';return*this;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(string&amp;x){char ch=gc();while(ch==' '||ch=='\n'||ch=='\t')ch=gc();while(ch!=' '&amp;&amp;ch!='\n'&amp;&amp;ch!='\t')x+=ch,ch=gc();return*this;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(double&amp;x){x=0;int sign=1;char ch=gc();while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')sign=-1;ch=gc();}while(ch&gt;='0'&amp;&amp;ch&lt;='9')x=x*10+ch-'0',ch=gc();if (ch =='.'){ch=gc();double cnt=0.1;while(ch&gt;='0'&amp;&amp;ch&lt;='9')x=x+(ch-'0')*cnt,cnt/=10,ch=gc();}x=x*sign;return*this;}
+template&lt;typename _Tp&gt;
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(_Tp&amp;x){x=0;int sign=1;char ch=gc();while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')sign=-1;ch = gc();}while(ch&gt;='0'&amp;&amp;ch&lt;='9')x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0',ch=gc();x=x*sign;return*this;}
+}fastCin;
+</code></pre>
+<p>代码2:</p>
+<pre><code class="language-c++">#define cin fastCin
+struct fastCin_v1_0_1{
+bool boo=1;
+inline char gc(){char ch=getchar();if(ch == EOF)boo=0;return ch;}
+operator bool(){return boo;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(char&amp;x){x=gc();return*this;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(char*x){char ch=gc();if(ch==EOF)return*this;while(ch==' '||ch=='\n'||ch=='\t'){ch=gc();if(ch==EOF)return*this;}while(ch!=' '&amp;&amp;ch!='\n'&amp;&amp;ch!='\t')*x=ch,x++,ch=gc();*x='\0';return*this;}
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(string &amp; x){char ch=gc();if(ch==EOF)return*this;while(ch==' '||ch=='\n'||ch=='\t') ch=gc();while(ch!=' '&amp;&amp;ch!='\n'&amp;&amp;ch!='\t'){x+=ch,ch=gc();if(ch==EOF)return*this;}return*this;}
+inline fastCin_v1_0_1 &amp; operator&gt;&gt;(double&amp;x){x=0;int sign=1;char ch=gc();if(ch==EOF)return*this;while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')sign=-1;ch=gc();if(ch==EOF)return*this;}while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=x*10+ch-'0';ch=gc();}if(ch=='.'){ch=gc();double cnt = 0.1;while(ch&gt;='0'&amp;&amp;ch&lt;='9')x=x+(ch-'0')*cnt,cnt/=10,ch=gc();}x*=sign;return*this;}
+template&lt;typename _Tp&gt;
+inline fastCin_v1_0_1&amp;operator&gt;&gt;(_Tp&amp;x){x=0;int sign=1;char ch=gc();if(ch==EOF)return*this;while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')sign=-1;ch=gc();if(ch==EOF)return*this;}while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0',ch=gc();if(ch==EOF)return*this;}x*=sign;return*this;}
+}fastCin;
+</code></pre>
+<h1 id="封装究极快读快写">封装究极快读快写</h1>
+<p>你还在因背不下来快读快写而烦恼吗？<br>
+你还在因突然发现代码需要快读快写，然而改起来很麻烦而烦恼吗？<br>
+你还在因为普通快读快写难以获得最优解而烦恼吗？<br>
+快使用我们的封装快读，用仿cin，cout的方式避免更改困难！！！<br>
+目前支持：整形（你能想到的都可以），浮点数（你能想到的都可以），string，c风格字符串……</p>
+<p>食用方法：</p>
+<ol>
+<li>有三对输入输出可以代替（<code>cin</code>，<code>cout</code>）：（<code>qins,qouts</code>)；（<code>qinn</code>，<code>qoutn</code>）；（<code>qinf</code>，<code>qoutf</code>)。任选一种代替，不能混用它们！！！</li>
+</ol>
+<ul>
+<li>（<code>qins</code>，<code>qouts</code>）是慢速快读，可以用于 OJ 提交 &amp; 本地调试 &amp; 文件输入输出。</li>
+<li>（<code>qinn</code>，<code>qoutn</code>）是普通快读，可以用于 OJ 提交 &amp; 文件输入输出（本地调试极度困难，可能需要在文件最后反复输入 <code>Ctrl+Z</code>)。</li>
+<li>（<code>qinf</code>，<code>qoutf</code>）是高速快读，可以用于 OJ 提交 &amp; 文件输入输出（本地调试极度困难，可能需要在文件最后反复输入 <code>Ctrl+Z</code>)。</li>
+</ul>
+<ol start="2">
+<li>粘贴代码，更改您的 <code>cin</code>，<code>cout</code>（其实就是解除同步流，再次强调：不能混用它们）。</li>
+</ol>
+<p>原理讲解：<br>
+快读的原理如出一辙，都是利用单个字符的输入。<br>
+慢速快读：使用 <code>&lt;cstdio&gt;</code> 库中的 <code>std::getchar()</code>，<code>std::putchar()</code>，各自处理，各自输出。<br>
+普通快读：使用 <code>&lt;cstdio&gt;</code> 库中的 <code>fread()</code>，<code>fwrite()</code>，先统一读入，各自处理，各自返回，再统一输出。<br>
+高速快读：使用 <code>&lt;iostream&gt;</code> 库中的 <code>std::streambuf()</code>，直接访问 <code>cin</code>，<code>cout</code> 缓存，快速读入读出。</p>
+<pre><code class="language-c++">namespace FastIOstream{bool blank(char ch){return ch==' '||ch=='\n'||ch=='\r'||ch=='\t';}class instream{protected:bool iseof=false;virtual char getchar(){return EOF;}public:operator bool(){return!iseof;}template&lt;class T&gt;void read(T&amp;x){double tmp=1;bool sign=0;x=0;char ch=getchar();if(ch==EOF||iseof){iseof=true;return;}for(;!isdigit(ch);ch=getchar())if(ch=='-')sign=1;for(;isdigit(ch);ch=getchar())x=x*10+(ch-'0');if(ch=='.')for(ch=getchar();isdigit(ch);ch=getchar())tmp/=10.0,x+=tmp*(ch-'0');if(sign)x=-x;}void read(char*s){char ch=getchar();if(ch==EOF||iseof){iseof=true;return;}for(;blank(ch);ch=getchar());for(;!blank(ch);ch=getchar())*s++=ch;*s=0;}void read(std::string s){char ch=getchar();if(ch==EOF||iseof){iseof=true;return;}for(;blank(ch);ch=getchar());for(;!blank(ch);ch=getchar())s.push_back(ch);}void read(char&amp;c){c=getchar();if(c==EOF||iseof){iseof=true;return;}for(c=getchar();blank(c);c=getchar());}template&lt;class T&gt;friend instream&amp;operator&gt;&gt;(instream&amp;ins,T&amp;in){ins.read(in);return ins;}};class fastinstream:public instream{protected:std::streambuf*cinbuf=std::cin.rdbuf();char inbuf[(1&lt;&lt;20)],*p1,*p2;char getchar(){if(p1==p2&amp;&amp;(p2=(p1=inbuf)+cinbuf-&gt;sgetn(inbuf,(1&lt;&lt;20)),p1==p2))return EOF;return*p1++;}public:void flush(){fflush(stdin);}fastinstream():p1(inbuf),p2(inbuf){}}qinf;class stdinstream:public instream{protected:char inbuf[(1&lt;&lt;20)],*p1,*p2;char getchar(){if(p1==p2)p2=(p1=inbuf)+fread(inbuf,1,(1&lt;&lt;20),stdin);return p1==p2?EOF:*p1++;}public:void flush(){fflush(stdin);}stdinstream():p1(inbuf),p2(inbuf){}}qinn;class errinstream:public instream{protected:char getchar(){return std::getchar();}}qins;struct ENDL{}endl;struct ENDS{}ends;struct FLUSH{}flush;class outstream{protected:virtual void putchar(const char&amp;c){}public:virtual void flush(){}template&lt;class T&gt;void write(T x){if(x&lt;0)x=-x,putchar('-');long long Z=x;long double R=x-Z;static int sta[35],top=0;do{sta[top++]=Z%10,Z/=10;}while(Z);while(top)putchar(sta[--top]+'0');if(R==0)return;putchar('.');R+=5e-11;for(int i=1;i&lt;=10;i++){R*=10;putchar(int(R)+'0');R-=int(R);}}void write(char*s){for(int i=0;s[i];i++)putchar(s[i]);}void write(const char*s){for(int i=0;s[i];i++)putchar(s[i]);}void write(std::string s){for(int i=0;i&lt;(int)s.size();i++)putchar(s[i]);}void write(char c){putchar(c);}void write(ENDL a){putchar('\n');flush();}void write(ENDS a){putchar(' ');flush();}void write(FLUSH a){flush();}template&lt;class T&gt;friend outstream&amp;operator&lt;&lt;(outstream&amp;outs,T out){outs.write(out);return outs;}};class fastoutstream:public outstream{protected:std::streambuf*coutbuf=std::cout.rdbuf();void putchar(const char&amp;c){coutbuf-&gt;sputc(c);}public:void flush(){fflush(stdin);}}qoutf;class stdoutstream:public outstream{protected:char outbuf[(1&lt;&lt;20)],*op;void putchar(const char&amp;c){if(op-outbuf==(1&lt;&lt;20))flush();*op++=c;}public:void flush(){fwrite(outbuf,1,op-outbuf,stdout);op=outbuf;}stdoutstream():op(outbuf){}~stdoutstream(){flush();}}qoutn;class erroutstream:public outstream{protected:void putchar(const char&amp;c){std::putchar(c);}public:void flush(){fflush(stdout);}~erroutstream(){fflush(stdout);}}qouts;};using namespace FastIOstream;
+</code></pre>
+<p>搬运自某个初一的大佬的<a href="https://txtpad.cn/hzmm">记事本</a>。</p>
+
+                        </div>
+                        
+                        <img src="https://s2.loli.net/2024/06/03/l42QDGjCP7mSr3M.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/best-ding-li/" class="post-title gt-a-link">
+                            BEST 定理
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,528 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Treap 学习笔记 | 一个 OIer 的个人修养</title>
+
+<link rel="shortcut icon" href="https://明天动手.top/favicon.ico?v=1753617641627">
+
+<link href="https://明天动手.top/media/pure/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://明天动手.top/styles/main.css">
+
+<script src="https://明天动手.top/media/pure/highlight.min.js"></script>
+<script src="https://明天动手.top/media/dockerfile.min.js"></script>
+<script src="https://明天动手.top/media/dart.min.js"></script>
+
+
+
+
+        <link rel="stylesheet" href="https://明天动手.top/media/pure/katex.min.css">
+        <script defer src="https://明天动手.top/media/pure/katex.min.js"></script>
+        <script src="https://明天动手.top/media/pure/cursor-effects.js"></script>
+        
+</head>
+
+<body>
+    <div class="main gt-bg-theme-color-first">
+        <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一个 OIer 的个人修养
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/friends" class="menu gt-a-link">
+                    友链
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/gong-ju-xiang" class="menu gt-a-link">
+                    工具箱
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1753617641627"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+            <div class="post-container">
+                <div class="post-detail gt-bg-theme-color-second">
+                    <article class="gt-post-content">
+                        <h2 class="post-title">
+                            Treap 学习笔记
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time gt-c-content-color-first">
+                                · 2023-12-31 ·
+                            </time>
+                            
+                                <a href="https://明天动手.top/tag/data_structure/" class="post-tags">
+                                    # 数据结构
+                                </a>
+                                
+                                <a href="https://明天动手.top/tag/XQCTepZve/" class="post-tags">
+                                    # 笔记
+                                </a>
+                                
+                        </div>
+                        <div class="post-content">
+                            <h1 id="二叉查找树"><strong>二叉查找树</strong></h1>
+<p><strong>二叉查找树是一棵有点权的二叉树，具有以下几个特征：</strong></p>
+<ul>
+<li>左孩子的权值小于父亲的权值</li>
+<li>右孩子的权值大于父亲的权值</li>
+<li>中序遍历及从小到大排序</li>
+</ul>
+<blockquote>
+<p>关于这个性质的证明也很简单（因为有<s>智障包</s>不理解，所以才写的）。</p>
+</blockquote>
+<blockquote>
+<p>因为中序遍历的顺序是左中右，所以第一个访问的一定是最左边的叶子节点，也一定是最小的。同理，第二个节点一定是他的父亲，也就是比他大的数字中最小的。</p>
+</blockquote>
+<p><strong>二叉查找树支持以下几个操作：</strong></p>
+<ul>
+<li>插入一个数</li>
+<li>删除一个数</li>
+<li>找一个数的前驱</li>
+<li>找一个数的后继</li>
+<li>询问一个数的排名</li>
+<li>询问排第几名的数</li>
+</ul>
+<p>二叉查找树一棵二叉查找树，所以在它是一棵完全二叉树时，树的度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mtext>n</mtext></mrow><annotation encoding="application/x-tex">\log \text{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">n</span></span></span></span></span>，所以单一操作的时间复杂度应该是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>O(log n)</mtext></mrow><annotation encoding="application/x-tex">\text{O(log n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">O(log n)</span></span></span></span></span> 级别的。但是在进行操作时，如果输入的点权单调递增或递减，那么整个数据结构就将由树退化成为链。所以单次操作的时间复杂度最坏为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>O(n)</mtext></mrow><annotation encoding="application/x-tex">\text{O(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">O(n)</span></span></span></span></span> 级别。</p>
+<p>需要理解退化的原因就要先知道二叉搜索树是怎么插入的。在插入时，如果插入的值大于这个节点，那么久访问访问右子树，否则访问左子树。如果在访问子树时访问到了不存在的节点，那么久直接在这里新建一个需要添加的节点。</p>
+<p>如果输入的节点依次递增，那么在插入的时候就会一直访问左子树，并且一直在左子树新建节点。二叉树就只有右儿子，所以度就成为了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>n</mtext></mrow><annotation encoding="application/x-tex">\text{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">n</span></span></span></span></span>。</p>
+<h1 id="普通平衡树"><strong>普通平衡树</strong></h1>
+<p>为了使这个数据结构平衡，平衡树就应运而生了。Treap 就是平衡树的一种，这个算法就是将树 (Tree) 与堆 (Heap) 相结合了起来。Treap 给每一个节点在维护原来的数值的同时，还添加了一个随机值。但看权值，这是一颗二叉搜索树，但是但看随机值这又是一个堆。</p>
+<h3 id="储存"><strong>储存</strong></h3>
+<p>首先我们应该了解一下如何储存一颗平衡树。</p>
+<p>因为平衡树的结构是会改变的，所以我们需要储存每一个节点的左孩子与右孩子。因为一个节点可能会多次添加，所以应该使用 <code>cnt</code> 记录以下这个节点出现的个数。为了后面的操作，我们应该还需要定义一个 <code>size</code> 变量记录这个节点及子树的大小。</p>
+<p>所以在我们定义的结构体应该是下面这样的：</p>
+<pre><code class="language-c++">struct node{
+	int l,r,k,val,cnt,size;
+}a[N];
+</code></pre>
+<h3 id="updata"><strong>updata</strong></h3>
+<p>在进行修改操作之后，节点的子树大小会发行变化。<code>updata</code> 函数的功能是更新节点的 <code>size</code> 值。</p>
+<pre><code class="language-c++">void updata(int u){
+	a[u].size=a[a[u].l].size+a[a[u].r].size+a[u].cnt;
+}
+</code></pre>
+<h3 id="make"><strong>make</strong></h3>
+<p>在进行操作时，为了节省空间复杂度，平衡树使用了动态开点。动态开点就是你需要使用一个新节点时就现马上申请一个空间，而不是全部预留好。</p>
+<pre><code class="language-c++">int make(int k){
+	a[++tot].k=k,a[tot].val=rand(); //tot 记录节点个数
+	a[tot].cnt=a[tot].size=1;
+	return tot;
+}
+</code></pre>
+<h3 id="zig-zag"><strong>zig &amp;&amp; zag</strong></h3>
+<p>既然需要再维护二叉查找树的同时维护平衡树，就需要在不改变平衡树的性质的情况下完成堆所需要的 swap 的操作。所以我们就迎来了平衡树最重要的操作 zig 与 zag。</p>
+<p>这是一棵平衡树，其中 1 2 3 为节点 A B C 为子树。<br>
+它们满足以下性质：1&gt;A&gt;2&gt;C&gt;3&gt;D<br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/mqm4tdt3.png" alt="" loading="lazy"></p>
+<p>那么如果需要交换 2 3 的位置，那么在不违背其性质的情况下将其改为：<br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/3azeg5hg.png" alt="" loading="lazy"></p>
+<p>这个过程就是 zig 操作，反之即是 zag 操作。代码实现就是将将操作进行模拟，方法如下：</p>
+<pre><code class="language-c++">void zig(int &amp;p){
+	int q=a[p].l;
+	a[p].l=a[q].r,a[q].r=p,p=q;
+	updata(a[p].r),updata(p);
+}
+void zag(int &amp;p){
+	int q=a[p].r;
+	a[p].r=a[q].l,a[q].l=p,p=q;
+	updata(a[p].l),updata(p);
+}
+</code></pre>
+<h3 id="build"><strong>build</strong></h3>
+<p>因为在平衡树中有旋转操作，所以根节点有可能会在旋转操作中改变位置。为了让根节点的位置保持不变，可以建立两个虚点，并令其优先级远远高于其他的点,永远停留在根节点的位置。</p>
+<pre><code class="language-c++">void build(){
+	make(-INF),make(INF);
+	root=1,a[1].r=2,updata(root);
+	if(a[1].val&lt;a[2].val) zag(root);
+}
+</code></pre>
+<h3 id="insert"><strong>insert</strong></h3>
+<p>在插入操作中，一共有三种操作。反复执行操作三，直至满足操作一或操作二。</p>
+<ul>
+<li>
+<p><strong>操作一</strong>：需要处理的节点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，意味着这个节点不存在，所以直接新建。</p>
+</li>
+<li>
+<p><strong>操作二</strong>：已经找到车要添加的节点，<code>cnt++</code>。</p>
+</li>
+<li>
+<p><strong>操作三</strong>：需要添加的节点小于或大于这个节点，那么分别访问左节点或右节点。</p>
+</li>
+</ul>
+<pre><code class="language-c++">void insert(int &amp;p,int k){
+	if(p==0) p=make(k);
+	else{
+		if(a[p].k==k) a[p].cnt++;
+		if(a[p].k&gt;k){
+			insert(a[p].l,k);
+			if(a[a[p].l].val&gt;a[p].val) zig(p);
+		}if(a[p].k&lt;k){
+			insert(a[p].r,k);
+			if(a[a[p].r].val&gt;a[p].val) zag(p);
+		}
+	}updata(p);
+}
+</code></pre>
+<p>这是以下是一棵平衡树，其中的节点的信息如下：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/11d80vvq.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.luogu.com.cn/upload/image_hosting/e6myj2te.png" alt="" loading="lazy"></figure>
+<p>那么如果需要插入一个名为 X 点权为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>50</mn></mrow><annotation encoding="application/x-tex">50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span></span></span></span> 随机值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>50</mn></mrow><annotation encoding="application/x-tex">50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span></span></span></span> 的节点，那么操作就将是这样的：</p>
+<ul>
+<li>
+<p>首先与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 比较，发现权值大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，移动到右子树 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点。</p>
+</li>
+<li>
+<p>与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点比较，发现点权小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点，那么到左子树 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点。</p>
+</li>
+<li>
+<p>与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点进行比较，发现点权大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点而且右子树为空，所以新建一个节点。</p>
+</li>
+<li>
+<p>开始回溯，发现 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点与节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span> 的随机值不满足小根堆的要求所以执行旋转操作。</p>
+</li>
+<li>
+<p>在旋转之后，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 号节点的左子树变为节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span> 的左子树为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 号节点的左子树为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 号节点。</p>
+</li>
+<li>
+<p>再次回溯，发现以上节点均满足小根堆要求，所以操作完成。</p>
+</li>
+</ul>
+<h3 id="del"><strong>del</strong></h3>
+<p>在删除操作中，同样分为三种操作：</p>
+<ul>
+<li>
+<p><strong>操作一</strong>：没有找到这个点就直接返回，不进行修改操作。</p>
+</li>
+<li>
+<p><strong>操作二</strong>：如果这个节点的值大于或者小于要删除的值，那么就继续访问左孩子或者右孩子。</p>
+</li>
+<li>
+<p><strong>操作三</strong>：找到了这个值，如果 <code>cnt</code> 大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，那么直接 <code>cnt--</code> 否则寻找比这个节点大的集合中的最小值。</p>
+</li>
+</ul>
+<pre><code class="language-c++">void del(int &amp;p,int k){
+	if(p==0) return ;
+	if(a[p].k==k){
+		if(a[p].cnt&gt;1){
+			a[p].cnt--;
+			updata(p);
+			return;
+		}if(a[p].l||a[p].r){
+			if(!a[p].r||a[a[p].l].val) zig(p),del(a[p].r,k);
+			else zag(p),del(a[p].l,k);
+		}else p=0;
+		updata(p);
+		return;
+	}if(a[p].k&gt;k) del(a[p].l,k);
+	else del(a[p].r,k);
+	updata(p);
+}
+</code></pre>
+<p>这是以下是一棵平衡树，其中的节点的信息如下：</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.luogu.com.cn/upload/image_hosting/11d80vvq.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://cdn.luogu.com.cn/upload/image_hosting/e6myj2te.png" alt="" loading="lazy"></figure>
+<p>那么如果需要将权值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>70</mn></mrow><annotation encoding="application/x-tex">70</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">0</span></span></span></span> 的节点删除，那么操作就是这样的：</p>
+<ul>
+<li>
+<p>首先与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号节点进行对比，发现权值小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号节点，进入左子树。</p>
+</li>
+<li>
+<p>与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点比较，发现权值等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点，寻找权值大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>70</mn></mrow><annotation encoding="application/x-tex">70</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">0</span></span></span></span> 且最小的点。</p>
+</li>
+<li>
+<p>首先向左走一步，来到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 号节点。</p>
+</li>
+<li>
+<p>进入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 号节点左子树 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 号节点。</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 号节点没有左子树，所以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 号节点就是要寻找的目标点。</p>
+</li>
+<li>
+<p>让 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 号节点取代 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 号节点的位置，操作结束。</p>
+</li>
+</ul>
+<h3 id="get_rank"><strong>get_rank</strong></h3>
+<p><code>get_rank</code> 函数可以获得某个点的排名。在寻找时如果节点在左子树，则这个节点在左子树的排名就是这个节点在这棵子树上的排名。反之，如果这个节点在右子树，那么他的排名就是左子树的大小+根节点的大小+自己在右子树的排名。</p>
+<pre><code class="language-c++">int get_rank(int p,int k){
+	if(p==0) return 0;
+	if(a[p].k==k) return a[a[p].l].size+1;
+	if(a[p].k&gt;k) return get_rank(a[p].l,k);
+	return a[a[p].l].size+a[p].cnt+get_rank(a[p].r,k);
+}
+</code></pre>
+<p>因为查询的数可能不在树中存在，所以但是 <code>get_rank</code> 的返回值又是默认其存在的，所以将答案设为了函数值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。为了避免发生这样的错误，需要在定义一个 <code>find</code> 函数检查是否存在这个节点。</p>
+<pre><code class="language-c++">bool find(int p,int x){
+	if(a[p].k==x) return 0;
+	if(a[p].val==0) return 1;
+	if(a[p].k&gt;x) return find(a[p].l,x);
+	return find(a[p].r,x);
+}
+</code></pre>
+<h3 id="get_key"><strong>get_key</strong></h3>
+<p><code>get_key</code> 函数可以获取某个排名的数。当访问到一个节点时，如果这个节点的左子树的大小大于它的排名，那么这个节点就应该在左子树。如果这个排名大于这个节点的大小 + 左子树的大小，那么这个节点就应该在右子树。其他的情况就应该就在这个节点。</p>
+<pre><code class="language-c++">int get_key(int p,int rank){
+	if(p==0) return INF;
+	if(a[a[p].l].size&gt;=rank) return get_key(a[p].l,rank);
+	if(a[a[p].l].size+a[p].cnt&gt;=rank) return a[p].k;
+	return get_key(a[p].r,rank-a[a[p].l].size-a[p].cnt);
+}
+</code></pre>
+<h3 id="get_pr"><strong>get_pr</strong></h3>
+<p><code>get_pr</code> 函数可以找到一个数的前驱，及比他大的数中最小的一个。因为平衡树满足左孩子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span></span></span> 根节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span></span></span> 右孩子，所以只需要先走到左孩子，再一直向右走就可以了。</p>
+<pre><code class="language-c++">int get_pr(int p,int k){
+	if(p==0) return-INF;
+	if(a[p].k&gt;=k) return get_pr(a[p].l,k);
+	return max(get_pr(a[p].r,k),a[p].k);
+}
+</code></pre>
+<h3 id="get_ne"><strong>get_ne</strong></h3>
+<p><code>get_ne</code> 函数可以找到一个数的后驱，及比他小的数中最大的一个。因为平衡树满足左孩子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span></span></span> 根节点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span></span></span> 右孩子，所以只需要先走到右孩子，再一直向左走就可以了。</p>
+<pre><code class="language-c++">int get_ne(int p,int k){
+	if(p==0) return INF;
+	if(a[p].k&lt;=k) return get_ne(a[p].r,k);
+	return min(get_ne(a[p].l,k),a[p].k);
+}
+</code></pre>
+<h1 id="p3369-普通平衡树"><a href="https://www.luogu.com.cn/problem/P3369">P3369 普通平衡树</a></h1>
+<p>这一题就是一道模板题，只需要将前面的操作整合在一起就可以了。</p>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=100010,INF=1e8;
+int n;
+struct Node{int l,r,k,val,cnt,size;}a[N];
+int root,tot;
+void updata(int u){a[u].size=a[a[u].l].size+a[a[u].r].size+a[u].cnt;}
+int make(int k){
+	a[++tot].k=k,a[tot].val=rand();
+	a[tot].cnt=a[tot].size=1;
+	return tot;
+}
+void zig(int &amp;p){
+	int q=a[p].l;
+	a[p].l=a[q].r,a[q].r=p,p=q;
+	updata(a[p].r),updata(p);
+}
+void zag(int &amp;p){
+	int q=a[p].r;
+	a[p].r=a[q].l,a[q].l=p,p=q;
+	updata(a[p].l),updata(p);
+}
+void build(){
+	make(-INF),make(INF);
+	root=1,a[1].r=2,updata(root);
+	if(a[1].val&lt;a[2].val) zag(root);
+}
+void insert(int &amp;p,int k){
+	if(p==0) p=make(k);
+	else{
+		if(a[p].k==k) a[p].cnt++;
+		if(a[p].k&gt;k){
+			insert(a[p].l,k);
+			if(a[a[p].l].val&gt;a[p].val) zig(p);
+		}if(a[p].k&lt;k){
+			insert(a[p].r,k);
+			if(a[a[p].r].val&gt;a[p].val) zag(p);
+		}
+	}updata(p);
+}
+void del(int &amp;p,int k){
+	if(p==0) return ;
+	if(a[p].k==k){
+		if(a[p].cnt&gt;1){
+			a[p].cnt--;
+			updata(p);
+			return;
+		}if(a[p].l||a[p].r){
+			if(!a[p].r||a[a[p].l].val) zig(p),del(a[p].r,k);
+			else zag(p),del(a[p].l,k);
+		}else p=0;
+		updata(p);
+		return;
+	}if(a[p].k&gt;k) del(a[p].l,k);
+	else del(a[p].r,k);
+	updata(p);
+}
+int get_rank(int p,int k){
+	if(p==0) return 0;
+	if(a[p].k==k) return a[a[p].l].size+1;
+	if(a[p].k&gt;k) return get_rank(a[p].l,k);
+	return a[a[p].l].size+a[p].cnt+get_rank(a[p].r,k);
+}
+int get_key(int p,int rank){
+	if(p==0) return INF;
+	if(a[a[p].l].size&gt;=rank) return get_key(a[p].l,rank);
+	if(a[a[p].l].size+a[p].cnt&gt;=rank) return a[p].k;
+	return get_key(a[p].r,rank-a[a[p].l].size-a[p].cnt);
+}
+int get_pr(int p,int k){
+	if(p==0) return-INF;
+	if(a[p].k&gt;=k) return get_pr(a[p].l,k);
+	return max(get_pr(a[p].r,k),a[p].k);
+}
+int get_ne(int p,int k){
+	if(p==0) return INF;
+	if(a[p].k&lt;=k) return get_ne(a[p].r,k);
+	return min(get_ne(a[p].l,k),a[p].k);
+}
+bool find(int p,int x){
+	if(a[p].k==x) return 0;
+	if(a[p].val==0) return 1;
+	if(a[p].k&gt;x) return find(a[p].l,x);
+	return find(a[p].r,x);
+}
+int main(){
+	build();
+	cin&gt;&gt;n;
+	for(int i=1,op,x;i&lt;=n;i++){
+		cin&gt;&gt;op&gt;&gt;x;
+		if(op==1) insert(root,x);
+		if(op==2) del(root,x);
+		if(op==3) cout&lt;&lt;get_rank(root,x)+find(root,x)-1;
+		if(op==4) cout&lt;&lt;get_key(root,x+1);
+		if(op==5) cout&lt;&lt;get_pr(root,x);
+		if(op==6) cout&lt;&lt;get_ne(root,x);
+		if(op!=1&amp;&amp;op!=2)cout&lt;&lt;endl;
+	}return 0;
+}
+</code></pre>
+
+                        </div>
+                        
+                        <img src="http://img.hongyoubizhi.com/picture/pages/original/2023/10/25/15/117007355_p0.jpg" height="300">
+                    </article>
+                </div>
+
+                
+                    <div class="next-post">
+                        <div class="next gt-c-content-color-first">下一篇</div>
+                        <a href="https://明天动手.top/post/stl-chang-yong-han-shu/" class="post-title gt-a-link">
+                            STL常用函数
+                        </a>
+                    </div>
+                    
+
+                        
+
+                                
+
+                                                                
+                                                                    <script src='https://明天动手.top/media/pure/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width: 100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'VwREBewhoRVBs0cw8hL9zbGr-gzGzoHsz',
+		appKey: 'xhO1EyZv0GYpZWiLMOdky03s',
+		avatar: 'retro',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'What can I say ?',
+		visitor: false,
+	});
+</script>
+
+                                                                        
+
+                                                                            <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">给岁月以文明，而不是给文明以岁月。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Explosion！！！
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://明天动手.top/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+            </div>
+    </div>
+</body>
+
+</html>
